@@ -192,3 +192,60 @@ Received Import Request.
 Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95df672b4aaba54310d34c83eef51bb8') in 0.009794 seconds 
   Import took 0.014175 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 1271.330834 seconds.
+  path: Assets/Prefabs/NPC.prefab
+  artifactKey: Guid(a73e6247a549c2f4591fb4fb9ac03af3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/NPC.prefab using Guid(a73e6247a549c2f4591fb4fb9ac03af3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2be2a86be409283ae03ef1d72acdc4b') in 0.111879 seconds 
+  Import took 0.117171 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.489707 seconds.
+  path: Assets/Prefabs/Enemy.prefab
+  artifactKey: Guid(e0bc27ce22600d74b88598ada8ac5941) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemy.prefab using Guid(e0bc27ce22600d74b88598ada8ac5941) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ec714ca6ddfa8a7816df921aa845e02') in 0.019113 seconds 
+  Import took 0.023595 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.090011 seconds.
+  path: Assets/Prefabs/Bullet.prefab
+  artifactKey: Guid(5f0fda372fca4394b89db90520b5c81a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Bullet.prefab using Guid(5f0fda372fca4394b89db90520b5c81a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f36148b8dda1a7a2d00d0e5ff533b04d') in 0.018295 seconds 
+  Import took 0.023593 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1721.060693 seconds.
+  path: Assets/Tiles/Background.prefab
+  artifactKey: Guid(0a8f45201d1787b418bc953bfac5b566) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Background.prefab using Guid(0a8f45201d1787b418bc953bfac5b566) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c32264955c0ae943d6e1eeb25a13e766') in 0.018187 seconds 
+  Import took 0.022974 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 115.714576 seconds.
+  path: Assets/Ink/Editor/InkEditor.asmdef
+  artifactKey: Guid(2047ab7874eb449d78c2b459017aa506) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Ink/Editor/InkEditor.asmdef using Guid(2047ab7874eb449d78c2b459017aa506) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e086c11fcce86f5cf6202a03b9b80a8d') in 0.009071 seconds 
+  Import took 0.013531 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 650.806285 seconds.
+  path: Assets/Ink/Dialogue/Player Dialogue.json
+  artifactKey: Guid(73d8dcdbd506a8847b0d8d8e113be764) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Ink/Dialogue/Player Dialogue.json using Guid(73d8dcdbd506a8847b0d8d8e113be764) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1017526a8d37447ae3de4c8f7fc88fa8') in 0.035869 seconds 
+  Import took 0.041872 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 38.418892 seconds.
+  path: Assets/Ink/Dialogue/Player Dialogue.json
+  artifactKey: Guid(73d8dcdbd506a8847b0d8d8e113be764) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Ink/Dialogue/Player Dialogue.json using Guid(73d8dcdbd506a8847b0d8d8e113be764) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b8b116c4073a8356b0a031b8d524314') in 0.003577 seconds 
+  Import took 0.008934 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
