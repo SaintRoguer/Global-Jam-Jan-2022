@@ -57,15 +57,70 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "05ba8ee0-8023-481d-95f2-09cbcecb44bb",
-                    "path": "A-D",
+                    "name": "AD",
+                    "id": "f2c0d671-2f67-47e1-bfb5-45705cb213e7",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "55906078-d17b-4899-a35a-9eab2796901c",
+                    "path": "A",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "move",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "7cddfd64-d3f4-4fd4-97ab-a22f2639d2e8",
+                    "path": "D",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "LeftRight",
+                    "id": "bc42f4d0-b53e-47c7-bef7-0cd01ec09a2d",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "ec0be2b1-4294-4416-abd9-64e82e2c221a",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "6829fece-2fe5-4bcf-b926-5f7f9754302f",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
