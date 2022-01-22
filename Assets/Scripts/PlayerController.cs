@@ -10,14 +10,12 @@ public class PlayerController : MonoBehaviour
     private Controls playerControls;
     public GameObject bulletPrefab;
     //Define de vidas
-    private int cantVidas = 3;
 
     private float speed = 400f;
     public float jumpForce;
 
     private bool isOnGround = true;
     private float move = 0;
-    private LifeCount lives;
     
     private void Awake() {
         playerControls = new Controls();
@@ -32,9 +30,7 @@ public class PlayerController : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start() {
-
-        lives = new LifeCount();
-        lives.livesRemaining = cantVidas;
+       
         //suscripciones a los eventos
         playerControls.game.move.performed += Move;
         playerControls.game.jump.performed += Jump;

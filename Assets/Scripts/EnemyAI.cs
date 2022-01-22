@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class EnemyAI : MonoBehaviour
+
 {
     // Reference to waypoints.
     public List<Transform> points;
@@ -13,6 +14,8 @@ public class EnemyAI : MonoBehaviour
     int idChangeValue = 1;
     //Speed of movement or flying.
     public float speed = 2f;
+    //Life of the enemy
+    public int lifePoints = 10;
 
     private void Reset()
     {
@@ -32,7 +35,7 @@ public class EnemyAI : MonoBehaviour
         //Set enemy object as child of root.
         transform.SetParent(root.transform);
         //Create waypoints object.
-        GameObject waypoints = new GameObject("Waipoints");
+        GameObject waypoints = new GameObject("Waypoints");
         //Reset waypoints position to root.
         //Make waypoint object child of root.
         waypoints.transform.SetParent(root.transform);
@@ -84,6 +87,18 @@ public class EnemyAI : MonoBehaviour
             //Apply the change to the nextID.
             nextID += idChangeValue;
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        lifePoints -= damage;
+        if (lifePoints <= 0)
+            Die();
+    }
+
+    void Die()
+    {
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
