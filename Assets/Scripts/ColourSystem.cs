@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 public enum MainColours { RED, BLUE, YELLOW }
-public enum CombinationState { RED, BLUE, YELLOW, VIOLET, GREEN, ORANGE}
+public enum CombinationState { RED, BLUE, YELLOW, VIOLET, ORANGE, GREEN }
 
 public class ColourSystem : MonoBehaviour
 {
