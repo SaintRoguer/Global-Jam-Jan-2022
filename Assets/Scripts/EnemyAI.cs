@@ -85,4 +85,12 @@ public class EnemyAI : MonoBehaviour
             nextID += idChangeValue;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            FindObjectOfType<LifeCount>().loseLife();
+        }
+    }
 }
