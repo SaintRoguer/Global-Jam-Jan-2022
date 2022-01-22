@@ -20,7 +20,7 @@ public class BulletController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag.Equals("Player")) {
+        if (collision.tag.Equals("Enemy")) {
             Destroy(collision.gameObject.gameObject);
             Debug.Log("Enemy destroy");
             //Cambiar por la vida del enemigo
