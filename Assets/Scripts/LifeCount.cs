@@ -10,6 +10,9 @@ public class LifeCount : MonoBehaviour
 
     public void loseLife()
     {
+        //If no lives remaining, do nothing.
+        if (livesRemaining == 0)
+            return;
         //Decrease the values of livesRemaining.
         livesRemaining--;
         //Change one of the lives images.(later)
@@ -20,7 +23,7 @@ public class LifeCount : MonoBehaviour
         //If we run out of lives we lose game or other thing
         if(livesRemaining == 0)
         {
-            Debug.Log("YOU LOST");
+            FindObjectOfType<LevelManager>().Restart();
         }
     }
 
