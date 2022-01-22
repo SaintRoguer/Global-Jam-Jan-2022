@@ -6,14 +6,14 @@ using UnityEngine.InputSystem.Utilities;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Controls playerControls;
 
-    private float speed = 1f;
+    private float speed = 400f;
     public float jumpForce;
     public float gravityModifier;
     private bool isOnGround = true;
-    private Vector2 move;
+    private float move = 0;
     
     private void Awake() {
         playerControls = new Controls();
@@ -28,9 +28,8 @@ public class PlayerController : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start() {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+
         Physics.gravity *= gravityModifier;
-        rb.velocity = move;
 
         //suscripciones a los eventos
         playerControls.game.move.performed += Move;
@@ -43,14 +42,22 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
+    private void Update() {
+        
+    }
 
+    private void FixedUpdate() {
+        rb.velocity = new Vector2(move * speed * Time.fixedDeltaTime, rb.velocity.y);
+    }
     public void Move(InputAction.CallbackContext context) {
-        move = playerControls.game.move.ReadValue<Vector2>();
+        move = playerControls.game.move.ReadValue<float>();
         Debug.Log("Move");
     }
     public void Jump(InputAction.CallbackContext context) {
-        rb.AddForce(Vector2.up * jumpForce);
-        isOnGround = false;
+        if (context.performed && isOnGround) { 
+            rb.AddForce(Vector2.up * jumpForce);
+            isOnGround = false; 
+        }
         Debug.Log("Jump");
     }
     public void Interact(InputAction.CallbackContext context) {
@@ -68,8 +75,8 @@ public class PlayerController : MonoBehaviour
     public void SwitchPlayerColor(InputAction.CallbackContext context) {
 
     }
-
-    private void OnCollisionEnter(Collision collision) {
+    private void OnCollisionEnter2D(Collision2D collision) {
         isOnGround = true;
+        Debug.Log("Colision");
     }
 }
