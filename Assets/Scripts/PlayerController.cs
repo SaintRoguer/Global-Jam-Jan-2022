@@ -70,8 +70,10 @@ public class PlayerController : MonoBehaviour
     public void Dash(InputAction.CallbackContext context) {
 
     }
+    //This has to make the bullet go to the right side
     public void Shoot(InputAction.CallbackContext context) {
-        Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
+        GameObject actualBullet = Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
+        //actualBullet.GetComponent<MoveForward>().SetSpeed(move / Mathf.Abs(move));
     }
     public void SwitchGunColor(InputAction.CallbackContext context) {
 
