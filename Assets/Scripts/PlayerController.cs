@@ -8,12 +8,15 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
     private Controls playerControls;
+    //Define de vidas
+    private int cantVidas = 3;
 
     private float speed = 400f;
     public float jumpForce;
     public float gravityModifier;
     private bool isOnGround = true;
     private float move = 0;
+    private LifeCount lives;
     
     private void Awake() {
         playerControls = new Controls();
@@ -30,7 +33,8 @@ public class PlayerController : MonoBehaviour
     void Start() {
 
         Physics.gravity *= gravityModifier;
-
+        lives = new LifeCount();
+        lives.livesRemaining = cantVidas;
         //suscripciones a los eventos
         playerControls.game.move.performed += Move;
         playerControls.game.jump.performed += Jump;
@@ -76,6 +80,7 @@ public class PlayerController : MonoBehaviour
 
     }
     private void OnCollisionEnter2D(Collision2D collision) {
+        Debug.Log(collision.ToString());
         isOnGround = true;
         Debug.Log("Colision");
     }
