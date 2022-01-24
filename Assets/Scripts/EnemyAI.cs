@@ -67,7 +67,7 @@ public class EnemyAI : MonoBehaviour
         Transform goalPoint = points[nextID];
 
         //Flip the enemy transform to look into the point's direction.
-        if (goalPoint.transform.position.x > transform.position.x)
+        if (goalPoint.transform.position.x < transform.position.x)
             transform.localScale = new Vector3(-1, 1, 1);
         else
             transform.localScale = new Vector3(1, 1, 1);
@@ -91,14 +91,16 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("The bullet has caused " + damage + " damage to the enemy");
         lifePoints -= damage;
+        Debug.Log("Enemy has " + lifePoints + " lifePoints remaining");
         if (lifePoints <= 0)
             Die();
     }
 
     void Die()
     {
-
+        Destroy(transform.root.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
