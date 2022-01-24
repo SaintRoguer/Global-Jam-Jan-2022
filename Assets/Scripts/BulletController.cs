@@ -15,8 +15,8 @@ public class BulletController : MonoBehaviour
         hitboxBullet = GetComponent<CircleCollider2D>();
         //GetComponent<CircleCollider2D>().isTrigger = true;
 
-        //bulletRb.transform.position = transform.position;
-        //hitboxBullet.transform.position = transform.position;
+        bulletRb.transform.position = transform.position;
+        hitboxBullet.transform.position = transform.position;
 
     }
 

@@ -23,6 +23,7 @@ public class LifeCount : MonoBehaviour
         //If we run out of lives we lose game or other thing
         if(livesRemaining == 0)
         {
+            Debug.Log("Me mori");
             FindObjectOfType<LevelManager>().Restart();
         }
     }

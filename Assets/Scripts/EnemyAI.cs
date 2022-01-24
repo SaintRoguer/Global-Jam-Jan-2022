@@ -105,6 +105,9 @@ public class EnemyAI : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            Debug.Log($"{name} colisiono");
+            Debug.Log("Prueba consola");
+
             FindObjectOfType<LifeCount>().loseLife();
         }
     }
