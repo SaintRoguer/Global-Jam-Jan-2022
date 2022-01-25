@@ -52,7 +52,14 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(move * speed * Time.fixedDeltaTime, rb.velocity.y);
     }
     public void Move(InputAction.CallbackContext context) {
+        Vector3 currentScale = transform.localScale;
         move = playerControls.game.move.ReadValue<float>();
+        if (move < 0 && transform.localScale.x > 0) {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
+        if (move > 0 && transform.localScale.x < 0) {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
         animator.SetFloat("xVelocity", Mathf.Abs(playerControls.game.move.ReadValue<float>()));
     }
     public void Jump(InputAction.CallbackContext context) {
