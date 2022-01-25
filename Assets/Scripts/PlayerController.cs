@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     Animator animator;
     private ColourSystem colourSystem;
-
+    private float lastPositionY;
     private float speed = 400f;
     public float jumpForce;
 
@@ -39,18 +39,20 @@ public class PlayerController : MonoBehaviour
         //suscripciones a los eventos
         playerControls.game.move.performed += Move;
         playerControls.game.jump.performed += Jump;
+        playerControls.game.jump.canceled += Jump;
         playerControls.game.interact.performed += Interact;
         playerControls.game.dash.performed += Dash;
         playerControls.game.shoot.performed += Shoot;
         playerControls.game.switchGunColor.performed += SwitchGunColor;
         playerControls.game.switchPlayerColor.performed += SwitchPlayerColor;
 
+        lastPositionY = rb.position.y;
 
     }
 
     // Update is called once per frame
     private void Update() {
-        animator.SetFloat("yVelocity", rb.velocity.y);
+        animator.SetFloat("yVelocity", lastPositionY-rb.position.y);
     }
 
     private void FixedUpdate() {
@@ -66,14 +68,29 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
         animator.SetFloat("xVelocity", Mathf.Abs(playerControls.game.move.ReadValue<float>()));
+        //Check if it is falling
+        if (animator.GetFloat("yVelocity") > 0) {
+            isOnGround = false;
+            animator.SetBool("Jump",!isOnGround);
+        }
     }
     public void Jump(InputAction.CallbackContext context) {
-        if (context.performed && isOnGround) { 
-            rb.AddForce(Vector2.up * jumpForce);
+        if (context.performed && isOnGround) {
+            rb.velocity = new Vector2(rb.velocity.x,jumpForce);
             isOnGround = false;
-            animator.SetBool("Jump", true);
+            animator.SetBool("Jump", !isOnGround);
+
+            animator.SetFloat("Jumpf", 1);
+
+            Debug.Log("Jump");
+            lastPositionY = rb.position.y + 5;
         }
-        Debug.Log("Jump");
+        if(context.canceled) {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * .5f);
+
+            animator.SetFloat("Jumpf", -1);
+            Debug.Log("Solte salto");
+        }
     }
     public void Interact(InputAction.CallbackContext context) {
 
