@@ -12,24 +12,40 @@ public class ColourSystem : MonoBehaviour
     public MainColours mainState;
     public MainColours secondaryState;
     public CombinationState combinationState;
+
+    public Queue<MainColours> playerColourWheel = new Queue<MainColours>();
+    public Queue<MainColours> weaponColoursWheel = new Queue<MainColours>();
     // Start is called before the first frame update
     void Start()
     {
         mainState = MainColours.YELLOW;
         secondaryState = MainColours.YELLOW;
         combinationState = CombinationState.YELLOW;
+
+        //Change to only add yellow, because this is a test with all colours.
+        playerColourWheel.Enqueue(MainColours.RED);
+        playerColourWheel.Enqueue(MainColours.BLUE);
+        playerColourWheel.Enqueue(MainColours.YELLOW);
     }
 
-    void ChangeMainColour( MainColours colour)
+
+
+    public MainColours ChangeMainColour()
     {
-        mainState = colour;
+        mainState = playerColourWheel.Dequeue();
+        playerColourWheel.Enqueue(mainState);
         ChangeColour();
+        return mainState;
+
+
     }
 
-    void ChangeSecondaryColour( MainColours colour)
+    public MainColours ChangeSecondaryColour( MainColours colour)
     {
-        secondaryState = colour;
+        secondaryState = playerColourWheel.Dequeue();
+        playerColourWheel.Enqueue(secondaryState);
         ChangeColour();
+        return secondaryState;
     }
 
     void ChangeColour()

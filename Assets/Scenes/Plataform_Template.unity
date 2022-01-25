@@ -1007,6 +1007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1131987531}
   - component: {fileID: 1131987532}
+  - component: {fileID: 1131987537}
   - component: {fileID: 1131987533}
   - component: {fileID: 1131987534}
   - component: {fileID: 1131987536}
@@ -1047,6 +1048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1131987533}
   bulletPrefab: {fileID: 1941641169143154915, guid: 5f0fda372fca4394b89db90520b5c81a, type: 3}
+  colourSystem: {fileID: 0}
   jumpForce: 600
 --- !u!50 &1131987533
 Rigidbody2D:
@@ -1156,6 +1158,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1131987537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131987530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4370ed7b5d519f744a31004d0e87c231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainState: 2
+  secondaryState: 2
+  combinationState: 2
 --- !u!1 &1151646368
 GameObject:
   m_ObjectHideFlags: 0

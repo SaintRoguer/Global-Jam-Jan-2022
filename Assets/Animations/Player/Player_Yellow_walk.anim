@@ -19,27 +19,27 @@ AnimationClip:
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
-    - time: 0.46666667
+    - time: 0
       value: {fileID: -119560663929605169, guid: 734da20158e1b644ea62643130cc8e8b, type: 3}
-    - time: 0.6
+    - time: 0.083333336
       value: {fileID: 2359755362896893049, guid: 734da20158e1b644ea62643130cc8e8b, type: 3}
-    - time: 0.75
+    - time: 0.15
       value: {fileID: -5107357889135683066, guid: 734da20158e1b644ea62643130cc8e8b, type: 3}
-    - time: 0.8833333
+    - time: 0.26666668
       value: {fileID: 3071602457696699820, guid: 734da20158e1b644ea62643130cc8e8b, type: 3}
-    - time: 1.0333333
+    - time: 0.4
       value: {fileID: 8751533052028438070, guid: 734da20158e1b644ea62643130cc8e8b, type: 3}
-    - time: 1.2166667
+    - time: 0.51666665
       value: {fileID: 6017664853953763549, guid: 734da20158e1b644ea62643130cc8e8b, type: 3}
-    - time: 1.35
+    - time: 0.6
       value: {fileID: -4914863138415624142, guid: 734da20158e1b644ea62643130cc8e8b, type: 3}
-    - time: 1.5
+    - time: 0.71666664
       value: {fileID: -7458376642570177619, guid: 734da20158e1b644ea62643130cc8e8b, type: 3}
-    - time: 1.6333333
+    - time: 0.81666666
       value: {fileID: 8741837521949212616, guid: 734da20158e1b644ea62643130cc8e8b, type: 3}
-    - time: 1.7833333
+    - time: 0.9166667
       value: {fileID: -719120752527854800, guid: 734da20158e1b644ea62643130cc8e8b, type: 3}
-    - time: 1.9166666
+    - time: 1.0166667
       value: {fileID: -9085843567095911093, guid: 734da20158e1b644ea62643130cc8e8b, type: 3}
     attribute: m_Sprite
     path: 
@@ -76,13 +76,13 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.9333333
+    m_StopTime: 1.0333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
     m_LoopTime: 1
-    m_LoopBlend: 0
+    m_LoopBlend: 1
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
     m_LoopBlendPositionXZ: 0

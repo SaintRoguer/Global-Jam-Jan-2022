@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
 
     Animator animator;
+    private ColourSystem colourSystem;
 
     private float speed = 400f;
     public float jumpForce;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private void Awake() {
         playerControls = new Controls();
         animator = GetComponent<Animator>();
+        colourSystem = GetComponent<ColourSystem>();
     }
 
     private void OnEnable() {
@@ -84,8 +86,38 @@ public class PlayerController : MonoBehaviour
 
     }
     public void SwitchPlayerColor(InputAction.CallbackContext context) {
+        MainColours colourSelected = colourSystem.ChangeMainColour();
+        switch (colourSelected)
+        {
+            case MainColours.YELLOW:
+                ChangeToYellow();
+                break;
+            case MainColours.BLUE:
+                ChangeToBlue();
+                break;
+            case MainColours.RED:
+                ChangeToRed();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void ChangeToYellow()
+    {
 
     }
+
+    private void ChangeToBlue()
+    {
+
+    }
+
+    private void ChangeToRed()
+    {
+
+    }
+
     private void OnCollisionEnter2D(Collision2D collision) {
         Debug.Log(collision.ToString());
         isOnGround = true;
