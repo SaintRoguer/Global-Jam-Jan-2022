@@ -1,4 +1,5 @@
  Library
+ !/[Ll]ibrary/*.asset
  Temp
  *.sln
  *.csproj
