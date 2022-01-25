@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     private Controls playerControls;
     public GameObject bulletPrefab;
-    //Define de vidas
+
+    Animator animator;
 
     private float speed = 400f;
     public float jumpForce;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     
     private void Awake() {
         playerControls = new Controls();
+        animator = GetComponent<Animator>();
     }
 
     private void OnEnable() {
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Move(InputAction.CallbackContext context) {
         move = playerControls.game.move.ReadValue<float>();
-        Debug.Log("Move");
+        animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
     }
     public void Jump(InputAction.CallbackContext context) {
         if (context.performed && isOnGround) { 
