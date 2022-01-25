@@ -52,7 +52,8 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     private void Update() {
-        animator.SetFloat("yVelocity", lastPositionY-rb.position.y);
+        animator.SetFloat("yVelocity", lastPositionY-rb.position.y); 
+        animator.SetFloat("Jumpf", rb.velocity.y);
     }
 
     private void FixedUpdate() {
@@ -69,7 +70,8 @@ public class PlayerController : MonoBehaviour
         }
         animator.SetFloat("xVelocity", Mathf.Abs(playerControls.game.move.ReadValue<float>()));
         //Check if it is falling
-        if (animator.GetFloat("yVelocity") > 0) {
+        lastPositionY = rb.position.y;
+        if (animator.GetFloat("yVelocity") < 0) {
             isOnGround = false;
             animator.SetBool("Jump",!isOnGround);
         }
@@ -80,15 +82,15 @@ public class PlayerController : MonoBehaviour
             isOnGround = false;
             animator.SetBool("Jump", !isOnGround);
 
-            animator.SetFloat("Jumpf", 1);
+            animator.SetFloat("Jumpf", rb.velocity.y);
 
             Debug.Log("Jump");
-            lastPositionY = rb.position.y + 5;
+            lastPositionY = rb.position.y;
         }
         if(context.canceled) {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * .5f);
 
-            animator.SetFloat("Jumpf", -1);
+            animator.SetFloat("Jumpf", rb.velocity.y);
             Debug.Log("Solte salto");
         }
     }

@@ -5,7 +5,9 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
-    
+    public Vector3 offset;
+    [Range(1, 10)]
+    public float smoothFactor;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +17,12 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = new Vector3(player.transform.position.x,player.transform.position.y, transform.position.z);
+        Follow();
+    }
+
+    void Follow() {
+        Vector3 playerPosition = player.transform.position + offset;
+        Vector3 smoothPosition = Vector3.Lerp(player.transform.position, playerPosition, smoothFactor * Time.fixedDeltaTime);
+        transform.position = smoothPosition;
     }
 }
