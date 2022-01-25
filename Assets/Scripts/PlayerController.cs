@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private void Awake() {
         playerControls = new Controls();
         animator = GetComponent<Animator>();
+        animator.SetFloat("Yellow", 1);
         colourSystem = GetComponent<ColourSystem>();
     }
 
@@ -43,11 +44,13 @@ public class PlayerController : MonoBehaviour
         playerControls.game.shoot.performed += Shoot;
         playerControls.game.switchGunColor.performed += SwitchGunColor;
         playerControls.game.switchPlayerColor.performed += SwitchPlayerColor;
+
+
     }
 
     // Update is called once per frame
     private void Update() {
-        
+        animator.SetFloat("yVelocity", rb.velocity.y);
     }
 
     private void FixedUpdate() {
@@ -67,7 +70,8 @@ public class PlayerController : MonoBehaviour
     public void Jump(InputAction.CallbackContext context) {
         if (context.performed && isOnGround) { 
             rb.AddForce(Vector2.up * jumpForce);
-            isOnGround = false; 
+            isOnGround = false;
+            animator.SetBool("Jump", true);
         }
         Debug.Log("Jump");
     }
@@ -90,31 +94,42 @@ public class PlayerController : MonoBehaviour
         switch (colourSelected)
         {
             case MainColours.YELLOW:
-                ChangeToYellow();
+                ChangePlayerToYellow();
                 break;
             case MainColours.BLUE:
-                ChangeToBlue();
+                ChangePlayerToBlue();
                 break;
             case MainColours.RED:
-                ChangeToRed();
+                ChangePlayerToRed();
                 break;
             default:
                 break;
         }
     }
 
-    private void ChangeToYellow()
+    private void ChangePlayerToYellow()
     {
+        animator.SetFloat("Yellow", 1);
+        animator.SetFloat("Red", 0);
+        animator.SetFloat("Blue", 0);
+        //Cambiar daño de la bala
+    }
+
+    private void ChangePlayerToBlue()
+    {
+        animator.SetFloat("Yellow", 0);
+        animator.SetFloat("Red", 0);
+        animator.SetFloat("Blue", 1);
+        //Cambiar daño de la bala
 
     }
 
-    private void ChangeToBlue()
+    private void ChangePlayerToRed()
     {
-
-    }
-
-    private void ChangeToRed()
-    {
+        animator.SetFloat("Yellow", 0);
+        animator.SetFloat("Red", 1);
+        animator.SetFloat("Blue", 0);
+        //Cambiar daño de la bala
 
     }
 
@@ -122,5 +137,6 @@ public class PlayerController : MonoBehaviour
         Debug.Log(collision.ToString());
         isOnGround = true;
         Debug.Log("Colision");
+        animator.SetBool("Jump", !isOnGround);
     }
 }

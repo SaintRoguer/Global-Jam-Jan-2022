@@ -57,25 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Ink\Demos\Basic Demo\Scripts\Editor\BasicInkExampleEditor.cs" />
-    <Compile Include="Assets\Animations\GitHub\Editor\UnityAPIWrapper.cs" />
-    <Compile Include="Assets\Animations\GitHub\Editor\ExtensionLoader.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Animations\GitHub\Editor\credits.txt" />
-    <None Include="Assets\Animations\GitHub\Editor\eula.txt" />
-    <None Include="Assets\Animations\GitHub\Editor\GitHub.Logging.dll" />
-    <None Include="Assets\Animations\GitHub\Editor\AsyncBridge.Net35.dll" />
-    <None Include="Assets\Animations\GitHub\Editor\GitHub.UnityShim.dll" />
-    <None Include="Assets\Animations\GitHub\Editor\x64\pthreadVC2.dll" />
-    <None Include="Assets\Animations\GitHub\Editor\GitHub.Api.45.dll" />
-    <None Include="Assets\Animations\GitHub\Editor\GitHub.Api.dll" />
-    <None Include="Assets\Animations\GitHub\Editor\ReadOnlyCollectionsInterfaces.dll" />
-    <None Include="Assets\Animations\GitHub\Editor\GitHub.Unity.dll" />
-    <None Include="Assets\Animations\GitHub\Editor\GitHub.Unity.45.dll" />
-    <None Include="Assets\Animations\GitHub\Editor\System.Threading.dll" />
-    <None Include="Assets\Animations\GitHub\Editor\sfw.net.dll" />
-    <None Include="Assets\Animations\GitHub\Editor\Mono.Posix.dll" />
-    <None Include="Assets\Animations\GitHub\Editor\x64\sfw_x64.dll" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -309,9 +290,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="GitHub.Logging">
-      <HintPath>Assets\Animations\GitHub\Editor\GitHub.Logging.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.9\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -321,14 +299,8 @@
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.9\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
-    <Reference Include="sfw.net">
-      <HintPath>Assets\Animations\GitHub\Editor\sfw.net.dll</HintPath>
-    </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.9\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
-    </Reference>
-    <Reference Include="GitHub.UnityShim">
-      <HintPath>Assets\Animations\GitHub\Editor\GitHub.UnityShim.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
