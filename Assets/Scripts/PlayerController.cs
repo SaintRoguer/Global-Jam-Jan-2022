@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Move(InputAction.CallbackContext context) {
         move = playerControls.game.move.ReadValue<float>();
-        animator.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
+        animator.SetFloat("xVelocity", Mathf.Abs(playerControls.game.move.ReadValue<float>()));
     }
     public void Jump(InputAction.CallbackContext context) {
         if (context.performed && isOnGround) { 
