@@ -520,7 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1131987530}
   offset: {x: 0, y: 0, z: -10}
-  smoothFactor: 2.48
+  smoothFactor: 10
 --- !u!1 &634001837 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1941641169143154915, guid: 5f0fda372fca4394b89db90520b5c81a, type: 3}

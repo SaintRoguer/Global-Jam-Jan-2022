@@ -6,8 +6,9 @@ public class BulletController : MonoBehaviour
 {
     private Rigidbody2D bulletRb;
     private CircleCollider2D hitboxBullet;
-
-    public int damage = 10;
+    [SerializeField]
+    [Range(1, 10)]
+    private int damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class BulletController : MonoBehaviour
         //GetComponent<CircleCollider2D>().isTrigger = true;
         bulletRb.transform.position = transform.position;
         hitboxBullet.transform.position = transform.position;
+        damage = 10;
 
     }
 
@@ -23,6 +25,12 @@ public class BulletController : MonoBehaviour
     void Update()
     {
         
+    }
+    public void setDamage(int d) {
+        damage = d;
+    }
+    public int getDamage() {
+        return damage;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
