@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour {
     }
     public void Dash(InputAction.CallbackContext context) {
         if(!isDashing && move != 0) {
-            Dash(move);
+            StartCoroutine( Dash(move));
             Debug.Log("dash");
         }
        
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour {
     private IEnumerator Dash(float direction) {
         isDashing = true;
         //Remuevo la gravedad
-        rb.velocity = new Vector2(rb.velocity.x, 0f);
+        rb.velocity = new Vector2(Mathf.Abs(rb.velocity.x) * dashDistance * direction, 0f);
         rb.AddForce(new Vector2(dashDistance * direction, 0f),ForceMode2D.Impulse);
         float gravity = rb.gravityScale;
         rb.gravityScale = 0f;
