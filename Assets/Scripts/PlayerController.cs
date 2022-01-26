@@ -10,13 +10,18 @@ public class PlayerController : MonoBehaviour
     private Controls playerControls;
     public GameObject bulletPrefab;
 
-    Animator animator;
-    private ColourSystem colourSystem;
-    private float lastPositionY;
-    private float speed = 400f;
-    public float jumpForce;
+    private const float groundRadius = .2f;
+    [SerializeField] private Transform groundCheckCollider;
+    [SerializeField] private LayerMask groundLayer;
 
-    private bool isOnGround = true;
+    private Animator animator;
+    private ColourSystem colourSystem;
+    private float speed = 400f;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private int totalJumps;
+    [SerializeField] private int availableJumps;
+    [SerializeField] private bool isOnGround = true;
+    private bool wasOnGround = true;
     private float move = 0;
     
     private void Awake() {
@@ -46,18 +51,23 @@ public class PlayerController : MonoBehaviour
         playerControls.game.switchGunColor.performed += SwitchGunColor;
         playerControls.game.switchPlayerColor.performed += SwitchPlayerColor;
 
-        lastPositionY = rb.position.y;
+        availableJumps = totalJumps;
+
 
     }
 
     // Update is called once per frame
     private void Update() {
-        animator.SetFloat("yVelocity", lastPositionY-rb.position.y); 
-        animator.SetFloat("Jumpf", rb.velocity.y);
+        animator.SetFloat("yVelocity", rb.velocity.y); 
     }
 
     private void FixedUpdate() {
         rb.velocity = new Vector2(move * speed * Time.fixedDeltaTime, rb.velocity.y);
+        GroundCheck();
+        if(rb.velocity.y < 0 && isOnGround) {
+            isOnGround = false;
+            animator.SetBool("Jump", !isOnGround);
+        }
     }
     public void Move(InputAction.CallbackContext context) {
         Vector3 currentScale = transform.localScale;
@@ -69,29 +79,30 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
         animator.SetFloat("xVelocity", Mathf.Abs(playerControls.game.move.ReadValue<float>()));
-        //Check if it is falling
-        lastPositionY = rb.position.y;
-        if (animator.GetFloat("yVelocity") < 0) {
-            isOnGround = false;
-            animator.SetBool("Jump",!isOnGround);
-        }
+        
     }
     public void Jump(InputAction.CallbackContext context) {
         if (context.performed && isOnGround) {
-            rb.velocity = new Vector2(rb.velocity.x,jumpForce);
+
             isOnGround = false;
+            availableJumps--;
             animator.SetBool("Jump", !isOnGround);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
 
-            animator.SetFloat("Jumpf", rb.velocity.y);
-
+            Debug.Log(availableJumps);
             Debug.Log("Jump");
-            lastPositionY = rb.position.y;
         }
+        else {
+            if (context.performed && !isOnGround && availableJumps > 0) {
+                availableJumps--;
+                Debug.Log(availableJumps);
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            }
+
+        }
+           
         if(context.canceled) {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * .5f);
-
-            animator.SetFloat("Jumpf", rb.velocity.y);
-            Debug.Log("Solte salto");
         }
     }
     public void Interact(InputAction.CallbackContext context) {
@@ -153,10 +164,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        Debug.Log(collision.ToString());
-        isOnGround = true;
-        Debug.Log("Colision");
+    void GroundCheck() {
+        bool wasOnGround = isOnGround;
+        isOnGround = false;
         animator.SetBool("Jump", !isOnGround);
+
+        Collider2D [] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundRadius, groundLayer);
+        if (colliders.Length > 0) {
+            isOnGround = true;
+            animator.SetBool("Jump", !isOnGround);
+            if (!wasOnGround) {
+                availableJumps = totalJumps;
+            }
+        }
     }
+
 }
