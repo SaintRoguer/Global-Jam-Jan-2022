@@ -110,7 +110,7 @@ public class EnemyAI : MonoBehaviour
             Debug.Log($"{name} colisiono");
             Debug.Log("Prueba consola");
 
-            FindObjectOfType<LifeCount>().loseLife();
+            FindObjectOfType<LifeCount>().LoseLife();
         }
     }
 }

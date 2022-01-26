@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
     private Animator animator;
     private ColourSystem colourSystem;
     [SerializeField] private float speed = 400f;
+    private bool isDead;
     //Move related
     private float move;
     private float lastDirection;
@@ -215,6 +216,32 @@ public class PlayerController : MonoBehaviour {
                 availableJumps = totalJumps;
             }
         }
+    }
+
+    public void Die() {
+        rb.velocity = new Vector2(0f, 0f);
+        OnDisable();
+        isDead = true;
+        animator.SetBool("Dead", true);
+        animator.SetFloat("xVelocity", 0f);
+        //suscripciones a los eventos
+        playerControls.game.move.performed -= Move;
+        playerControls.game.jump.performed -= Jump;
+        playerControls.game.jump.canceled -= Jump;
+        playerControls.game.interact.performed -= Interact;
+        playerControls.game.dash.performed -= Dash;
+        playerControls.game.shoot.performed -= Shoot;
+        playerControls.game.switchGunColor.performed -= SwitchGunColor;
+        playerControls.game.switchPlayerColor.performed -= SwitchPlayerColor;
+
+
+        //Instanciar menu
+    }
+    public void Respawn() {
+        OnEnable();
+        Start();
+        animator.SetBool("Dead", false);
+        isDead = false;
     }
 
 }

@@ -7,8 +7,9 @@ public class LifeCount : MonoBehaviour
 {
     public Image[] lives;
     public int livesRemaining;
+    [SerializeField] GameObject player;
 
-    public void loseLife()
+    public void LoseLife()
     {
         //If no lives remaining, do nothing.
         if (livesRemaining == 0)
@@ -24,7 +25,8 @@ public class LifeCount : MonoBehaviour
         if(livesRemaining == 0)
         {
             Debug.Log("Me mori");
-            FindObjectOfType<LevelManager>().Restart();
+            player.GetComponent<PlayerController>().Die();
+            //FindObjectOfType<LevelManager>().Restart();
         }
     }
 
