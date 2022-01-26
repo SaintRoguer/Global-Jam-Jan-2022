@@ -148,7 +148,8 @@ public class PlayerController : MonoBehaviour {
     }
     //This has to make the bullet go to the right side
     public void Shoot(InputAction.CallbackContext context) {
-        GameObject actualBullet = Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
+
+        GameObject actualBullet = Instantiate(bulletPrefab, transform.position+new Vector3(1,-1,0), bulletPrefab.transform.rotation);
         actualBullet.GetComponent<BulletController>().SetDamage(10);
         actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
         actualBullet.GetComponent<MoveForward>().SetDirection(lastDirection);

@@ -1063,7 +1063,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4424238128057019042, guid: cf56eebe71f904d4dabdc383a01016d7, type: 3}
   m_PrefabInstance: {fileID: 2657548354899965189}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &1133766239
+--- !u!58 &1133766241
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4805,6 +4805,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4424238128057019068, guid: cf56eebe71f904d4dabdc383a01016d7, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0420578
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424238128057019068, guid: cf56eebe71f904d4dabdc383a01016d7, type: 3}
+      propertyPath: m_Size.y
+      value: 2.3733575
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424238128057019068, guid: cf56eebe71f904d4dabdc383a01016d7, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.4078189
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424238128057019068, guid: cf56eebe71f904d4dabdc383a01016d7, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.6866789
+      objectReference: {fileID: 0}
     - target: {fileID: 4424238128525609218, guid: cf56eebe71f904d4dabdc383a01016d7, type: 3}
       propertyPath: lives.Array.data[0]
       value: 
