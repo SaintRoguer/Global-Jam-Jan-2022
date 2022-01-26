@@ -4,26 +4,33 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class PlayerController : MonoBehaviour
-{
+public class PlayerController : MonoBehaviour {
     public Rigidbody2D rb;
+
+
     private Controls playerControls;
     public GameObject bulletPrefab;
-
+    //Ground Check related
     private const float groundRadius = .2f;
     [SerializeField] private Transform groundCheckCollider;
     [SerializeField] private LayerMask groundLayer;
-
+    private bool isOnGround = true;
+    //Player Logic/UI related
     private Animator animator;
     private ColourSystem colourSystem;
-    private float speed = 400f;
+    [SerializeField] private float speed = 400f;
+    //Move related
+    private float move;
+    //Jump related
     [SerializeField] private float jumpForce;
-    [SerializeField] private int totalJumps;
-    [SerializeField] private int availableJumps;
-    [SerializeField] private bool isOnGround = true;
-    private bool wasOnGround = true;
-    private float move = 0;
-    
+    private int totalJumps;
+    private int availableJumps;
+    //Dash related
+    [SerializeField] private float dashDistance;
+    [SerializeField]private float dashTime;
+    private Vector2 inicialDashPosition;
+    private bool isDashing;
+
     private void Awake() {
         playerControls = new Controls();
         animator = GetComponent<Animator>();
@@ -51,19 +58,26 @@ public class PlayerController : MonoBehaviour
         playerControls.game.switchGunColor.performed += SwitchGunColor;
         playerControls.game.switchPlayerColor.performed += SwitchPlayerColor;
 
+        //amount of extra jumps
+        totalJumps = 1;
         availableJumps = totalJumps;
-
+        dashDistance = 15f;
+        dashTime = 0.4f;
 
     }
 
     // Update is called once per frame
     private void Update() {
-        animator.SetFloat("yVelocity", rb.velocity.y); 
+        if (!isDashing) { 
+            animator.SetFloat("yVelocity", rb.velocity.y);
+            rb.velocity = new Vector2(move * speed * Time.fixedDeltaTime, rb.velocity.y);
+        }
     }
 
     private void FixedUpdate() {
-        rb.velocity = new Vector2(move * speed * Time.fixedDeltaTime, rb.velocity.y);
+        
         GroundCheck();
+        //Check if it is falling
         if(rb.velocity.y < 0 && isOnGround) {
             isOnGround = false;
             animator.SetBool("Jump", !isOnGround);
@@ -88,9 +102,6 @@ public class PlayerController : MonoBehaviour
             availableJumps--;
             animator.SetBool("Jump", !isOnGround);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-
-            Debug.Log(availableJumps);
-            Debug.Log("Jump");
         }
         else {
             if (context.performed && !isOnGround && availableJumps > 0) {
@@ -109,7 +120,24 @@ public class PlayerController : MonoBehaviour
 
     }
     public void Dash(InputAction.CallbackContext context) {
-
+        if(!isDashing && move != 0) {
+            Dash(move);
+            Debug.Log("dash");
+        }
+       
+    }
+    private IEnumerator Dash(float direction) {
+        isDashing = true;
+        //Remuevo la gravedad
+        rb.velocity = new Vector2(rb.velocity.x, 0f);
+        rb.AddForce(new Vector2(dashDistance * direction, 0f),ForceMode2D.Impulse);
+        float gravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        animator.SetBool("Dash", true);
+        yield return new WaitForSeconds(dashTime);
+        animator.SetBool("Dash", false);
+        isDashing = false;
+        rb.gravityScale = gravity;
     }
     //This has to make the bullet go to the right side
     public void Shoot(InputAction.CallbackContext context) {
