@@ -26,19 +26,26 @@ public class BulletController : MonoBehaviour
     {
         
     }
-    public void setDamage(int d) {
+    public void SetDamage(int d) {
         damage = d;
     }
-    public int getDamage() {
+    public int GetDamage() {
         return damage;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag == "Enemy") {
+        if (collision.CompareTag("Enemy")) {
             Debug.Log("Enemy destroy");
             //Este es el que use que destruye desde el root o sea el mas alto de la jerarquia.
             //Destroy(transform.root.gameObject);
             collision.GetComponent<EnemyAI>().TakeDamage(damage);
+        }
+        if (collision.CompareTag("Door"))
+        {
+            Debug.Log("Door Hit");
+            bool open = collision.GetComponent<DoorController>().Opposite(FindObjectOfType<PlayerController>().GetComponent<ColourSystem>().combinationState);
+            //Open dictates if the colour is correct and opens the door.
+           
         }
     }
 }
