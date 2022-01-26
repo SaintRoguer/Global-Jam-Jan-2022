@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float speed = 400f;
     //Move related
     private float move;
+    private float lastDirection;
     //Jump related
     [SerializeField] private float jumpForce;
     private int totalJumps;
@@ -86,6 +87,10 @@ public class PlayerController : MonoBehaviour {
     public void Move(InputAction.CallbackContext context) {
         Vector3 currentScale = transform.localScale;
         move = playerControls.game.move.ReadValue<float>();
+        if (context.performed && move!=0) {
+            lastDirection = move;
+            Debug.Log(lastDirection);
+        }
         if (move > 0 && transform.localScale.x > 0) {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
@@ -106,7 +111,6 @@ public class PlayerController : MonoBehaviour {
         else {
             if (context.performed && !isOnGround && availableJumps > 0) {
                 availableJumps--;
-                Debug.Log(availableJumps);
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
 
@@ -120,17 +124,20 @@ public class PlayerController : MonoBehaviour {
 
     }
     public void Dash(InputAction.CallbackContext context) {
-        if(!isDashing && move != 0) {
-            StartCoroutine( Dash(move));
-            Debug.Log("dash");
+        if(!isDashing) {
+            StartCoroutine( Dash(lastDirection));
         }
        
     }
     private IEnumerator Dash(float direction) {
         isDashing = true;
         //Remuevo la gravedad
-        rb.velocity = new Vector2(Mathf.Abs(rb.velocity.x) * dashDistance * direction, 0f);
-        rb.AddForce(new Vector2(dashDistance * direction, 0f),ForceMode2D.Impulse);
+        if(rb.velocity.x!=0)
+            rb.velocity = new Vector2(Mathf.Abs(rb.velocity.x) * dashDistance * direction, 0f);
+        else 
+            rb.velocity = new Vector2(speed * Time.fixedDeltaTime * dashDistance * direction, 0f);
+
+
         float gravity = rb.gravityScale;
         rb.gravityScale = 0f;
         animator.SetBool("Dash", true);
@@ -144,8 +151,7 @@ public class PlayerController : MonoBehaviour {
         GameObject actualBullet = Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
         actualBullet.GetComponent<BulletController>().SetDamage(10);
         actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
-        if (move != 0)
-            actualBullet.GetComponent<MoveForward>().SetDirection(move);
+        actualBullet.GetComponent<MoveForward>().SetDirection(lastDirection);
         animator.SetBool("Shoot", true);
     }
     public void SwitchGunColor(InputAction.CallbackContext context) {

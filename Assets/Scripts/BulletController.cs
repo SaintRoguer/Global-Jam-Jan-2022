@@ -43,17 +43,25 @@ public class BulletController : MonoBehaviour
             Debug.Log("Enemy destroy");
             //Este es el que use que destruye desde el root o sea el mas alto de la jerarquia.
             collision.GetComponent<EnemyAI>().TakeDamage(damage);
+            player.GetComponent<Animator>().SetBool("Shoot", false);
             Destroy(gameObject);
 
+
         }
-        if (collision.CompareTag("Door"))
-        {
+        if (collision.CompareTag("Door")) {
             Debug.Log("Door Hit");
             bool open = collision.GetComponent<DoorController>().Opposite(player.GetComponent<ColourSystem>().combinationState);
             //Open dictates if the colour is correct and opens the door.
+            player.GetComponent<Animator>().SetBool("Shoot", false);
             Destroy(gameObject);
 
 
         }
+        if (collision.CompareTag("Ground")) {
+            Debug.Log("Ground hit");
+            player.GetComponent<Animator>().SetBool("Shoot", false);
+            Destroy(gameObject);
+        }
+               
     }
 }

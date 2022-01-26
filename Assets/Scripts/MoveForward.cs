@@ -9,13 +9,17 @@ public class MoveForward : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        direction = 1;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate(Vector3.right * speed * direction * Time.deltaTime ); 
+        Vector3 rightOrLeft;
+        if (direction < 0)
+            rightOrLeft = Vector3.left;
+        else
+            rightOrLeft = Vector3.right;
+        transform.Translate(rightOrLeft * speed * Time.deltaTime ); 
     }
 
     public void SetDirection(float d) {
