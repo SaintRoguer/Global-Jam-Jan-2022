@@ -61,21 +61,21 @@ public class PlayerController : MonoBehaviour {
         //amount of extra jumps
         totalJumps = 1;
         availableJumps = totalJumps;
-        dashDistance = 15f;
+        dashDistance = 3f;
         dashTime = 0.4f;
 
     }
 
     // Update is called once per frame
     private void Update() {
-        if (!isDashing) { 
-            animator.SetFloat("yVelocity", rb.velocity.y);
-            rb.velocity = new Vector2(move * speed * Time.fixedDeltaTime, rb.velocity.y);
-        }
+        
     }
 
     private void FixedUpdate() {
-        
+        if (!isDashing) {
+            animator.SetFloat("yVelocity", rb.velocity.y);
+            rb.velocity = new Vector2(move * speed * Time.fixedDeltaTime, rb.velocity.y);
+        }
         GroundCheck();
         //Check if it is falling
         if(rb.velocity.y < 0 && isOnGround) {
@@ -144,7 +144,9 @@ public class PlayerController : MonoBehaviour {
         GameObject actualBullet = Instantiate(bulletPrefab, transform.position, bulletPrefab.transform.rotation);
         actualBullet.GetComponent<BulletController>().SetDamage(10);
         actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
-        //actualBullet.GetComponent<MoveForward>().SetSpeed(move / Mathf.Abs(move));
+        if (move != 0)
+            actualBullet.GetComponent<MoveForward>().SetDirection(move);
+        animator.SetBool("Shoot", true);
     }
     public void SwitchGunColor(InputAction.CallbackContext context) {
 

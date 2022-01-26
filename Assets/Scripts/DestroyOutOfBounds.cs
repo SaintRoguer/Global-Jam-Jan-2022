@@ -14,10 +14,12 @@ public class DestroyOutOfBounds : MonoBehaviour
     void Update() {
         // Destroy dogs if x position less than left limit
         if (transform.position.x < leftLimit || transform.position.x > rightLimit) {
+            gameObject.GetComponent<GameObject>().GetComponent<Animator>().SetBool("Shoot", false);
             Destroy(gameObject);
         }
         // Destroy balls if y position is less than bottomLimit
         else if (transform.position.y < bottomLimit || transform.position.y > toplimit) {
+            gameObject.GetComponent<GameObject>().GetComponent<Animator>().SetBool("Shoot", false);
             Destroy(gameObject);
         }
 
