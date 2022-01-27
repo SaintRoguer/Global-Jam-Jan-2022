@@ -26,4 +26,9 @@ public class DoorController : MonoBehaviour
         };
     }
 
+    public void Open()
+    {
+        Destroy(gameObject);
+    }
+
 }

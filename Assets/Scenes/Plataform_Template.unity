@@ -156,32 +156,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &208515997 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5869044260816049246, guid: b01de753b6672f54180bef1429407499, type: 3}
-  m_PrefabInstance: {fileID: 1993374634}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &208515998
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 208515997}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!1 &442914622
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,30 +808,6 @@ MonoBehaviour:
   m_DefaultActionMap: game
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!1 &753390971 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5869044259404818274, guid: b01de753b6672f54180bef1429407499, type: 3}
-  m_PrefabInstance: {fileID: 1993374634}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &753390976
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753390971}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9661e180eb0fb254b8e31efef281d48a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &846157566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1172,7 +1122,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.0000267, y: 0.00012589}
-  m_SizeDelta: {x: 117.14, y: 58.674}
+  m_SizeDelta: {x: 960, y: 540}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1246200409
 MonoBehaviour:
@@ -1194,7 +1144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 518ed1b72995b5542b6d94afb87dc631, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d50c32f3587d3294193237813e6f280d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4500,81 +4450,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5869044259404818274, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044259404818275, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044259404818275, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044259404818275, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044259404818277, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_Size.x
-      value: 0.28681335
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044259404818277, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_Size.y
-      value: 0.37958527
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044259404818277, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.017393067
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044259404818277, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.01449424
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044259404818277, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044259404818277, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044259404818278, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 236247271630785658, guid: 1b5725ea31763ac47b916a01bea3a52a, type: 3}
-    - target: {fileID: 5869044259404818278, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044259404818278, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044259404818278, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5869044260816049246, guid: b01de753b6672f54180bef1429407499, type: 3}
       propertyPath: m_Name
       value: NormalEnemy_Root
       objectReference: {fileID: 0}
-    - target: {fileID: 5869044260816049246, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: 5869044260816049247, guid: b01de753b6672f54180bef1429407499, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044260816049247, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5869044260816049247, guid: b01de753b6672f54180bef1429407499, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5869044260816049247, guid: b01de753b6672f54180bef1429407499, type: 3}
       propertyPath: m_LocalPosition.x

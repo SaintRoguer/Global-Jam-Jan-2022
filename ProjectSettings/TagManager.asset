@@ -9,6 +9,11 @@ TagManager:
   - Bullet
   - Door
   - Ground
+  - LevelLoader
+  - StartPos
+  - PosFromRoom1ToRoom2
+  - PosFromRoom3ToRoom2
+  - PosFromRoom2ToRoom3
   layers:
   - Default
   - TransparentFX

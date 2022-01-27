@@ -105,7 +105,7 @@ public class EnemyAI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             Debug.Log($"{name} colisiono");
             Debug.Log("Prueba consola");

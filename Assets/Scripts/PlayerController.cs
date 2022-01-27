@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour {
     private Vector2 inicialDashPosition;
     private bool isDashing;
 
+    private GameObject[] players;
+    private int previousLevel = 0;
+
     private void Awake() {
         playerControls = new Controls();
         animator = GetComponent<Animator>();
@@ -48,7 +51,8 @@ public class PlayerController : MonoBehaviour {
     }
     // Start is called before the first frame update
     void Start() {
-       
+
+        DontDestroyOnLoad(gameObject);
         //suscripciones a los eventos
         playerControls.game.move.performed += Move;
         playerControls.game.jump.performed += Jump;
@@ -242,4 +246,63 @@ public class PlayerController : MonoBehaviour {
         isDead = false;
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+
+        FindStartPos(previousLevel, level);
+
+        players = GameObject.FindGameObjectsWithTag("Player");
+        
+        if (players.Length > 2)
+            Destroy(players[2]);
+
+        previousLevel = level;
+    }
+
+    void FindStartPos(int previousLevel, int level)
+    {
+        switch (level)
+        {
+            case 0:
+                transform.position = GameObject.FindWithTag("StartPos").transform.position;
+                break;
+            case 1:
+                FindPositionRoom2(previousLevel);
+                break;
+            case 2:
+                FindPositionRoom3(previousLevel);
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+        }
+    }
+
+    void FindPositionRoom2(int previousLevel)
+    {
+        switch (previousLevel)
+        {
+            case 0:
+                transform.position = GameObject.FindWithTag("PosFromRoom1ToRoom2").transform.position;
+                break;
+            case 2:
+                transform.position = GameObject.FindWithTag("PosFromRoom3ToRoom2").transform.position;
+                break;
+        }
+    }
+
+    void FindPositionRoom3(int previousLevel)
+    {
+        switch (previousLevel)
+        {
+            case 1:
+                transform.position = GameObject.FindWithTag("PosFromRoom2ToRoom3").transform.position;
+                break;
+        }
+    }
 }

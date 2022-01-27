@@ -50,7 +50,9 @@ public class BulletController : MonoBehaviour
         }
         if (collision.CompareTag("Door")) {
             Debug.Log("Door Hit");
-            bool open = collision.GetComponent<DoorController>().Opposite(player.GetComponent<ColourSystem>().combinationState);
+            bool isOpen = collision.GetComponent<DoorController>().Opposite(player.GetComponent<ColourSystem>().combinationState);
+            if (isOpen)
+                collision.GetComponent<DoorController>().Open();
             //Open dictates if the colour is correct and opens the door.
             player.GetComponent<Animator>().SetBool("Shoot", false);
             Destroy(gameObject);
