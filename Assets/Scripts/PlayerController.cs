@@ -7,7 +7,6 @@ using UnityEngine.InputSystem.Utilities;
 public class PlayerController : MonoBehaviour {
     public Rigidbody2D rb;
 
-
     private Controls playerControls;
     public GameObject bulletPrefab;
     //Ground Check related
@@ -59,7 +58,6 @@ public class PlayerController : MonoBehaviour {
         playerControls.game.shoot.performed += Shoot;
         playerControls.game.switchGunColor.performed += SwitchGunColor;
         playerControls.game.switchPlayerColor.performed += SwitchPlayerColor;
-
         //amount of extra jumps
         totalJumps = 1;
         availableJumps = totalJumps;
@@ -75,9 +73,14 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate() {
         if (!isDashing) {
-            animator.SetFloat("yVelocity", rb.velocity.y);
+            if(rb.velocity.y > 1 || rb.velocity.y < -1)
+                animator.SetFloat("yVelocity", rb.velocity.y);
+            else
+                animator.SetFloat("yVelocity", 0f);
             rb.velocity = new Vector2(move * speed * Time.fixedDeltaTime, rb.velocity.y);
         }
+        else
+            animator.SetFloat("yVelocity", 0f);
         GroundCheck();
         //Check if it is falling
         if(rb.velocity.y < 0 && isOnGround) {
@@ -219,9 +222,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Die() {
-        rb.velocity = new Vector2(0f, 0f);
         OnDisable();
         isDead = true;
+        speed = 0f;
         animator.SetBool("Dead", true);
         animator.SetFloat("xVelocity", 0f);
         //suscripciones a los eventos
@@ -234,6 +237,7 @@ public class PlayerController : MonoBehaviour {
         playerControls.game.switchGunColor.performed -= SwitchGunColor;
         playerControls.game.switchPlayerColor.performed -= SwitchPlayerColor;
 
+        rb.velocity = new Vector2(0f, 0f);
 
         //Instanciar menu
     }
