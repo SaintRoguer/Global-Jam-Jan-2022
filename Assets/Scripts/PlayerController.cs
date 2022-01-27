@@ -82,11 +82,6 @@ public class PlayerController : MonoBehaviour {
         else
             animator.SetFloat("yVelocity", 0f);
         GroundCheck();
-        //Check if it is falling
-        if(rb.velocity.y < 0 && isOnGround) {
-            isOnGround = false;
-            animator.SetBool("Jump", !isOnGround);
-        }
     }
     public void Move(InputAction.CallbackContext context) {
         Vector3 currentScale = transform.localScale;
@@ -106,11 +101,9 @@ public class PlayerController : MonoBehaviour {
     }
     public void Jump(InputAction.CallbackContext context) {
         if (context.performed && isOnGround) {
-
-            isOnGround = false;
             availableJumps--;
-            animator.SetBool("Jump", !isOnGround);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            animator.SetBool("Jump", true);
         }
         else {
             if (context.performed && !isOnGround && availableJumps > 0) {
@@ -209,16 +202,17 @@ public class PlayerController : MonoBehaviour {
     void GroundCheck() {
         bool wasOnGround = isOnGround;
         isOnGround = false;
-        animator.SetBool("Jump", !isOnGround);
 
         Collider2D [] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundRadius, groundLayer);
         if (colliders.Length > 0) {
             isOnGround = true;
-            animator.SetBool("Jump", !isOnGround);
+            //animator.SetBool("Jump", !isOnGround);
             if (!wasOnGround) {
                 availableJumps = totalJumps;
             }
         }
+
+        animator.SetBool("Jump", !isOnGround);
     }
 
     public void Die() {
