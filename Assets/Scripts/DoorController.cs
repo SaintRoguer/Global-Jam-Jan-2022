@@ -28,7 +28,7 @@ public class DoorController : MonoBehaviour
 
     public void Open()
     {
-        Destroy(gameObject);
+        gameObject.GetComponent<LevelLoader>().isOpen = true;
     }
 
 }

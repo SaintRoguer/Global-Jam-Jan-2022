@@ -10,6 +10,8 @@ public class LevelLoader : MonoBehaviour
 
     public bool useIntegerToLoadLevel = false;
 
+    public bool isOpen = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,7 @@ public class LevelLoader : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (isOpen && collision.CompareTag("Player"))
             LoadScene();
     }
 
