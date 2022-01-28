@@ -4810,6 +4810,10 @@ PrefabInstance:
       propertyPath: lives.Array.data[2]
       value: 
       objectReference: {fileID: 1400928549}
+    - target: {fileID: 4424238128525609219, guid: cf56eebe71f904d4dabdc383a01016d7, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4424238128525609222, guid: cf56eebe71f904d4dabdc383a01016d7, type: 3}
       propertyPath: m_Name
       value: Player
