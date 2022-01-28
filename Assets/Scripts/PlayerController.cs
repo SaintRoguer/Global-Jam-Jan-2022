@@ -67,8 +67,8 @@ public class PlayerController : MonoBehaviour {
         //amount of extra jumps
         totalJumps = 2;
         availableJumps = totalJumps;
-        dashDistance = 3f;
-        dashTime = 0.4f;
+        dashDistance = 4f;
+        dashTime = 0.25f;
 
     }
 
@@ -155,6 +155,8 @@ public class PlayerController : MonoBehaviour {
         actualBullet.GetComponent<BulletController>().SetDamage(10);
         actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
         actualBullet.GetComponent<MoveForward>().SetDirection(lastDirection);
+        if(lastDirection<0)
+            actualBullet.GetComponent<SpriteRenderer>().flipX = true;
         animator.SetBool("Shoot", true);
     }
     public void SwitchGunColor(InputAction.CallbackContext context) {
