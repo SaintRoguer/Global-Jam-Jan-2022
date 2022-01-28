@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
 public class EnemyAI : MonoBehaviour
 
 {
@@ -118,10 +117,11 @@ public class EnemyAI : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log($"{name} colisiono");
-            Debug.Log("Prueba consola");
-
             FindObjectOfType<LifeCount>().LoseLife();
+        }
+        if (collision.CompareTag("Ground"))
+        {
+
         }
     }
 }
