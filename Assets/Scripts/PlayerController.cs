@@ -67,8 +67,8 @@ public class PlayerController : MonoBehaviour {
         //amount of extra jumps
         totalJumps = 2;
         availableJumps = totalJumps;
-        dashDistance = 3f;
-        dashTime = 0.4f;
+        dashDistance = 4f;
+        dashTime = 0.25f;
 
     }
 
