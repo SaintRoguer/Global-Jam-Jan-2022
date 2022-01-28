@@ -14,7 +14,7 @@ public class ColourSystem : MonoBehaviour
     public CombinationState combinationState;
 
     public Queue<MainColours> playerColourWheel = new Queue<MainColours>();
-    public Queue<MainColours> weaponColoursWheel = new Queue<MainColours>();
+    public Queue<MainColours> weaponColourWheel = new Queue<MainColours>();
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +26,9 @@ public class ColourSystem : MonoBehaviour
         playerColourWheel.Enqueue(MainColours.RED);
         playerColourWheel.Enqueue(MainColours.BLUE);
         playerColourWheel.Enqueue(MainColours.YELLOW);
+        weaponColourWheel.Enqueue(MainColours.YELLOW);
+        weaponColourWheel.Enqueue(MainColours.RED);
+        weaponColourWheel.Enqueue(MainColours.BLUE);
     }
 
 
@@ -40,8 +43,8 @@ public class ColourSystem : MonoBehaviour
 
     public MainColours ChangeSecondaryColour()
     {
-        secondaryState = playerColourWheel.Dequeue();
-        playerColourWheel.Enqueue(secondaryState);
+        secondaryState = weaponColourWheel.Dequeue();
+        weaponColourWheel.Enqueue(secondaryState);
         ChangeColour();
         return secondaryState;
     }

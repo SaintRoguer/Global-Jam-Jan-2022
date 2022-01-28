@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour {
         playerControls.game.switchGunColor.performed += SwitchGunColor;
         playerControls.game.switchPlayerColor.performed += SwitchPlayerColor;
         //amount of extra jumps
-        totalJumps = 1;
+        totalJumps = 2;
         availableJumps = totalJumps;
         dashDistance = 3f;
         dashTime = 0.4f;
