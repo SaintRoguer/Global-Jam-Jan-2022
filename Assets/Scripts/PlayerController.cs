@@ -155,6 +155,8 @@ public class PlayerController : MonoBehaviour {
         actualBullet.GetComponent<BulletController>().SetDamage(10);
         actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
         actualBullet.GetComponent<MoveForward>().SetDirection(lastDirection);
+        if(lastDirection<0)
+            actualBullet.GetComponent<SpriteRenderer>().flipX = true;
         animator.SetBool("Shoot", true);
     }
     public void SwitchGunColor(InputAction.CallbackContext context) {
