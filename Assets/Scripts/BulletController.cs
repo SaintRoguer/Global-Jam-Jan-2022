@@ -10,6 +10,7 @@ public class BulletController : MonoBehaviour
     private int damage;
     private SpriteRenderer spriteRenderer;
     private CombinationState combinationState;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,27 +18,56 @@ public class BulletController : MonoBehaviour
         //hitboxBullet = GetComponent<CircleCollider2D>();
         damage = 10;
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        animator = GetComponent<Animator>();
         combinationState = player.GetComponent<ColourSystem>().combinationState;
         switch (combinationState) {
             case CombinationState.BLUE:
-                spriteRenderer.color = Color.blue;
+                animator.SetFloat("Blue", 1f);
+                animator.SetFloat("Red", 0f);
+                animator.SetFloat("Yellow", 0f);
+                animator.SetFloat("Green", 0f);
+                animator.SetFloat("Orange", 0f);
+                animator.SetFloat("Violet", 0f);
                 break;
             case CombinationState.YELLOW:
-                spriteRenderer.color = Color.yellow;
+                animator.SetFloat("Blue", 0f);
+                animator.SetFloat("Red", 0f);
+                animator.SetFloat("Yellow", 1f);
+                animator.SetFloat("Green", 0f);
+                animator.SetFloat("Orange", 0f);
+                animator.SetFloat("Violet", 0f);
                 break;
             case CombinationState.RED:
-                spriteRenderer.color = Color.red;
+                animator.SetFloat("Blue", 0f);
+                animator.SetFloat("Red", 1f);
+                animator.SetFloat("Yellow", 0f);
+                animator.SetFloat("Green", 0f);
+                animator.SetFloat("Orange", 0f);
+                animator.SetFloat("Violet", 0f);
                 break;
             case CombinationState.VIOLET:
-                spriteRenderer.color = Color.red + Color.blue;
+                animator.SetFloat("Blue", 0f);
+                animator.SetFloat("Red", 0f);
+                animator.SetFloat("Yellow", 0f);
+                animator.SetFloat("Green", 0f);
+                animator.SetFloat("Orange", 0f);
+                animator.SetFloat("Violet", 1f);
                 break;
             case CombinationState.GREEN:
-                spriteRenderer.color = Color.green;
+                animator.SetFloat("Blue", 0f);
+                animator.SetFloat("Red", 0f);
+                animator.SetFloat("Yellow", 0f);
+                animator.SetFloat("Green", 1f);
+                animator.SetFloat("Orange", 0f);
+                animator.SetFloat("Violet", 0f);
                 break;
             case CombinationState.ORANGE:
-                spriteRenderer.color = Color.red + new Color(1,1,0,1);
-                Debug.Log("Orange");
+                animator.SetFloat("Blue", 0f);
+                animator.SetFloat("Red", 0f);
+                animator.SetFloat("Yellow", 0f);
+                animator.SetFloat("Green", 0f);
+                animator.SetFloat("Orange", 1f);
+                animator.SetFloat("Violet", 0f);
                 break;
 
         }
