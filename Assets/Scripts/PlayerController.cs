@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour {
         playerControls = new Controls();
         animator = GetComponent<Animator>();
         animator.SetFloat("Yellow", 1);
+        animator.SetFloat("YellowGun", 1);
+        lastDirection = -1;
         colourSystem = GetComponent<ColourSystem>();
     }
 
@@ -92,7 +94,6 @@ public class PlayerController : MonoBehaviour {
         move = playerControls.game.move.ReadValue<float>();
         if (context.performed && move!=0) {
             lastDirection = move;
-            Debug.Log(lastDirection);
         }
         if (move > 0 && transform.localScale.x > 0) {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
@@ -150,7 +151,7 @@ public class PlayerController : MonoBehaviour {
     //This has to make the bullet go to the right side
     public void Shoot(InputAction.CallbackContext context) {
 
-        GameObject actualBullet = Instantiate(bulletPrefab, transform.position+new Vector3(1,-1,0), bulletPrefab.transform.rotation);
+        GameObject actualBullet = Instantiate(bulletPrefab, transform.position+new Vector3(lastDirection*1,-0.3f,0), bulletPrefab.transform.rotation);
         actualBullet.GetComponent<BulletController>().SetDamage(10);
         actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
         actualBullet.GetComponent<MoveForward>().SetDirection(lastDirection);
