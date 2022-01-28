@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4548760825034188593}
   - component: {fileID: 4548760825034188598}
   - component: {fileID: 4548760825034188605}
+  - component: {fileID: 1531417165015876317}
   m_Layer: 0
   m_Name: Door
   m_TagString: Door
@@ -162,3 +163,22 @@ MonoBehaviour:
   sLevelToLoad: Room2
   useIntegerToLoadLevel: 0
   isOpen: 0
+--- !u!95 &1531417165015876317
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4548760825034188599}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0265edacea3baa40900621d69c2cee0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
