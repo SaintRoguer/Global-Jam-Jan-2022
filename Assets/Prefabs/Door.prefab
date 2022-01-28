@@ -159,6 +159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iLevelToLoad: 0
-  sLevelToLoad: 
+  sLevelToLoad: Room2
   useIntegerToLoadLevel: 0
   isOpen: 0

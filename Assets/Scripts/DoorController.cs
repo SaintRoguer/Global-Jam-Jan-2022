@@ -29,6 +29,7 @@ public class DoorController : MonoBehaviour
     public void Open()
     {
         gameObject.GetComponent<LevelLoader>().isOpen = true;
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
     }
 
 }
