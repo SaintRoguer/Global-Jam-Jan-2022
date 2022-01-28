@@ -17,6 +17,14 @@ public class EnemyAI : MonoBehaviour
     //Life of the enemy
     public int lifePoints = 10;
 
+    private Animator animator;
+    public bool die = false;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     private void Reset()
     {
         Init();
@@ -95,11 +103,14 @@ public class EnemyAI : MonoBehaviour
         lifePoints -= damage;
         Debug.Log("Enemy has " + lifePoints + " lifePoints remaining");
         if (lifePoints <= 0)
-            Die();
+            StartCoroutine(Die());
     }
 
-    void Die()
+    private IEnumerator Die()
     {
+        speed = 0f;
+        animator.SetBool("Die", true);
+        yield return new WaitForSeconds(1.3f);
         Destroy(transform.root.gameObject);
     }
 

@@ -1,7 +1,46 @@
 fileFormatVersion: 2
 guid: ce3cbeb3bcfeefc4b856ef8303ec0b3d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4401471087992919876
+    second: 03- Angel - Blue Hair Yellow ShootJump 1_0
+  - first:
+      213: -4848626441581558609
+    second: 03- Angel - Blue Hair Yellow ShootJump 1_1
+  - first:
+      213: -4697134418368559266
+    second: 03- Angel - Blue Hair Yellow ShootJump 1_2
+  - first:
+      213: -211320357510085065
+    second: 03- Angel - Blue Hair Yellow ShootJump 1_3
+  - first:
+      213: 440924329164121882
+    second: 03- Angel - Blue Hair Yellow ShootJump 1_4
+  - first:
+      213: 1464528660965839558
+    second: 03- Angel - Blue Hair Yellow ShootJump 1_5
+  - first:
+      213: 5791373257906333826
+    second: 03- Angel - Blue Hair Yellow ShootJump 1_6
+  - first:
+      213: -2400271588650936416
+    second: 03- Angel - Blue Hair Yellow ShootJump 1_7
+  - first:
+      213: 618933373350783690
+    second: 03- Angel - Blue Hair Yellow ShootJump 1_8
+  - first:
+      213: -5099550615020738506
+    second: 03- Angel - Blue Hair Yellow ShootJump 1_9
+  - first:
+      213: 659691966134079408
+    second: 03- Angel - Blue Hair Yellow ShootJump 1_10
+  - first:
+      213: -8291173957041877863
+    second: 03- Angel - Blue Hair Yellow ShootJump 1_11
+  - first:
+      213: 9034109594144834328
+    second: 03- Angel - Blue Hair Yellow ShootJump 1_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +128,280 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 03- Angel - Blue Hair Yellow ShootJump 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8a70f8d55dae2c0800000000000000
+      internalID: -4401471087992919876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03- Angel - Blue Hair Yellow ShootJump 1_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa407f4c0f736bcb0800000000000000
+      internalID: -4848626441581558609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03- Angel - Blue Hair Yellow ShootJump 1_2
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5781ea022d60deb0800000000000000
+      internalID: -4697134418368559266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03- Angel - Blue Hair Yellow ShootJump 1_3
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7368dc4214d311df0800000000000000
+      internalID: -211320357510085065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03- Angel - Blue Hair Yellow ShootJump 1_4
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a17a7ac575a7e1600800000000000000
+      internalID: 440924329164121882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03- Angel - Blue Hair Yellow ShootJump 1_5
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c25f38ce0d035410800000000000000
+      internalID: 1464528660965839558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03- Angel - Blue Hair Yellow ShootJump 1_6
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28824374b471f5050800000000000000
+      internalID: 5791373257906333826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03- Angel - Blue Hair Yellow ShootJump 1_7
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a79ff115b580bed0800000000000000
+      internalID: -2400271588650936416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03- Angel - Blue Hair Yellow ShootJump 1_8
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca2532bf94e69800800000000000000
+      internalID: 618933373350783690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03- Angel - Blue Hair Yellow ShootJump 1_9
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6386095fbb1ca39b0800000000000000
+      internalID: -5099550615020738506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03- Angel - Blue Hair Yellow ShootJump 1_10
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bfc9961952b72900800000000000000
+      internalID: 659691966134079408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03- Angel - Blue Hair Yellow ShootJump 1_11
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99c8c8fe635dfec80800000000000000
+      internalID: -8291173957041877863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 03- Angel - Blue Hair Yellow ShootJump 1_12
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 0
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81383f4afca9f5d70800000000000000
+      internalID: 9034109594144834328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

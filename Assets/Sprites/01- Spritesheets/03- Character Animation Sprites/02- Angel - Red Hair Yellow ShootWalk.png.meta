@@ -1,7 +1,40 @@
 fileFormatVersion: 2
 guid: b0b1baa818a4b6a4e8618073b2995ba1
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2645992571909926097
+    second: 02- Angel - Red Hair Yellow ShootWalk_0
+  - first:
+      213: -7649113232559461539
+    second: 02- Angel - Red Hair Yellow ShootWalk_1
+  - first:
+      213: -4402466304197077298
+    second: 02- Angel - Red Hair Yellow ShootWalk_2
+  - first:
+      213: 3776089496678911390
+    second: 02- Angel - Red Hair Yellow ShootWalk_3
+  - first:
+      213: -2267748688726003196
+    second: 02- Angel - Red Hair Yellow ShootWalk_4
+  - first:
+      213: -1312805449341480751
+    second: 02- Angel - Red Hair Yellow ShootWalk_5
+  - first:
+      213: -5740170969312709366
+    second: 02- Angel - Red Hair Yellow ShootWalk_6
+  - first:
+      213: 8104353642688408358
+    second: 02- Angel - Red Hair Yellow ShootWalk_7
+  - first:
+      213: -2389555224489598668
+    second: 02- Angel - Red Hair Yellow ShootWalk_8
+  - first:
+      213: 8466006108877025062
+    second: 02- Angel - Red Hair Yellow ShootWalk_9
+  - first:
+      213: 7739752622697923810
+    second: 02- Angel - Red Hair Yellow ShootWalk_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +122,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 02- Angel - Red Hair Yellow ShootWalk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f239cf066cb874bd0800000000000000
+      internalID: -2645992571909926097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Red Hair Yellow ShootWalk_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5bad8eaa04e8d590800000000000000
+      internalID: -7649113232559461539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Red Hair Yellow ShootWalk_2
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec6d4bab83c47e2c0800000000000000
+      internalID: -4402466304197077298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Red Hair Yellow ShootWalk_3
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9d41a1046d576430800000000000000
+      internalID: 3776089496678911390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Red Hair Yellow ShootWalk_4
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 402f0a825965780e0800000000000000
+      internalID: -2267748688726003196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Red Hair Yellow ShootWalk_5
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0ddcc366af7cde0800000000000000
+      internalID: -1312805449341480751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Red Hair Yellow ShootWalk_6
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a053b188ae0d650b0800000000000000
+      internalID: -5740170969312709366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Red Hair Yellow ShootWalk_7
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62be59603b2787070800000000000000
+      internalID: 8104353642688408358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Red Hair Yellow ShootWalk_8
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4316e190f2896ded0800000000000000
+      internalID: -2389555224489598668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Red Hair Yellow ShootWalk_9
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62fe6e183bb4d7570800000000000000
+      internalID: 8466006108877025062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Red Hair Yellow ShootWalk_10
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e4ce4dd000296b60800000000000000
+      internalID: 7739752622697923810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

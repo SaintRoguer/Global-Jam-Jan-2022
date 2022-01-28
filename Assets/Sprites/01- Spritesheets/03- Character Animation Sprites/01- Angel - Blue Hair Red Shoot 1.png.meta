@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: 20b3076eb1150b44a81086c6d5be4489
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -6078032557975080275
+    second: 01- Angel - Blue Hair Red Shoot 1_0
+  - first:
+      213: 1330586488866611713
+    second: 01- Angel - Blue Hair Red Shoot 1_1
+  - first:
+      213: 3647482663206173095
+    second: 01- Angel - Blue Hair Red Shoot 1_2
+  - first:
+      213: -4809260181259245994
+    second: 01- Angel - Blue Hair Red Shoot 1_3
+  - first:
+      213: -981694638908789067
+    second: 01- Angel - Blue Hair Red Shoot 1_4
+  - first:
+      213: 6113016644963971458
+    second: 01- Angel - Blue Hair Red Shoot 1_5
+  - first:
+      213: 3348572252445851875
+    second: 01- Angel - Blue Hair Red Shoot 1_6
+  - first:
+      213: 1903961572745236692
+    second: 01- Angel - Blue Hair Red Shoot 1_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +113,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 01- Angel - Blue Hair Red Shoot 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da2f2a0679d76aba0800000000000000
+      internalID: -6078032557975080275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Blue Hair Red Shoot 1_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10224d3ac51377210800000000000000
+      internalID: 1330586488866611713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Blue Hair Red Shoot 1_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a9bcc038267e9230800000000000000
+      internalID: 3647482663206173095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Blue Hair Red Shoot 1_3
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 656ac9f7853124db0800000000000000
+      internalID: -4809260181259245994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Blue Hair Red Shoot 1_4
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5beafe95de15062f0800000000000000
+      internalID: -981694638908789067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Blue Hair Red Shoot 1_5
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281b02d104cc5d450800000000000000
+      internalID: 6113016644963971458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Blue Hair Red Shoot 1_6
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e0c3cbd8b4887e20800000000000000
+      internalID: 3348572252445851875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Blue Hair Red Shoot 1_7
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d0597976fa3c6a10800000000000000
+      internalID: 1903961572745236692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

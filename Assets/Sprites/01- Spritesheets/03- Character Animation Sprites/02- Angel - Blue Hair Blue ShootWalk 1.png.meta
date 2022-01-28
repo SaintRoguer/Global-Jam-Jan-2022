@@ -1,7 +1,40 @@
 fileFormatVersion: 2
 guid: 1ba79b9f6d1124148b9aa83e23660fab
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1529344998785417442
+    second: 02- Angel - Blue Hair Blue ShootWalk 1_0
+  - first:
+      213: 7079854240356214007
+    second: 02- Angel - Blue Hair Blue ShootWalk 1_1
+  - first:
+      213: 1063884606951967507
+    second: 02- Angel - Blue Hair Blue ShootWalk 1_2
+  - first:
+      213: 4531999608182198980
+    second: 02- Angel - Blue Hair Blue ShootWalk 1_3
+  - first:
+      213: 6540064421835845540
+    second: 02- Angel - Blue Hair Blue ShootWalk 1_4
+  - first:
+      213: -8280346281801611133
+    second: 02- Angel - Blue Hair Blue ShootWalk 1_5
+  - first:
+      213: 4126649400536823961
+    second: 02- Angel - Blue Hair Blue ShootWalk 1_6
+  - first:
+      213: 6804568224720034933
+    second: 02- Angel - Blue Hair Blue ShootWalk 1_7
+  - first:
+      213: 4332796526714988711
+    second: 02- Angel - Blue Hair Blue ShootWalk 1_8
+  - first:
+      213: 5931136924956793635
+    second: 02- Angel - Blue Hair Blue ShootWalk 1_9
+  - first:
+      213: 3874966329790128374
+    second: 02- Angel - Blue Hair Blue ShootWalk 1_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +122,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 02- Angel - Blue Hair Blue ShootWalk 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1fff5093dca6cae0800000000000000
+      internalID: -1529344998785417442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Blue Hair Blue ShootWalk 1_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f4a9f1cbe1b04260800000000000000
+      internalID: 7079854240356214007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Blue Hair Blue ShootWalk 1_2
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31bc06fc96da3ce00800000000000000
+      internalID: 1063884606951967507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Blue Hair Blue ShootWalk 1_3
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c2d8efc1a5e4ee30800000000000000
+      internalID: 4531999608182198980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Blue Hair Blue ShootWalk 1_4
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af22bfd0f9f2ca50800000000000000
+      internalID: 6540064421835845540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Blue Hair Blue ShootWalk 1_5
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3880df78dec461d80800000000000000
+      internalID: -8280346281801611133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Blue Hair Blue ShootWalk 1_6
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 998739f04cdc44930800000000000000
+      internalID: 4126649400536823961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Blue Hair Blue ShootWalk 1_7
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c195c8fbeae6e50800000000000000
+      internalID: 6804568224720034933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Blue Hair Blue ShootWalk 1_8
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8a4e22c7f212c30800000000000000
+      internalID: 4332796526714988711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Blue Hair Blue ShootWalk 1_9
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b9046db91af4250800000000000000
+      internalID: 5931136924956793635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 02- Angel - Blue Hair Blue ShootWalk 1_10
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f06db3b855a6c530800000000000000
+      internalID: 3874966329790128374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

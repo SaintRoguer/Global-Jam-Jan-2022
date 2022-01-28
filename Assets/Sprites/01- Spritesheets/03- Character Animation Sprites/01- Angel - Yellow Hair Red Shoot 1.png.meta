@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: d498d330d1da562418eb89fe124465f5
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8392864085926748369
+    second: 01- Angel - Yellow Hair Red Shoot 1_0
+  - first:
+      213: -3920447330825104346
+    second: 01- Angel - Yellow Hair Red Shoot 1_1
+  - first:
+      213: -8896472842772063417
+    second: 01- Angel - Yellow Hair Red Shoot 1_2
+  - first:
+      213: 2812680014174841573
+    second: 01- Angel - Yellow Hair Red Shoot 1_3
+  - first:
+      213: 7949958921636358027
+    second: 01- Angel - Yellow Hair Red Shoot 1_4
+  - first:
+      213: -1525926112678184895
+    second: 01- Angel - Yellow Hair Red Shoot 1_5
+  - first:
+      213: -3980423578310761544
+    second: 01- Angel - Yellow Hair Red Shoot 1_6
+  - first:
+      213: -1574256100911134528
+    second: 01- Angel - Yellow Hair Red Shoot 1_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +113,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 01- Angel - Yellow Hair Red Shoot 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2fd336c49e868b80800000000000000
+      internalID: -8392864085926748369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Yellow Hair Red Shoot 1_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6249a8d8ce5c799c0800000000000000
+      internalID: -3920447330825104346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Yellow Hair Red Shoot 1_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b59a4c511698480800000000000000
+      internalID: -8896472842772063417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Yellow Hair Red Shoot 1_3
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ea6bb71295a80720800000000000000
+      internalID: 2812680014174841573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Yellow Hair Red Shoot 1_4
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b87251fb48de35e60800000000000000
+      internalID: 7949958921636358027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Yellow Hair Red Shoot 1_5
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148f2540942d2dae0800000000000000
+      internalID: -1525926112678184895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Yellow Hair Red Shoot 1_6
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b3a23f38d1b2c8c0800000000000000
+      internalID: -3980423578310761544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 01- Angel - Yellow Hair Red Shoot 1_7
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c843bfba6e172ae0800000000000000
+      internalID: -1574256100911134528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

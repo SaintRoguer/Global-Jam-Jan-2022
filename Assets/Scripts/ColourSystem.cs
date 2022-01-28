@@ -36,11 +36,9 @@ public class ColourSystem : MonoBehaviour
         playerColourWheel.Enqueue(mainState);
         ChangeColour();
         return mainState;
-
-
     }
 
-    public MainColours ChangeSecondaryColour( MainColours colour)
+    public MainColours ChangeSecondaryColour()
     {
         secondaryState = playerColourWheel.Dequeue();
         playerColourWheel.Enqueue(secondaryState);

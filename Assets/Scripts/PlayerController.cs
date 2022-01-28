@@ -157,8 +157,45 @@ public class PlayerController : MonoBehaviour {
         animator.SetBool("Shoot", true);
     }
     public void SwitchGunColor(InputAction.CallbackContext context) {
-
+        MainColours colourSelected = colourSystem.ChangeSecondaryColour();
+        switch (colourSelected)
+        {
+            case MainColours.YELLOW:
+                ChangeGunToYellow();
+                break;
+            case MainColours.BLUE:
+                ChangeGunToBlue();
+                break;
+            case MainColours.RED:
+                ChangeGunToRed();
+                break;
+            default:
+                break;
+        }
     }
+
+    private void ChangeGunToYellow()
+    {
+        animator.SetFloat("YellowGun", 1);
+        animator.SetFloat("RedGun", 0);
+        animator.SetFloat("BlueGun", 0);
+        //Cambiar daño de la bala
+    }
+
+    private void ChangeGunToBlue()
+    {
+        animator.SetFloat("YellowGun", 0);
+        animator.SetFloat("RedGun", 0);
+        animator.SetFloat("BlueGun", 1);
+    }
+
+    private void ChangeGunToRed()
+    {
+        animator.SetFloat("YellowGun", 0);
+        animator.SetFloat("RedGun", 1);
+        animator.SetFloat("BlueGun", 0);
+    }
+
     public void SwitchPlayerColor(InputAction.CallbackContext context) {
         MainColours colourSelected = colourSystem.ChangeMainColour();
         switch (colourSelected)
@@ -176,6 +213,7 @@ public class PlayerController : MonoBehaviour {
                 break;
         }
     }
+
 
     private void ChangePlayerToYellow()
     {
