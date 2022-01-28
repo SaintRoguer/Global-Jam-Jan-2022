@@ -156,6 +156,8 @@ public class PlayerController : MonoBehaviour {
         actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
         actualBullet.GetComponent<MoveForward>().SetDirection(lastDirection);
         if(lastDirection<0)
+            actualBullet.GetComponent<SpriteRenderer>().flipX = false;
+        else
             actualBullet.GetComponent<SpriteRenderer>().flipX = true;
         animator.SetBool("Shoot", true);
     }
