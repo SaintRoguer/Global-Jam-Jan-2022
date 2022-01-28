@@ -22,6 +22,8 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        float velocityInX = gameObject.GetComponentInParent<Rigidbody2D>().velocity.x;
+        gameObject.GetComponentInParent<Rigidbody2D>().velocity = new Vector2(velocityInX,0f);
     }
 
     private void Reset()
@@ -118,10 +120,6 @@ public class EnemyAI : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             FindObjectOfType<LifeCount>().LoseLife();
-        }
-        if (collision.CompareTag("Ground"))
-        {
-
         }
     }
 }
