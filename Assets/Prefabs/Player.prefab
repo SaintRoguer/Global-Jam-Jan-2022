@@ -153,9 +153,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   speed: 400
-  jumpForce: 20
-  dashDistance: 1
-  dashTime: 0
+  jumpForce: 23
+  dashDistance: 4
+  dashTime: 0.25
 --- !u!114 &4424238128525609245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +186,7 @@ Rigidbody2D:
   m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 3
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
