@@ -14,6 +14,7 @@ public class SoundManagerScript : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        
         masterMixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat("masterVolume"));
         sfxMixer.SetFloat("EffectsVolume", PlayerPrefs.GetFloat("effectsVolume"));
 
