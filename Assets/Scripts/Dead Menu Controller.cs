@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeadMenuController : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class DeadMenuController : MonoBehaviour { 
+    PauseController pauseController;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Start() {
+        pauseController = FindObjectOfType<PauseController>();
+    }
+    public void Continue() {
+        pauseController.Continue();
+    }
+    public void Exit() {
+        pauseController.Exit();
     }
 }
