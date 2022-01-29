@@ -372,11 +372,8 @@ public class PlayerController : MonoBehaviour {
             if (sound.Length > 1) {
                 Destroy(sound [1]);
             }
-            GameObject [] camera = GameObject.FindGameObjectsWithTag("MainCamera");
-            if (camera.Length > 1) {
-                Destroy(camera [0]);
-                Debug.Log("Camara");
-            }
+            Destroy(GameObject.FindGameObjectWithTag("MainCamera"));
+            
         }
         lives = GameObject.FindGameObjectsWithTag("LivesUI");
 
