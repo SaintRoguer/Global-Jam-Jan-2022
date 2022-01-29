@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -56,6 +57,10 @@ public class PlayerController : MonoBehaviour {
         colourSystem = GetComponent<ColourSystem>();
     }
 
+    internal bool IsDead() {
+        return isDead;
+    }
+
     private void OnEnable() {
         playerControls.Enable();
     }
@@ -76,6 +81,7 @@ public class PlayerController : MonoBehaviour {
         playerControls.game.shoot.performed += Shoot;
         playerControls.game.switchGunColor.performed += SwitchGunColor;
         playerControls.game.switchPlayerColor.performed += SwitchPlayerColor;
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
         //amount of extra jumps
         totalJumps = 2;
         availableJumps = totalJumps;
@@ -101,6 +107,9 @@ public class PlayerController : MonoBehaviour {
         else
             animator.SetFloat("yVelocity", 0f);
         GroundCheck();
+    }
+    public void OnGameStateChanged(GameState gm) {
+        enabled = gm == GameState.Gameplay;
     }
     public void Move(InputAction.CallbackContext context) {
         Vector3 currentScale = transform.localScale;
@@ -312,7 +321,7 @@ public class PlayerController : MonoBehaviour {
         playerControls.game.shoot.performed -= Shoot;
         playerControls.game.switchGunColor.performed -= SwitchGunColor;
         playerControls.game.switchPlayerColor.performed -= SwitchPlayerColor;
-
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
         rb.velocity = new Vector2(0f, 0f);
 
         //Instanciar menu
