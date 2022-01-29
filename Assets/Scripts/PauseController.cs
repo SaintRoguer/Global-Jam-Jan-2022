@@ -55,22 +55,24 @@ public class PauseController : MonoBehaviour
             actualPause.enabled = true;
         }
         if (newGameState == GameState.Gameplay) {
-            Destroy(actualPause);
+            Destroy(actualPause.gameObject);
             pauseMenu.enabled = false;
         }
-        
+
         if (IsDead()) {
             currentState = GameStateManager.Instance.CurrentGameState;
-            if (currentState != GameState.Gameover)
+            if (currentState != GameState.Gameover) { 
                 GameStateManager.Instance.SetState(currentState);
 
-            actualDead = Instantiate(deadMenu, player.transform.position, deadMenu.transform.rotation);
-            actualDead.enabled = true;
-        }
+                actualDead = Instantiate(deadMenu, player.transform.position, deadMenu.transform.rotation);
+                actualDead.enabled = true;
+            }
         else {
-            Destroy(actualDead);
+            Destroy(actualDead.gameObject);
             deadMenu.enabled = false;
         }
+        }
+       
     }
     bool IsDead() {
         return player.GetComponent<PlayerController>().IsDead();

@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
     private int totalJumps;
     private int availableJumps;
     //Shoot related
-
+    GameObject actualBullet;
     public GameObject bulletPrefab;
     private int damage;
     //Dash related
@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour {
     public void Shoot(InputAction.CallbackContext context) {
         SoundManagerScript.PlaySound("shoot");
 
-        GameObject actualBullet = Instantiate(bulletPrefab, transform.position+new Vector3(lastDirection*1,-0.3f,0), bulletPrefab.transform.rotation);
+        actualBullet = Instantiate(bulletPrefab, transform.position+new Vector3(lastDirection*1,-0.3f,0), bulletPrefab.transform.rotation);
         actualBullet.GetComponent<BulletController>().SetDamage(damage);
         actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
         actualBullet.GetComponent<MoveForward>().SetDirection(lastDirection);

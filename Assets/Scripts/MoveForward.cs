@@ -9,8 +9,12 @@ public class MoveForward : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
     }
+    private void OnDestroy() {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
 
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -27,5 +31,8 @@ public class MoveForward : MonoBehaviour
     }
     public void SetSpeed(float s) {
         speed = s;
+    }
+    public void OnGameStateChanged(GameState gm) {
+        enabled = gm == GameState.Gameplay;
     }
 }

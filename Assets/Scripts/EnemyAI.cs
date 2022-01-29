@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour
     //The value of that applies to ID for changing.
     int idChangeValue = 1;
     //Speed of movement or flying.
-    public float speed = 2f;
+    private float speed = 8f;
     float velocityInX;
     //Life of the enemy
     public int lifePoints = 10;
@@ -77,11 +77,10 @@ public class EnemyAI : MonoBehaviour
 
     public void OnGameStateChanged(GameState gm) {
         if(gm != GameState.Gameplay) {
-            gameObject.GetComponentInParent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+            speed = 0f;
         }
-        else {
-            gameObject.GetComponentInParent<Rigidbody2D>().velocity = new Vector2(velocityInX, 0f);
-        }
+        else 
+            speed = 8f;
     }
     void MoveToNextPoint()
     {

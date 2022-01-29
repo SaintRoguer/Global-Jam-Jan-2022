@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorColour: 3
+  ID: 0
+  respawnSystem: {fileID: 0}
 --- !u!114 &4548760825034188605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iLevelToLoad: 0
-  sLevelToLoad: 
+  sLevelToLoad: Room 2
   useIntegerToLoadLevel: 0
   isOpen: 0
 --- !u!95 &1531417165015876317
