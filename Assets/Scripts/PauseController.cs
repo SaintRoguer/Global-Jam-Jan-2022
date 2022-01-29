@@ -97,7 +97,11 @@ public class PauseController : MonoBehaviour
         Pause(default);
     }
     public void Exit() {
-        //levelLoader.sLevelToLoad = "Main Menu";
+        if (actualDead != null)
+            Destroy(actualDead.gameObject);
+
+        if (actualPause != null)
+            Destroy(actualPause.gameObject);
         levelLoader.LoadScene();
     }
     public void Respawn() {
