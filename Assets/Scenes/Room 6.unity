@@ -57484,7 +57484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2082471827072051491, guid: def06c040f8e5e643a5481d5bd75d623, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2082471827072051491, guid: def06c040f8e5e643a5481d5bd75d623, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57553,7 +57553,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3327106150659969635, guid: 6c6415e4ca2943d42853a67010731b35, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3327106150659969635, guid: 6c6415e4ca2943d42853a67010731b35, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57666,3 +57666,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52c24cadd1c985f43b73559c5b03353d, type: 3}
+--- !u!1 &2058569062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058569063}
+  m_Layer: 0
+  m_Name: StartPosition from Room 4 to Room 6)
+  m_TagString: PosFromRoom4ToRoom6
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2058569063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058569062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22.37, y: -2.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
