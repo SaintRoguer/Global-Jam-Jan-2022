@@ -93,7 +93,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""pause"",
                     ""type"": ""Button"",
-                    ""id"": ""3c49a444-ec6b-448a-b059-3cb4936a701e"",
+                    ""id"": ""32656fc0-b12d-44ea-9a43-79b9118a13dd"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -191,23 +191,23 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7b9d9cb5-15d6-4a22-b2c3-867a1a55f302"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""7ba21c4d-6d57-47a7-9751-143843a7b56f"",
                     ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0fe5bd1-139b-4f13-92d3-2cea9d4a5e3f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }

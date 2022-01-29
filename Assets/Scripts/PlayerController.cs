@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.Utilities;
 
 public class PlayerController : MonoBehaviour {
     public Rigidbody2D rb;
-
+    private PauseController pauseController;
     private Controls playerControls;
     //Ground Check related
     private const float groundRadius = .2f;
@@ -67,6 +67,18 @@ public class PlayerController : MonoBehaviour {
 
     private void OnDisable() {
         playerControls.Disable();
+    }
+    private void OnDestroy() {
+        //suscripciones a los eventos
+        playerControls.game.move.performed -= Move;
+        playerControls.game.jump.performed -= Jump;
+        playerControls.game.jump.canceled -= Jump;
+        playerControls.game.interact.performed -= Interact;
+        playerControls.game.dash.performed -= Dash;
+        playerControls.game.shoot.performed -= Shoot;
+        playerControls.game.switchGunColor.performed -= SwitchGunColor;
+        playerControls.game.switchPlayerColor.performed -= SwitchPlayerColor;
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
     }
     // Start is called before the first frame update
     void Start() {

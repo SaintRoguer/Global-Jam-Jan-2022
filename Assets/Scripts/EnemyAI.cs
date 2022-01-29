@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     int idChangeValue = 1;
     //Speed of movement or flying.
     public float speed = 2f;
+    float velocityInX;
     //Life of the enemy
     public int lifePoints = 10;
 
@@ -22,8 +23,9 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        float velocityInX = gameObject.GetComponentInParent<Rigidbody2D>().velocity.x;
+        velocityInX = gameObject.GetComponentInParent<Rigidbody2D>().velocity.x;
         gameObject.GetComponentInParent<Rigidbody2D>().velocity = new Vector2(velocityInX,0f);
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
     }
 
     private void Reset()
@@ -70,6 +72,14 @@ public class EnemyAI : MonoBehaviour
         MoveToNextPoint();
     }
 
+    public void OnGameStateChanged(GameState gm) {
+        if(gm != GameState.Gameplay) {
+            gameObject.GetComponentInParent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
+        }
+        else {
+            gameObject.GetComponentInParent<Rigidbody2D>().velocity = new Vector2(velocityInX, 0f);
+        }
+    }
     void MoveToNextPoint()
     {
         //Get the next Point transform.
