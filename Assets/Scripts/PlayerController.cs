@@ -138,10 +138,10 @@ public class PlayerController : MonoBehaviour {
         }
     }
     public void Interact(InputAction.CallbackContext context) {
+        Collider2D obj = Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
 
-        if (Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer))
-            Debug.Log("INTERACT");
-
+        if (obj)
+            obj.GetComponent<Item>().Interact(gameObject);
     }
 
 

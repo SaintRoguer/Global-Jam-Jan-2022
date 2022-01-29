@@ -23,12 +23,9 @@ public class ColourSystem : MonoBehaviour
         combinationState = CombinationState.YELLOW;
 
         //Change to only add yellow, because this is a test with all colours.
-        playerColourWheel.Enqueue(MainColours.RED);
-        playerColourWheel.Enqueue(MainColours.BLUE);
         playerColourWheel.Enqueue(MainColours.YELLOW);
         weaponColourWheel.Enqueue(MainColours.YELLOW);
-        weaponColourWheel.Enqueue(MainColours.RED);
-        weaponColourWheel.Enqueue(MainColours.BLUE);
+
     }
 
 
@@ -49,63 +46,82 @@ public class ColourSystem : MonoBehaviour
         return secondaryState;
     }
 
+    public void AddColour(string colour)
+    {
+        switch (colour)
+        {
+            case "REDCOLOUR":
+                playerColourWheel.Enqueue(MainColours.RED);
+                weaponColourWheel.Enqueue(MainColours.RED);
+                break;
+            case "BLUECOLOUR":
+                playerColourWheel.Enqueue(MainColours.BLUE);
+                weaponColourWheel.Enqueue(MainColours.BLUE);
+                break;
+        }
+    }
+
     void ChangeColour()
     {
         switch (mainState)
         {
             case MainColours.YELLOW:
-                switch (secondaryState)
-                {
-                    case MainColours.YELLOW:
-                        combinationState = CombinationState.YELLOW;
-                        break;
-                    case MainColours.RED:
-                        combinationState = CombinationState.ORANGE;
-                        break;
-                    case MainColours.BLUE:
-                        combinationState = CombinationState.GREEN;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid secondary colour");
-                        break;
-                }
+                ChangeMainYellow();
                 break;
             case MainColours.BLUE:
-                switch (secondaryState)
-                {
-                    case MainColours.YELLOW:
-                        combinationState = CombinationState.GREEN;
-                        break;
-                    case MainColours.RED:
-                        combinationState = CombinationState.VIOLET;
-                        break;
-                    case MainColours.BLUE:
-                        combinationState = CombinationState.BLUE;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid secondary colour");
-                        break;
-                }
+                ChangeMainBlue();
+               
                 break;
             case MainColours.RED:
-                switch (secondaryState)
-                {
-                    case MainColours.YELLOW:
-                        combinationState = CombinationState.ORANGE;
-                        break;
-                    case MainColours.RED:
-                        combinationState = CombinationState.RED;
-                        break;
-                    case MainColours.BLUE:
-                        combinationState = CombinationState.VIOLET;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid secondary colour");
-                        break;
-                }
+                ChangeMainRed();
                 break;
-            default:
-                Console.WriteLine("Invalid main colour");
+        }
+    }
+
+    private void ChangeMainYellow()
+    {
+        switch (secondaryState)
+        {
+            case MainColours.YELLOW:
+                combinationState = CombinationState.YELLOW;
+                break;
+            case MainColours.RED:
+                combinationState = CombinationState.ORANGE;
+                break;
+            case MainColours.BLUE:
+                combinationState = CombinationState.GREEN;
+                break;
+        }
+    }
+
+    private void ChangeMainBlue()
+    {
+        switch (secondaryState)
+        {
+            case MainColours.YELLOW:
+                combinationState = CombinationState.GREEN;
+                break;
+            case MainColours.RED:
+                combinationState = CombinationState.VIOLET;
+                break;
+            case MainColours.BLUE:
+                combinationState = CombinationState.BLUE;
+                break;
+        }
+    }
+
+    private void ChangeMainRed()
+    {
+        switch (secondaryState)
+        {
+            case MainColours.YELLOW:
+                combinationState = CombinationState.ORANGE;
+                break;
+            case MainColours.RED:
+                combinationState = CombinationState.RED;
+                break;
+            case MainColours.BLUE:
+                combinationState = CombinationState.VIOLET;
                 break;
         }
     }
