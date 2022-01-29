@@ -340,6 +340,7 @@ public class PlayerController : MonoBehaviour {
         playerControls.game.shoot.performed -= Shoot;
         playerControls.game.switchGunColor.performed -= SwitchGunColor;
         playerControls.game.switchPlayerColor.performed -= SwitchPlayerColor;
+        GameStateManager.Instance.SetState(GameState.Gameover);
         GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
         rb.velocity = new Vector2(0f, 0f);
 
@@ -372,11 +373,8 @@ public class PlayerController : MonoBehaviour {
             if (sound.Length > 1) {
                 Destroy(sound [1]);
             }
-            GameObject [] camera = GameObject.FindGameObjectsWithTag("MainCamera");
-            if (camera.Length > 1) {
-                Destroy(camera [0]);
-                Debug.Log("Camara");
-            }
+            Destroy(GameObject.FindGameObjectWithTag("MainCamera"));
+            
         }
         lives = GameObject.FindGameObjectsWithTag("LivesUI");
 

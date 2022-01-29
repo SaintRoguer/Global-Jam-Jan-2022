@@ -848,7 +848,6 @@ GameObject:
   - component: {fileID: 1046282784}
   - component: {fileID: 1046282783}
   - component: {fileID: 1046282782}
-  - component: {fileID: 1046282786}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -937,18 +936,6 @@ RectTransform:
   m_AnchoredPosition: {x: 165, y: 89.5}
   m_SizeDelta: {x: 754, y: 179}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1046282786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046282781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e122435a9ca7eac43ad5b80fcf2fc144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1105324301
 GameObject:
   m_ObjectHideFlags: 0
@@ -17062,10 +17049,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4424238128525609218, guid: cf56eebe71f904d4dabdc383a01016d7, type: 3}
-      propertyPath: maxLives
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4424238128525609218, guid: cf56eebe71f904d4dabdc383a01016d7, type: 3}
       propertyPath: lives.Array.data[0]
       value: 
