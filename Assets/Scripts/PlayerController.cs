@@ -35,6 +35,15 @@ public class PlayerController : MonoBehaviour {
     private Vector2 inicialDashPosition;
     private bool isDashing;
 
+    //Interaction related
+    //Detection Point
+    public Transform detectionPoint;
+    //Detection Radius
+    private const float detectionRadius = 0.2f;
+    //Detection Layer
+    public LayerMask detectionLayer;
+
+    //Level
     private GameObject[] players;
     private int previousLevel = 0;
 
@@ -130,7 +139,13 @@ public class PlayerController : MonoBehaviour {
     }
     public void Interact(InputAction.CallbackContext context) {
 
+        if (Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer))
+            Debug.Log("INTERACT");
+
     }
+
+
+
     public void Dash(InputAction.CallbackContext context) {
         if(!isDashing) {
             StartCoroutine( Dash(lastDirection));
