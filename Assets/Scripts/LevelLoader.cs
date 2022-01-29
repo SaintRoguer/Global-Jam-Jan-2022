@@ -30,7 +30,7 @@ public class LevelLoader : MonoBehaviour
             LoadScene();
     }
 
-    void LoadScene()
+    public void LoadScene()
     {
         if (useIntegerToLoadLevel)
             SceneManager.LoadScene(iLevelToLoad);

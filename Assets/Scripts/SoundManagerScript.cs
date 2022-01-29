@@ -7,13 +7,15 @@ public class SoundManagerScript : MonoBehaviour
 {
     public static AudioClip jump, dash, shoot, normalEnemyDeathSound;
     static AudioSource audioSrc;
-    public AudioMixer masterMixer;
+    public AudioMixer masterMixer, sfxMixer;
     private float masterVolume = 1f;
+    private float effectsVolume = 1f;
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
         masterMixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat("masterVolume"));
+        sfxMixer.SetFloat("EffectsVolume", PlayerPrefs.GetFloat("effectsVolume"));
 
         normalEnemyDeathSound = Resources.Load<AudioClip>("NormalEnemyDeathSound");
         jump = Resources.Load<AudioClip>("Jump");
@@ -47,8 +49,12 @@ public class SoundManagerScript : MonoBehaviour
                 break;
         }
     }
-    public void SetVolume(float vol) {
+    public void SetMasterVolume(float vol) {
         masterMixer.SetFloat("MasterVolume", Mathf.Log10(vol) * 20);
         PlayerPrefs.SetFloat("masterVolume", Mathf.Log10(vol) * 20);
+    }
+    public void SetEffectsVolume(float vol) {
+        masterMixer.SetFloat("EffectsVolume", Mathf.Log10(vol) * 20);
+        PlayerPrefs.SetFloat("effectsVolume", Mathf.Log10(vol) * 20);
     }
 }
