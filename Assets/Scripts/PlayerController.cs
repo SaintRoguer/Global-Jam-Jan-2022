@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
     private int previousLevel = 3;
     private GameObject [] lives;
     private void Awake() {
-        playerControls = new Controls();
+        playerControls ??= new Controls();
         animator = GetComponent<Animator>();
         animator.SetFloat("Yellow", 1);
         animator.SetFloat("YellowGun", 1);
@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void OnEnable() {
+        if (playerControls == null)
+            playerControls = new Controls();
         playerControls.Enable();
     }
 
@@ -82,7 +84,7 @@ public class PlayerController : MonoBehaviour {
     }
     // Start is called before the first frame update
     void Start() {
-
+        Debug.Log("　　　　　　　　　　");
         DontDestroyOnLoad(gameObject);
         //suscripciones a los eventos
         playerControls.game.move.performed += Move;
@@ -122,9 +124,10 @@ public class PlayerController : MonoBehaviour {
     }
     public void OnGameStateChanged(GameState gm) {
         Debug.Log(gm);
-        enabled = gm == GameState.Gameplay;
+        enabled = !(gm == GameState.Pause);
     }
     public void Move(InputAction.CallbackContext context) {
+        Debug.Log("Move");
         Vector3 currentScale = transform.localScale;
         move = playerControls.game.move.ReadValue<float>();
         if (context.performed && move!=0) {
@@ -349,6 +352,8 @@ public class PlayerController : MonoBehaviour {
     public void Respawn() {
         OnEnable();
         Start();
+        GameStateManager.Instance.SetState(GameState.Gameplay);
+
         animator.SetBool("Dead", false);
         isDead = false;
         GetComponent<LifeCount>().Respawn();

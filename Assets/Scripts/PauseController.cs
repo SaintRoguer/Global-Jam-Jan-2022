@@ -13,6 +13,7 @@ public class PauseController : MonoBehaviour
     [SerializeField] GameObject player;
     Controls pauseControls;
     LevelLoader levelLoader;
+    GameState currentState;
     // Start is called before the first frame update
 
     private void Awake() {
@@ -27,6 +28,7 @@ public class PauseController : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        currentState = GameState.Gameplay;
         pauseMenu.enabled = false;
         deadMenu.enabled = false;
         levelLoader = GetComponent<LevelLoader>();
@@ -35,6 +37,8 @@ public class PauseController : MonoBehaviour
     }
     private void OnDestroy() {
         pauseControls.game.pause.performed -= Pause;
+
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
     }
 
     // Update is called once per frame
@@ -42,10 +46,11 @@ public class PauseController : MonoBehaviour
     {
     }
     public void OnGameStateChanged(GameState gm) {
-        Pause(default);
+        if(gm == GameState.Gameover)
+            Pause(default);
     }
     public void Pause(InputAction.CallbackContext context) {
-        GameState currentState = GameStateManager.Instance.CurrentGameState;
+        currentState = GameStateManager.Instance.CurrentGameState;
         GameState newGameState;
 
         if (currentState == GameState.Gameplay) {
