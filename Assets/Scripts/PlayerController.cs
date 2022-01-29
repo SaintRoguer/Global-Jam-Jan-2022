@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
     //Level
     private GameObject[] players;
     private int previousLevel = 3;
-
+    private GameObject [] lives;
     private void Awake() {
         playerControls = new Controls();
         animator = GetComponent<Animator>();
@@ -360,6 +360,24 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("Entre a onLevelWasLoaded");
         Debug.Log("previous level : " + previousLevel + "level : " + level);
         FindStartPos(previousLevel, level);
+
+        if(level == 3) {
+            Destroy(GameObject.FindGameObjectWithTag("Player"));
+            Destroy(GameObject.FindGameObjectWithTag("LivesUI"));
+            GameObject [] games = GameObject.FindGameObjectsWithTag("GameController");
+            if (games.Length > 1) {
+                Destroy(games [1]);
+            }
+            GameObject [] sound = GameObject.FindGameObjectsWithTag("Sound");
+            if (sound.Length > 1) {
+                Destroy(sound [1]);
+            }
+
+        }
+        lives = GameObject.FindGameObjectsWithTag("LivesUI");
+
+        if (lives.Length > 1)
+            Destroy(lives [1]);
 
         players = GameObject.FindGameObjectsWithTag("Player");
         
