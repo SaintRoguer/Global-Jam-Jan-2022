@@ -11,12 +11,23 @@ public class PauseController : MonoBehaviour
     [SerializeField] GameObject player;
     Controls pauseControls;
     // Start is called before the first frame update
+
+    private void Awake() {
+        pauseControls = new Controls();
+    }
+    private void OnEnable() {
+        pauseControls.Enable();
+    }
+    private void OnDisable() {
+        pauseControls.Disable();
+    }
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        pauseControls = new Controls;
         pauseMenu.enabled = false;
         deadMenu.enabled = false;
+
+        pauseControls.game.pause.performed += Pause;
     }
 
     // Update is called once per frame
@@ -26,7 +37,7 @@ public class PauseController : MonoBehaviour
     }
 
     public void Pause(InputAction.CallbackContext context) {
-       
+        Debug.Log("pausa");
         GameState currentState = GameStateManager.Instance.CurrentGameState;
         GameState newGameState = currentState == GameState.Gameplay
             ? GameState.Pause
