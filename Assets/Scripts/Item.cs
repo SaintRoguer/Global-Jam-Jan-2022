@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -7,6 +8,19 @@ public class Item : MonoBehaviour
 {
     public enum InteractionType { NONE, REDCOLOUR, BLUECOLOUR}
     public InteractionType type;
+    public int ID;
+    public RespawnSystem respawnSystem;
+
+
+    private void Start()
+    {
+        respawnSystem = FindObjectOfType<RespawnSystem>();
+
+        if (!respawnSystem.itemChecker.Any(door => door.objectID == ID))
+            respawnSystem.doorChecker.Add(new CheckerClass(ID));
+        else if (respawnSystem.doorChecker.Find(door => door.objectID == ID).interacted == true)
+            Destroy(gameObject);
+    }
 
     private void Reset()
     {
