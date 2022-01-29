@@ -5,9 +5,8 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField]
-    [Range(1, 10)]
     private int damage;
+    private int damageModifier;
     private SpriteRenderer spriteRenderer;
     private CombinationState combinationState;
     private Animator animator;
@@ -17,6 +16,7 @@ public class BulletController : MonoBehaviour
         //bulletRb = GetComponent<Rigidbody2D>();
         //hitboxBullet = GetComponent<CircleCollider2D>();
         damage = 10;
+        damageModifier = 5;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         combinationState = player.GetComponent<ColourSystem>().combinationState;
@@ -84,6 +84,12 @@ public class BulletController : MonoBehaviour
     }
     public int GetDamage() {
         return damage;
+    }
+    public void AddDamage() {
+        damage += damageModifier;
+    }
+    public void RestDamage() {
+        damage -= damageModifier;
     }
 
     public void SetPlayer(GameObject play) {

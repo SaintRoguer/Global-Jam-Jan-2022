@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody2D rb;
 
     private Controls playerControls;
-    public GameObject bulletPrefab;
     //Ground Check related
     private const float groundRadius = .2f;
     [SerializeField] private Transform groundCheckCollider;
@@ -26,6 +25,10 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float jumpForce;
     private int totalJumps;
     private int availableJumps;
+    //Shoot related
+
+    public GameObject bulletPrefab;
+    private int damage;
     //Dash related
     [SerializeField] private float dashDistance;
     [SerializeField]private float dashTime;
@@ -69,6 +72,7 @@ public class PlayerController : MonoBehaviour {
         availableJumps = totalJumps;
         dashDistance = 4f;
         dashTime = 0.25f;
+        damage = bulletPrefab.GetComponent<BulletController>().GetDamage();
 
     }
 
@@ -156,7 +160,7 @@ public class PlayerController : MonoBehaviour {
         SoundManagerScript.PlaySound("shoot");
 
         GameObject actualBullet = Instantiate(bulletPrefab, transform.position+new Vector3(lastDirection*1,-0.3f,0), bulletPrefab.transform.rotation);
-        actualBullet.GetComponent<BulletController>().SetDamage(10);
+        actualBullet.GetComponent<BulletController>().SetDamage(damage);
         actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
         actualBullet.GetComponent<MoveForward>().SetDirection(lastDirection);
         if(lastDirection<0)
@@ -171,12 +175,18 @@ public class PlayerController : MonoBehaviour {
         {
             case MainColours.YELLOW:
                 ChangeGunToYellow();
+                if (damage <= 5)
+                    damage += 5;
                 break;
             case MainColours.BLUE:
                 ChangeGunToBlue();
+                if (damage >= 5)
+                    damage -= 5;
                 break;
             case MainColours.RED:
                 ChangeGunToRed();
+                if (damage >= 5)
+                    damage -= 5;
                 break;
             default:
                 break;
@@ -211,12 +221,18 @@ public class PlayerController : MonoBehaviour {
         {
             case MainColours.YELLOW:
                 ChangePlayerToYellow();
+                if (damage <= 5)
+                    damage += 5;
                 break;
             case MainColours.BLUE:
                 ChangePlayerToBlue();
+                if (damage >= 5)
+                    damage -= 5;
                 break;
             case MainColours.RED:
                 ChangePlayerToRed();
+                if (damage >= 5)
+                    damage -= 5;
                 break;
             default:
                 break;
