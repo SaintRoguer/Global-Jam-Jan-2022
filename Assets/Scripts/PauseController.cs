@@ -102,6 +102,7 @@ public class PauseController : MonoBehaviour
 
         if (actualPause != null)
             Destroy(actualPause.gameObject);
+        levelLoader.sLevelToLoad = "Main Menu";
         levelLoader.LoadScene();
     }
     public void Respawn() {
