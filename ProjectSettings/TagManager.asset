@@ -15,6 +15,7 @@ TagManager:
   - PosFromRoom3ToRoom2
   - PosFromRoom2ToRoom3
   - PosFromMainMenuToRoom1
+  - LivesUI
   layers:
   - Default
   - TransparentFX
