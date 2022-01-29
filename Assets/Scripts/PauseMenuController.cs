@@ -9,8 +9,8 @@ public class PauseMenuController : MonoBehaviour
     private void Start() {
         pauseController = FindObjectOfType<PauseController>();
     }
-    public void Continue() {
-        pauseController.Continue();
+    public void Respawn() {
+        pauseController.Respawn();
     }
     public void Exit() {
         pauseController.Exit();
