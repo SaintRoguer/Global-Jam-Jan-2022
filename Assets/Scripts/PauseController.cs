@@ -80,10 +80,10 @@ public class PauseController : MonoBehaviour
         return player.GetComponent<PlayerController>().IsDead();
     }
     public void Continue() {
-        GameStateManager.Instance.SetState(GameState.Gameplay);
+        Pause(default);
     }
     public void Exit() {
-        levelLoader.sLevelToLoad = "Main Menu";
+        //levelLoader.sLevelToLoad = "Main Menu";
         levelLoader.LoadScene();
      }
 }
