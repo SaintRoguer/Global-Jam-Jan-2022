@@ -14,6 +14,7 @@ TagManager:
   - PosFromRoom1ToRoom2
   - PosFromRoom3ToRoom2
   - PosFromRoom2ToRoom3
+  - PosFromMainMenuToRoom1
   layers:
   - Default
   - TransparentFX
