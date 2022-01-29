@@ -17,6 +17,14 @@ TagManager:
   - PosFromMainMenuToRoom1
   - LivesUI
   - Sound
+  - PosFromRoom4ToRoom3
+  - PosFromRoom3ToRoom4
+  - PosFromRoom7ToRoom3
+  - PosFromRoom6ToRoom4
+  - PosFromRoom5ToRoom4
+  - PosFromRoom4ToRoom5
+  - PosFromRoom4ToRoom6
+  - PosFromRoom3ToRoom7
   layers:
   - Default
   - TransparentFX
