@@ -156,11 +156,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4548760825034188599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aa58d7f1fea6a744a7e57d46ced57ce, type: 3}
+  m_Script: {fileID: 11500000, guid: d9845bfe31489a04abb5260b3411e39e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   iLevelToLoad: 0
-  sLevelToLoad: Room 2
+  sLevelToLoad: 
   useIntegerToLoadLevel: 0
   isOpen: 0
 --- !u!95 &1531417165015876317
