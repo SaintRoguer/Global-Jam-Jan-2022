@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 public class SoundManagerScript : MonoBehaviour
 {
     public static AudioClip jump, dash, shoot, normalEnemyDeathSound;
-    static AudioSource audioSrc;
+    public static AudioSource[] audioSrc; 
     public AudioMixer masterMixer, sfxMixer;
     private float masterVolume = 1f;
     private float effectsVolume = 1f;
@@ -23,7 +23,8 @@ public class SoundManagerScript : MonoBehaviour
         dash = Resources.Load<AudioClip>("Dash");
         shoot = Resources.Load<AudioClip>("Gunshot");
 
-        audioSrc = GetComponent<AudioSource>();
+        audioSrc = GetComponents<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -37,16 +38,16 @@ public class SoundManagerScript : MonoBehaviour
         switch (clip)
         {
             case "normalEnemyDeath":
-                audioSrc.PlayOneShot(normalEnemyDeathSound);
+                audioSrc[1].PlayOneShot(normalEnemyDeathSound);
                 break;
             case "jump":
-                audioSrc.PlayOneShot(jump);
+                audioSrc[1].PlayOneShot(jump);
                 break;
             case "dash":
-                audioSrc.PlayOneShot(dash);
+                audioSrc[1].PlayOneShot(dash);
                 break;
             case "shoot":
-                audioSrc.PlayOneShot(shoot);
+                audioSrc[1].PlayOneShot(shoot);
                 break;
         }
     }
