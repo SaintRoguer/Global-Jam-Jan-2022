@@ -7,7 +7,9 @@ using UnityEngine.InputSystem.Utilities;
 public class PauseController : MonoBehaviour
 {
     [SerializeField] Canvas pauseMenu;
-    [SerializeField] Canvas deadMenu;
+    Canvas actualPause;
+   [SerializeField] Canvas deadMenu;
+    Canvas actualDead;
     [SerializeField] GameObject player;
     Controls pauseControls;
     // Start is called before the first frame update
@@ -29,6 +31,9 @@ public class PauseController : MonoBehaviour
 
         pauseControls.game.pause.performed += Pause;
     }
+    private void OnDestroy() {
+        pauseControls.game.pause.performed -= Pause;
+    }
 
     // Update is called once per frame
     void Update()
@@ -44,19 +49,28 @@ public class PauseController : MonoBehaviour
             : GameState.Gameplay;
 
         GameStateManager.Instance.SetState(newGameState);
-        if (newGameState == GameState.Pause)
-            pauseMenu.enabled = true;
-        if (newGameState == GameState.Gameplay)
+        if (newGameState == GameState.Pause) {
+
+            actualPause = Instantiate(pauseMenu, player.transform.position, pauseMenu.transform.rotation);
+            actualPause.enabled = true;
+        }
+        if (newGameState == GameState.Gameplay) {
+            Destroy(actualPause);
             pauseMenu.enabled = false;
+        }
         
         if (IsDead()) {
             currentState = GameStateManager.Instance.CurrentGameState;
             if (currentState != GameState.Gameover)
                 GameStateManager.Instance.SetState(currentState);
-            deadMenu.enabled = true;
+
+            actualDead = Instantiate(deadMenu, player.transform.position, deadMenu.transform.rotation);
+            actualDead.enabled = true;
         }
-        else
+        else {
+            Destroy(actualDead);
             deadMenu.enabled = false;
+        }
     }
     bool IsDead() {
         return player.GetComponent<PlayerController>().IsDead();

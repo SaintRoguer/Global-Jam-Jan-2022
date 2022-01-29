@@ -27,6 +27,9 @@ public class EnemyAI : MonoBehaviour
         gameObject.GetComponentInParent<Rigidbody2D>().velocity = new Vector2(velocityInX,0f);
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
     }
+    private void OnDestroy() {
+        GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+    }
 
     private void Reset()
     {
