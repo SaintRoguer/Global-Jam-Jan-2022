@@ -147,13 +147,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4424238128525609217}
-  bulletPrefab: {fileID: 1941641169143154915, guid: 5f0fda372fca4394b89db90520b5c81a, type: 3}
   groundCheckCollider: {fileID: 4424238128252592544}
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
   speed: 400
   jumpForce: 23
+  bulletPrefab: {fileID: 1941641169143154915, guid: 5f0fda372fca4394b89db90520b5c81a, type: 3}
   dashDistance: 4
   dashTime: 0.25
 --- !u!114 &4424238128525609245
