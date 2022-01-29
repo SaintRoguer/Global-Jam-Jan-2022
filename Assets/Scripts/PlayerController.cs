@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour {
 
     //Level
     private GameObject[] players;
-    private int previousLevel = 0;
+    private int previousLevel = 3;
 
     private void Awake() {
         playerControls = new Controls();
@@ -347,7 +347,8 @@ public class PlayerController : MonoBehaviour {
 
     private void OnLevelWasLoaded(int level)
     {
-
+        Debug.Log("Entre a onLevelWasLoaded");
+        Debug.Log("previous level : " + previousLevel + "level : " + level);
         FindStartPos(previousLevel, level);
 
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -363,7 +364,7 @@ public class PlayerController : MonoBehaviour {
         switch (level)
         {
             case 0:
-                transform.position = GameObject.FindWithTag("StartPos").transform.position;
+                FindPositionRoom1(previousLevel);
                 break;
             case 1:
                 FindPositionRoom2(previousLevel);
@@ -378,6 +379,19 @@ public class PlayerController : MonoBehaviour {
             case 5:
                 break;
             case 6:
+                break;
+        }
+    }
+
+    void FindPositionRoom1(int previousLevel)
+    {
+        switch (previousLevel)
+        {
+            case 1:
+                transform.position = GameObject.FindWithTag("StartPos").transform.position;
+                break;
+            case 3:
+                transform.position = GameObject.FindWithTag("PosFromMainMenuToRoom1").transform.position;
                 break;
         }
     }

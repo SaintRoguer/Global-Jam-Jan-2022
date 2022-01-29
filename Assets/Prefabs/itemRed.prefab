@@ -123,3 +123,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  ID: 1
+  respawnSystem: {fileID: 0}
