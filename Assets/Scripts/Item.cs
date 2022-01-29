@@ -14,14 +14,18 @@ public class Item : MonoBehaviour
         gameObject.layer = 9;
     }
 
-    public void Interact(GameObject player)
+    public void Interact(PlayerController player)
     {
         switch (type){
             case InteractionType.REDCOLOUR:
                 Debug.Log("REDCOLOUR");
+                player.GetComponent<ColourSystem>().AddColour("REDCOLOUR");
+                Destroy(gameObject);
                 break;
             case InteractionType.BLUECOLOUR:
                 Debug.Log("BLUECOLOUR");
+                player.GetComponent<ColourSystem>().AddColour("BLUECOLOUR");
+                Destroy(gameObject);
                 break;
             default:
                 Debug.Log("NULL ITEM");

@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour {
         Collider2D obj = Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
 
         if (obj)
-            obj.GetComponent<Item>().Interact(gameObject);
+            obj.GetComponent<Item>().Interact(this);
     }
 
 
