@@ -111,7 +111,7 @@ public class EnemyAI : MonoBehaviour
     {
         speed = 0f;
         animator.SetBool("Die", true);
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(transform.root.gameObject);
     }
 
