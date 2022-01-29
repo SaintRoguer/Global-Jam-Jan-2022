@@ -340,6 +340,7 @@ public class PlayerController : MonoBehaviour {
         playerControls.game.shoot.performed -= Shoot;
         playerControls.game.switchGunColor.performed -= SwitchGunColor;
         playerControls.game.switchPlayerColor.performed -= SwitchPlayerColor;
+        GameStateManager.Instance.SetState(GameState.Gameover);
         GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
         rb.velocity = new Vector2(0f, 0f);
 

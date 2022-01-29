@@ -30,7 +30,7 @@ public class PauseController : MonoBehaviour
         pauseMenu.enabled = false;
         deadMenu.enabled = false;
         levelLoader = GetComponent<LevelLoader>();
-
+        GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
         pauseControls.game.pause.performed += Pause;
     }
     private void OnDestroy() {
@@ -40,35 +40,41 @@ public class PauseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsDead() && actualDead==null)
-            Pause(default);
     }
-
+    public void OnGameStateChanged(GameState gm) {
+        Pause(default);
+    }
     public void Pause(InputAction.CallbackContext context) {
         GameState currentState = GameStateManager.Instance.CurrentGameState;
-        GameState newGameState = currentState == GameState.Gameplay
-            ? GameState.Pause
-            : GameState.Gameplay;
+        GameState newGameState;
+
+        if (currentState == GameState.Gameplay) {
+            newGameState = GameState.Pause;
+        }
+        else if (currentState == GameState.Pause) {
+            newGameState = GameState.Gameplay;
+        }
+        else
+            newGameState = GameState.Gameover;
 
         GameStateManager.Instance.SetState(newGameState);
 
-        if (IsDead()) {
-            currentState = GameStateManager.Instance.CurrentGameState;
-            if (currentState != GameState.Gameover) {
-                GameStateManager.Instance.SetState(currentState);
-
-                actualDead = Instantiate(deadMenu, player.transform.position, deadMenu.transform.rotation);
-                actualDead.enabled = true;
+        currentState = GameStateManager.Instance.CurrentGameState;
+        if (currentState == GameState.Gameover) {
+            actualDead = Instantiate(deadMenu, player.transform.position, deadMenu.transform.rotation);
+            actualDead.enabled = true;
+            if (actualPause != null) {
+                Destroy(actualPause.gameObject);
+                pauseMenu.enabled = false;
             }
-            else {
-                if (actualDead != null) {
-                    Destroy(actualDead.gameObject);
-                    deadMenu.enabled = false;
-                }
-            }
-            return;
         }
-
+        else {
+            if (actualDead != null) {
+                Destroy(actualDead.gameObject);
+                deadMenu.enabled = false;
+            }
+        }
+        
         if (newGameState == GameState.Pause) {
             if(actualDead != null) {
                 Destroy(actualDead.gameObject);
@@ -82,9 +88,10 @@ public class PauseController : MonoBehaviour
                 Destroy(actualDead.gameObject);
                 deadMenu.enabled = false;
             }
-            if (actualPause!=null)
+            if (actualPause != null) { 
                 Destroy(actualPause.gameObject);
-            pauseMenu.enabled = false;
+                pauseMenu.enabled = false;
+            }
         }
 
         

@@ -243,6 +243,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  maxLives: 3
   livesRemaining: 3
   player: {fileID: 4424238128525609222}
 --- !u!95 &4424238128525609244
