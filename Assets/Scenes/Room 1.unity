@@ -17302,6 +17302,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4424238128525609218, guid: cf56eebe71f904d4dabdc383a01016d7, type: 3}
+      propertyPath: maxLives
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424238128525609218, guid: cf56eebe71f904d4dabdc383a01016d7, type: 3}
       propertyPath: lives.Array.data[0]
       value: 
       objectReference: {fileID: 1910027738}

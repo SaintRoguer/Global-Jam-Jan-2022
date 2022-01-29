@@ -344,6 +344,8 @@ public class PlayerController : MonoBehaviour {
         Start();
         animator.SetBool("Dead", false);
         isDead = false;
+
+        speed = 400f;
     }
 
     private void OnLevelWasLoaded(int level)
