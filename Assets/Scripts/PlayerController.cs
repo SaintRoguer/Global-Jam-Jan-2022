@@ -106,12 +106,14 @@ public class PlayerController : MonoBehaviour {
     }
     public void Jump(InputAction.CallbackContext context) {
         if (context.performed && isOnGround) {
+            SoundManagerScript.PlaySound("jump");
             availableJumps--;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             animator.SetBool("Jump", true);
         }
         else {
             if (context.performed && !isOnGround && availableJumps > 0) {
+                SoundManagerScript.PlaySound("jump");
                 availableJumps--;
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
@@ -133,8 +135,9 @@ public class PlayerController : MonoBehaviour {
     }
     private IEnumerator Dash(float direction) {
         isDashing = true;
+        SoundManagerScript.PlaySound("dash");
         //Remuevo la gravedad
-        if(rb.velocity.x!=0)
+        if (rb.velocity.x!=0)
             rb.velocity = new Vector2(Mathf.Abs(rb.velocity.x) * dashDistance * direction, 0f);
         else 
             rb.velocity = new Vector2(speed * Time.fixedDeltaTime * dashDistance * direction, 0f);
@@ -150,6 +153,7 @@ public class PlayerController : MonoBehaviour {
     }
     //This has to make the bullet go to the right side
     public void Shoot(InputAction.CallbackContext context) {
+        SoundManagerScript.PlaySound("shoot");
 
         GameObject actualBullet = Instantiate(bulletPrefab, transform.position+new Vector3(lastDirection*1,-0.3f,0), bulletPrefab.transform.rotation);
         actualBullet.GetComponent<BulletController>().SetDamage(10);
