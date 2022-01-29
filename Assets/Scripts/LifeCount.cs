@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LifeCount : MonoBehaviour
 {
     public Image[] lives;
+    public int maxLives;
     public int livesRemaining;
     [SerializeField] GameObject player;
 
@@ -29,9 +30,10 @@ public class LifeCount : MonoBehaviour
             //FindObjectOfType<LevelManager>().Restart();
         }
     }
-
-    private void Update()
-    {
-        
+    public void Respawn() {
+        livesRemaining = maxLives;
+        for(int i =0; i<lives.Length; i++) {
+            lives [i].enabled = true;
+        }
     }
 }

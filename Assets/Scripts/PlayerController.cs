@@ -48,9 +48,6 @@ public class PlayerController : MonoBehaviour {
     private GameObject[] players;
     private int previousLevel = 3;
 
-    private GameObject[] lives;
-    
-
     private void Awake() {
         playerControls = new Controls();
         animator = GetComponent<Animator>();
@@ -263,16 +260,22 @@ public class PlayerController : MonoBehaviour {
                 ChangePlayerToYellow();
                 if (damage <= 5)
                     damage += 5;
+                availableJumps = 1;
+                isDashing = true;
                 break;
             case MainColours.BLUE:
                 ChangePlayerToBlue();
                 if (damage >= 5)
                     damage -= 5;
+                availableJumps += 1;
+                isDashing = true;
                 break;
             case MainColours.RED:
                 ChangePlayerToRed();
                 if (damage >= 5)
                     damage -= 5;
+                availableJumps = 1;
+                isDashing = false;
                 break;
             default:
                 break;
@@ -347,6 +350,9 @@ public class PlayerController : MonoBehaviour {
         Start();
         animator.SetBool("Dead", false);
         isDead = false;
+        GetComponent<LifeCount>().Respawn();
+        speed = 400f;
+        move = 0;
     }
 
     private void OnLevelWasLoaded(int level)
@@ -354,11 +360,6 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("Entre a onLevelWasLoaded");
         Debug.Log("previous level : " + previousLevel + "level : " + level);
         FindStartPos(previousLevel, level);
-
-        lives = GameObject.FindGameObjectsWithTag("LivesUI");
-
-        if (lives.Length > 1)
-            Destroy(lives[1]);
 
         players = GameObject.FindGameObjectsWithTag("Player");
         
