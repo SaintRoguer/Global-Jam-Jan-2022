@@ -89,57 +89,33 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c49a444-ec6b-448a-b059-3cb4936a701e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""55ba87ed-9296-4377-b517-38326f6cbc55"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d4f8a88f-1192-4a28-a8ae-837fd67ffdd7"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""f09a6b49-7899-4fc9-bfa5-bcb3f5c557d3"",
-                    ""path"": ""<Keyboard>/x"",
+                    ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""13ad7fe4-1e43-4d4e-b13e-8dcbada23a7a"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""a3d3b075-1a2d-4e1b-8d28-fabcb9fd5a81"",
-                    ""path"": ""<Keyboard>/z"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -150,7 +126,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""76d112f3-c579-4f55-8c3b-3e7606c0fb20"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -161,7 +137,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""025e4691-c163-4a85-84cf-33b97f28016b"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -172,57 +148,13 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a0c9a6dc-8bb2-48dd-99b3-61a23cdec732"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""544b8e2e-9085-4c9f-9977-00d3a6dbf5f9"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""28b4e959-ab9c-4185-8317-b2df55fbd377"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Negative"",
-                    ""id"": ""6d27d8bd-87e7-4ef6-8ff7-053d93d07636"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Positive"",
-                    ""id"": ""30998906-5963-46c4-8a29-4aa6c8a1b553"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""arrows"",
@@ -256,6 +188,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b9d9cb5-15d6-4a22-b2c3-867a1a55f302"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ba21c4d-6d57-47a7-9751-143843a7b56f"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -271,6 +225,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_game_switchPlayerColor = m_game.FindAction("switchPlayerColor", throwIfNotFound: true);
         m_game_interact = m_game.FindAction("interact", throwIfNotFound: true);
         m_game_dash = m_game.FindAction("dash", throwIfNotFound: true);
+        m_game_pause = m_game.FindAction("pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -337,6 +292,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_game_switchPlayerColor;
     private readonly InputAction m_game_interact;
     private readonly InputAction m_game_dash;
+    private readonly InputAction m_game_pause;
     public struct GameActions
     {
         private @Controls m_Wrapper;
@@ -348,6 +304,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @switchPlayerColor => m_Wrapper.m_game_switchPlayerColor;
         public InputAction @interact => m_Wrapper.m_game_interact;
         public InputAction @dash => m_Wrapper.m_game_dash;
+        public InputAction @pause => m_Wrapper.m_game_pause;
         public InputActionMap Get() { return m_Wrapper.m_game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -378,6 +335,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @dash.started -= m_Wrapper.m_GameActionsCallbackInterface.OnDash;
                 @dash.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnDash;
                 @dash.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnDash;
+                @pause.started -= m_Wrapper.m_GameActionsCallbackInterface.OnPause;
+                @pause.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnPause;
+                @pause.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -403,6 +363,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @dash.started += instance.OnDash;
                 @dash.performed += instance.OnDash;
                 @dash.canceled += instance.OnDash;
+                @pause.started += instance.OnPause;
+                @pause.performed += instance.OnPause;
+                @pause.canceled += instance.OnPause;
             }
         }
     }
@@ -416,5 +379,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnSwitchPlayerColor(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
