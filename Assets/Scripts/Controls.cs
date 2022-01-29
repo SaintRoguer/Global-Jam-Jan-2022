@@ -89,15 +89,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""3c49a444-ec6b-448a-b059-3cb4936a701e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -191,23 +182,40 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7b9d9cb5-15d6-4a22-b2c3-867a1a55f302"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""7ba21c4d-6d57-47a7-9751-143843a7b56f"",
                     ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""pause"",
+            ""id"": ""b33bc9e0-1916-46e3-89c2-82f0e68d6aa7"",
+            ""actions"": [
+                {
+                    ""name"": ""pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""ca745ff1-bb93-4862-b3c5-3799b6278f79"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d6fec021-6bc6-4e17-b156-7b4b1ac223fb"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -225,7 +233,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_game_switchPlayerColor = m_game.FindAction("switchPlayerColor", throwIfNotFound: true);
         m_game_interact = m_game.FindAction("interact", throwIfNotFound: true);
         m_game_dash = m_game.FindAction("dash", throwIfNotFound: true);
-        m_game_pause = m_game.FindAction("pause", throwIfNotFound: true);
+        // pause
+        m_pause = asset.FindActionMap("pause", throwIfNotFound: true);
+        m_pause_pause = m_pause.FindAction("pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -292,7 +302,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_game_switchPlayerColor;
     private readonly InputAction m_game_interact;
     private readonly InputAction m_game_dash;
-    private readonly InputAction m_game_pause;
     public struct GameActions
     {
         private @Controls m_Wrapper;
@@ -304,7 +313,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @switchPlayerColor => m_Wrapper.m_game_switchPlayerColor;
         public InputAction @interact => m_Wrapper.m_game_interact;
         public InputAction @dash => m_Wrapper.m_game_dash;
-        public InputAction @pause => m_Wrapper.m_game_pause;
         public InputActionMap Get() { return m_Wrapper.m_game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -335,9 +343,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @dash.started -= m_Wrapper.m_GameActionsCallbackInterface.OnDash;
                 @dash.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnDash;
                 @dash.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnDash;
-                @pause.started -= m_Wrapper.m_GameActionsCallbackInterface.OnPause;
-                @pause.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnPause;
-                @pause.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -363,13 +368,43 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @dash.started += instance.OnDash;
                 @dash.performed += instance.OnDash;
                 @dash.canceled += instance.OnDash;
+            }
+        }
+    }
+    public GameActions @game => new GameActions(this);
+
+    // pause
+    private readonly InputActionMap m_pause;
+    private IPauseActions m_PauseActionsCallbackInterface;
+    private readonly InputAction m_pause_pause;
+    public struct PauseActions
+    {
+        private @Controls m_Wrapper;
+        public PauseActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @pause => m_Wrapper.m_pause_pause;
+        public InputActionMap Get() { return m_Wrapper.m_pause; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PauseActions set) { return set.Get(); }
+        public void SetCallbacks(IPauseActions instance)
+        {
+            if (m_Wrapper.m_PauseActionsCallbackInterface != null)
+            {
+                @pause.started -= m_Wrapper.m_PauseActionsCallbackInterface.OnPause;
+                @pause.performed -= m_Wrapper.m_PauseActionsCallbackInterface.OnPause;
+                @pause.canceled -= m_Wrapper.m_PauseActionsCallbackInterface.OnPause;
+            }
+            m_Wrapper.m_PauseActionsCallbackInterface = instance;
+            if (instance != null)
+            {
                 @pause.started += instance.OnPause;
                 @pause.performed += instance.OnPause;
                 @pause.canceled += instance.OnPause;
             }
         }
     }
-    public GameActions @game => new GameActions(this);
+    public PauseActions @pause => new PauseActions(this);
     public interface IGameActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -379,6 +414,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnSwitchPlayerColor(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+    }
+    public interface IPauseActions
+    {
         void OnPause(InputAction.CallbackContext context);
     }
 }
