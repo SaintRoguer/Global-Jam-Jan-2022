@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour {
         playerControls.game.switchPlayerColor.performed += SwitchPlayerColor;
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
         //amount of extra jumps
-        totalJumps = 2;
+        totalJumps = 1;
         availableJumps = totalJumps;
         dashDistance = 4f;
         dashTime = 0.25f;
@@ -372,7 +372,11 @@ public class PlayerController : MonoBehaviour {
             if (sound.Length > 1) {
                 Destroy(sound [1]);
             }
-
+            GameObject [] camera = GameObject.FindGameObjectsWithTag("MainCamera");
+            if (camera.Length > 1) {
+                Destroy(camera [0]);
+                Debug.Log("Camara");
+            }
         }
         lives = GameObject.FindGameObjectsWithTag("LivesUI");
 
