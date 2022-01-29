@@ -17465,8 +17465,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b842e5905c5b0524dbba781eb0db7c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
-  deadMenu: {fileID: 0}
+  pauseMenu: {fileID: 6045755086678289075, guid: c3c9f9b7747113c4085554eba4ddfa73, type: 3}
+  deadMenu: {fileID: 1492536308554440622, guid: 0b6056866af7a8c47a7b48c14c5c2ece, type: 3}
   player: {fileID: 1246432117}
 --- !u!4 &2104551312
 Transform:
