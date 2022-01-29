@@ -40,17 +40,35 @@ public class PauseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (IsDead() && actualDead==null)
+            Pause(default);
     }
 
     public void Pause(InputAction.CallbackContext context) {
-        Debug.Log("pausa");
         GameState currentState = GameStateManager.Instance.CurrentGameState;
         GameState newGameState = currentState == GameState.Gameplay
             ? GameState.Pause
             : GameState.Gameplay;
 
         GameStateManager.Instance.SetState(newGameState);
+
+        if (IsDead()) {
+            currentState = GameStateManager.Instance.CurrentGameState;
+            if (currentState != GameState.Gameover) {
+                GameStateManager.Instance.SetState(currentState);
+
+                actualDead = Instantiate(deadMenu, player.transform.position, deadMenu.transform.rotation);
+                actualDead.enabled = true;
+            }
+            else {
+                if (actualDead != null) {
+                    Destroy(actualDead.gameObject);
+                    deadMenu.enabled = false;
+                }
+            }
+            return;
+        }
+
         if (newGameState == GameState.Pause) {
 
             actualPause = Instantiate(pauseMenu, player.transform.position, pauseMenu.transform.rotation);
@@ -61,19 +79,7 @@ public class PauseController : MonoBehaviour
             pauseMenu.enabled = false;
         }
 
-        if (IsDead()) {
-            currentState = GameStateManager.Instance.CurrentGameState;
-            if (currentState != GameState.Gameover) { 
-                GameStateManager.Instance.SetState(currentState);
-
-                actualDead = Instantiate(deadMenu, player.transform.position, deadMenu.transform.rotation);
-                actualDead.enabled = true;
-            }
-        else {
-            Destroy(actualDead.gameObject);
-            deadMenu.enabled = false;
-        }
-        }
+        
        
     }
     bool IsDead() {
@@ -85,5 +91,10 @@ public class PauseController : MonoBehaviour
     public void Exit() {
         //levelLoader.sLevelToLoad = "Main Menu";
         levelLoader.LoadScene();
-     }
+    }
+    public void Respawn() {
+        player.GetComponent<PlayerController>();
+        Pause(default);
+    }
+
 }
