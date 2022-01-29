@@ -70,12 +70,20 @@ public class PauseController : MonoBehaviour
         }
 
         if (newGameState == GameState.Pause) {
-
+            if(actualDead != null) {
+                Destroy(actualDead.gameObject);
+                deadMenu.enabled = false;
+            }
             actualPause = Instantiate(pauseMenu, player.transform.position, pauseMenu.transform.rotation);
             actualPause.enabled = true;
         }
         if (newGameState == GameState.Gameplay) {
-            Destroy(actualPause.gameObject);
+            if (actualDead != null) {
+                Destroy(actualDead.gameObject);
+                deadMenu.enabled = false;
+            }
+            if (actualPause!=null)
+                Destroy(actualPause.gameObject);
             pauseMenu.enabled = false;
         }
 
@@ -93,7 +101,7 @@ public class PauseController : MonoBehaviour
         levelLoader.LoadScene();
     }
     public void Respawn() {
-        player.GetComponent<PlayerController>();
+        player.GetComponent<PlayerController>().Respawn();
         Pause(default);
     }
 

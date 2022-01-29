@@ -124,6 +124,7 @@ public class PlayerController : MonoBehaviour {
         GroundCheck();
     }
     public void OnGameStateChanged(GameState gm) {
+        Debug.Log(gm);
         enabled = gm == GameState.Gameplay;
     }
     public void Move(InputAction.CallbackContext context) {
