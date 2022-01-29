@@ -89,15 +89,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""test"",
-                    ""type"": ""Button"",
-                    ""id"": ""dcf3a6e9-7024-4a11-8167-5e2eb2ed132f"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -265,17 +256,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9bf6f80a-0225-4aec-be9c-ad553709ceaf"",
-                    ""path"": ""<Keyboard>/m"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""test"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -291,7 +271,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_game_switchPlayerColor = m_game.FindAction("switchPlayerColor", throwIfNotFound: true);
         m_game_interact = m_game.FindAction("interact", throwIfNotFound: true);
         m_game_dash = m_game.FindAction("dash", throwIfNotFound: true);
-        m_game_test = m_game.FindAction("test", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -358,7 +337,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_game_switchPlayerColor;
     private readonly InputAction m_game_interact;
     private readonly InputAction m_game_dash;
-    private readonly InputAction m_game_test;
     public struct GameActions
     {
         private @Controls m_Wrapper;
@@ -370,7 +348,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @switchPlayerColor => m_Wrapper.m_game_switchPlayerColor;
         public InputAction @interact => m_Wrapper.m_game_interact;
         public InputAction @dash => m_Wrapper.m_game_dash;
-        public InputAction @test => m_Wrapper.m_game_test;
         public InputActionMap Get() { return m_Wrapper.m_game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -401,9 +378,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @dash.started -= m_Wrapper.m_GameActionsCallbackInterface.OnDash;
                 @dash.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnDash;
                 @dash.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnDash;
-                @test.started -= m_Wrapper.m_GameActionsCallbackInterface.OnTest;
-                @test.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnTest;
-                @test.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnTest;
             }
             m_Wrapper.m_GameActionsCallbackInterface = instance;
             if (instance != null)
@@ -429,9 +403,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @dash.started += instance.OnDash;
                 @dash.performed += instance.OnDash;
                 @dash.canceled += instance.OnDash;
-                @test.started += instance.OnTest;
-                @test.performed += instance.OnTest;
-                @test.canceled += instance.OnTest;
             }
         }
     }
@@ -445,6 +416,5 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnSwitchPlayerColor(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
-        void OnTest(InputAction.CallbackContext context);
     }
 }
