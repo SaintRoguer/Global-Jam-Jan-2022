@@ -12,6 +12,7 @@ public class PauseController : MonoBehaviour
     Canvas actualDead;
     [SerializeField] GameObject player;
     Controls pauseControls;
+    LevelLoader levelLoader;
     // Start is called before the first frame update
 
     private void Awake() {
@@ -28,6 +29,7 @@ public class PauseController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         pauseMenu.enabled = false;
         deadMenu.enabled = false;
+        levelLoader = GetComponent<LevelLoader>();
 
         pauseControls.game.pause.performed += Pause;
     }
@@ -77,6 +79,11 @@ public class PauseController : MonoBehaviour
     bool IsDead() {
         return player.GetComponent<PlayerController>().IsDead();
     }
-
-
+    public void Continue() {
+        GameStateManager.Instance.SetState(GameState.Gameplay);
+    }
+    public void Exit() {
+        levelLoader.sLevelToLoad = "Main Menu";
+        levelLoader.LoadScene();
+     }
 }
