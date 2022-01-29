@@ -23,9 +23,11 @@ public class FollowPlayer : MonoBehaviour
     }
 
     void Follow() {
-        Vector3 playerPosition = player.transform.position + offset;
-        Vector3 smoothPosition = Vector3.Lerp(player.transform.position, playerPosition, smoothFactor * Time.fixedDeltaTime);
-        transform.position = smoothPosition;
+        if (player != null) { 
+            Vector3 playerPosition = player.transform.position + offset;
+            Vector3 smoothPosition = Vector3.Lerp(player.transform.position, playerPosition, smoothFactor * Time.fixedDeltaTime);
+            transform.position = smoothPosition;
+        }
     }
 
     private void OnLevelWasLoaded(int level)

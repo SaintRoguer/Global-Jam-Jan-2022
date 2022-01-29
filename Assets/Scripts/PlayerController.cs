@@ -368,6 +368,11 @@ public class PlayerController : MonoBehaviour {
             if (games.Length > 1) {
                 Destroy(games [1]);
             }
+            GameObject [] sound = GameObject.FindGameObjectsWithTag("Sound");
+            if (sound.Length > 1) {
+                Destroy(sound [1]);
+            }
+
         }
         lives = GameObject.FindGameObjectsWithTag("LivesUI");
 
