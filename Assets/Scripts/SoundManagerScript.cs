@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManagerScript : MonoBehaviour
 {
     public static AudioClip jump, dash, shoot, normalEnemyDeathSound;
     static AudioSource audioSrc;
-
+    public AudioMixer masterMixer;
+    private float masterVolume = 1f;
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        masterMixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat("masterVolume"));
 
         normalEnemyDeathSound = Resources.Load<AudioClip>("NormalEnemyDeathSound");
         jump = Resources.Load<AudioClip>("Jump");
@@ -43,5 +46,9 @@ public class SoundManagerScript : MonoBehaviour
                 audioSrc.PlayOneShot(shoot);
                 break;
         }
+    }
+    public void SetVolume(float vol) {
+        masterMixer.SetFloat("MasterVolume", Mathf.Log10(vol) * 20);
+        PlayerPrefs.SetFloat("masterVolume", Mathf.Log10(vol) * 20);
     }
 }
