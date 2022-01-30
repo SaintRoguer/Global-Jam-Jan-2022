@@ -28,13 +28,13 @@ public class PlayerController : MonoBehaviour {
     //Shoot related
     GameObject actualBullet;
     public GameObject bulletPrefab;
-    float coolTimeShoot = 0.4f;
+    float coolTimeShoot = 0.2f;
     float nextShootTime;
     //Dash related
     [SerializeField] private float dashDistance;
     [SerializeField]private float dashTime;
     private bool isDashing;
-    float coolTimeDash = 2;
+    float coolTimeDash = 1;
     float nextDashTime;
 
     //Interaction related
@@ -54,11 +54,7 @@ public class PlayerController : MonoBehaviour {
     private void Awake() {
         playerControls ??= new Controls();
         animator = GetComponent<Animator>();
-        colourSystem.ForceChangeToYellow();
-        availableJumps = 0;
-        totalJumps = 0;
-        animator.SetFloat("Yellow", 1);
-        animator.SetFloat("YellowGun", 1);
+        
         lastDirection = 1;
         colourSystem = GetComponent<ColourSystem>();
     }
@@ -108,6 +104,11 @@ public class PlayerController : MonoBehaviour {
         dashDistance = 4f;
         dashTime = 0.25f;
         isDashing = true;
+        colourSystem.ForceChangeToYellow();
+        availableJumps = 0;
+        totalJumps = 0;
+        animator.SetFloat("Yellow", 1);
+        animator.SetFloat("YellowGun", 1);
     }
 
     private void FixedUpdate() {
