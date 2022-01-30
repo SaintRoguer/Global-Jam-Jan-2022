@@ -59,6 +59,23 @@ public class ColourSystem : MonoBehaviour
                 weaponColourWheel.Enqueue(MainColours.BLUE);
                 break;
         }
+        FixColourChange();
+    }
+
+    private void FixColourChange()
+    {
+        MainColours mainAux = mainState;
+        MainColours secondaryAux = secondaryState;
+        ChangeMainColour();
+        ChangeSecondaryColour();
+        while (mainState != mainAux)
+        {
+            ChangeMainColour();
+        }
+        while (secondaryAux != secondaryState)
+        {
+            ChangeSecondaryColour();
+        }
     }
 
     void ChangeColour()
