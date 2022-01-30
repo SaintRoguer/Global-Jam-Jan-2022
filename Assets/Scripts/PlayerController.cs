@@ -28,10 +28,14 @@ public class PlayerController : MonoBehaviour {
     //Shoot related
     GameObject actualBullet;
     public GameObject bulletPrefab;
+    float coolTimeShoot = 0.4f;
+    float nextShootTime;
     //Dash related
     [SerializeField] private float dashDistance;
     [SerializeField]private float dashTime;
     private bool isDashing;
+    float coolTimeDash = 2;
+    float nextDashTime;
 
     //Interaction related
     //Detection Point
@@ -78,6 +82,7 @@ public class PlayerController : MonoBehaviour {
         playerControls.game.switchGunColor.performed -= SwitchGunColor;
         playerControls.game.switchPlayerColor.performed -= SwitchPlayerColor;
         GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+        SoundManagerScript.PlaySound("alive");
     }
     // Start is called before the first frame update
     void Start() {
@@ -128,7 +133,10 @@ public class PlayerController : MonoBehaviour {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
         animator.SetFloat("xVelocity", Mathf.Abs(playerControls.game.move.ReadValue<float>()));
-        
+        if (move != 0)
+            SoundManagerScript.PlaySound("move");
+        else
+            SoundManagerScript.StopSFX();
     }
     public void Jump(InputAction.CallbackContext context) {
         if (context.performed && isOnGround) {
@@ -158,10 +166,12 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Dash(InputAction.CallbackContext context) {
-        if(!isDashing) {
-            StartCoroutine( Dash(lastDirection));
-        }
-       
+        if (!isDashing) {
+            if (Time.time > nextDashTime) {
+                StartCoroutine(Dash(lastDirection));
+                nextDashTime = Time.time + coolTimeDash;
+            }
+        }       
     }
     private IEnumerator Dash(float direction) {
         isDashing = true;
@@ -183,17 +193,19 @@ public class PlayerController : MonoBehaviour {
     }
     //This has to make the bullet go to the right side
     public void Shoot(InputAction.CallbackContext context) {
-        SoundManagerScript.PlaySound("shoot");
-        
-        actualBullet = Instantiate(bulletPrefab, transform.position+new Vector3(lastDirection*1,-0.3f,0), bulletPrefab.transform.rotation);
-        CombinationState color = GetComponent<ColourSystem>().combinationState;
-        actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
-        actualBullet.GetComponent<MoveForward>().SetDirection(lastDirection);
-        if(lastDirection<0)
-            actualBullet.GetComponent<SpriteRenderer>().flipX = false;
-        else
-            actualBullet.GetComponent<SpriteRenderer>().flipX = true;
-        animator.SetBool("Shoot", true);
+        if (Time.time > nextShootTime) {
+            SoundManagerScript.PlaySound("shoot");
+            actualBullet = Instantiate(bulletPrefab, transform.position + new Vector3(lastDirection * 1, -0.3f, 0), bulletPrefab.transform.rotation);
+            CombinationState color = GetComponent<ColourSystem>().combinationState;
+            actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
+            actualBullet.GetComponent<MoveForward>().SetDirection(lastDirection);
+            if (lastDirection < 0)
+                actualBullet.GetComponent<SpriteRenderer>().flipX = false;
+            else
+                actualBullet.GetComponent<SpriteRenderer>().flipX = true;
+            animator.SetBool("Shoot", true);
+            nextShootTime = Time.time + coolTimeShoot;
+        }
     }
     public void SwitchGunColor(InputAction.CallbackContext context) {
         MainColours colourSelected = colourSystem.ChangeSecondaryColour();
@@ -320,6 +332,8 @@ public class PlayerController : MonoBehaviour {
         GameStateManager.Instance.SetState(GameState.Gameover);
         GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
         rb.velocity = new Vector2(0f, 0f);
+        SoundManagerScript.PlaySound("death");
+        SoundManagerScript.StopSFX();
 
         //Instanciar menu
     }
@@ -333,6 +347,8 @@ public class PlayerController : MonoBehaviour {
         GetComponent<LifeCount>().Respawn();
         speed = 400f;
         move = 0;
+
+        SoundManagerScript.PlaySound("alive");
     }
 
     private void OnLevelWasLoaded(int level)
@@ -351,7 +367,7 @@ public class PlayerController : MonoBehaviour {
             }
             GameObject [] sound = GameObject.FindGameObjectsWithTag("Sound");
             if (sound.Length > 1) {
-                Destroy(sound [1]);
+                Destroy(sound [0]);
             }
             Destroy(GameObject.FindGameObjectWithTag("MainCamera"));
             
@@ -364,7 +380,7 @@ public class PlayerController : MonoBehaviour {
         players = GameObject.FindGameObjectsWithTag("Player");
         int cant = players.Count(A=>A.transform.parent==null);
         if (cant > 2) {
-            for(int i= 0; i<players.Length; i++) {
+            for(int i= 2; i<players.Length; i++) {
                 
                 if (players[i]!= null && players [i].transform.parent == null) {
                     Destroy(players [i]);
