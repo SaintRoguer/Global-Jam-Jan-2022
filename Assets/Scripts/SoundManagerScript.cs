@@ -30,7 +30,7 @@ public class SoundManagerScript : MonoBehaviour
         death = Resources.Load<AudioClip>("Death-Screen");
         alive = Resources.Load<AudioClip>("BGM 1");
         win = Resources.Load<AudioClip>("Congratulations");
-        introVoice = Resources.Load<AudioClip>("Intro Voice");
+        introVoice = Resources.Load<AudioClip>("Intro voice");
 
         audioSrc = GetComponents<AudioSource>();
     }
