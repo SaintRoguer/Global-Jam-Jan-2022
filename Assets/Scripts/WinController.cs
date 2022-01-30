@@ -12,7 +12,8 @@ public class WinController : MonoBehaviour
     public void GetSoul()
     {
         itemsToWin--;
-        if (itemsToWin == 0)
-            SceneManager.LoadScene("Win Scene");
+        if (itemsToWin == 0) {
+            SceneManager.LoadScene("Win Scene");            
+        }
     }
 }
