@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour {
         playerControls.game.switchPlayerColor.performed += SwitchPlayerColor;
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
         //amount of extra jumps
-        totalJumps = 1;
+        totalJumps = 0;
         availableJumps = totalJumps;
         dashDistance = 4f;
         dashTime = 0.25f;
@@ -107,7 +107,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        //Debug.Log(GetComponent<ColourSystem>().mainState);
         if (!isDashing || GetComponent<ColourSystem>().mainState != MainColours.RED) {
             if(rb.velocity.y > 1 || rb.velocity.y < -1)
                 animator.SetFloat("yVelocity", rb.velocity.y);
@@ -120,11 +119,9 @@ public class PlayerController : MonoBehaviour {
         GroundCheck();
     }
     public void OnGameStateChanged(GameState gm) {
-        Debug.Log(gm);
         enabled = !(gm == GameState.Pause);
     }
     public void Move(InputAction.CallbackContext context) {
-        Debug.Log(move);
         Vector3 currentScale = transform.localScale;
         move = playerControls.game.move.ReadValue<float>();
         if (context.performed && move!=0) {
@@ -140,14 +137,15 @@ public class PlayerController : MonoBehaviour {
         
     }
     public void Jump(InputAction.CallbackContext context) {
-        if (isOnGround) {
+        Debug.Log(availableJumps);
+        if (context.performed && isOnGround) {
             SoundManagerScript.PlaySound("jump");
             availableJumps--;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             animator.SetBool("Jump", true);
         }
         else {
-            if (!isOnGround && availableJumps > 0) {
+            if (context.performed && !isOnGround && availableJumps > 0) {
                 SoundManagerScript.PlaySound("jump");
                 availableJumps--;
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -158,6 +156,7 @@ public class PlayerController : MonoBehaviour {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * .5f);
         }
     }
+    
     public void Interact(InputAction.CallbackContext context) {
         Collider2D obj = Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
 
@@ -196,7 +195,6 @@ public class PlayerController : MonoBehaviour {
         SoundManagerScript.PlaySound("shoot");
 
         actualBullet = Instantiate(bulletPrefab, transform.position+new Vector3(lastDirection*1,-0.3f,0), bulletPrefab.transform.rotation);
-        Debug.Log(damage);
         CombinationState color = GetComponent<ColourSystem>().combinationState;
         if(color == CombinationState.YELLOW) {
             damage = 10;
@@ -260,7 +258,7 @@ public class PlayerController : MonoBehaviour {
             case MainColours.YELLOW:
                 ChangePlayerToYellow();
                 availableJumps = 0;
-                totalJumps = 1;
+                totalJumps = 0;
                 isDashing = true;
                 break;
             case MainColours.BLUE:
@@ -271,7 +269,7 @@ public class PlayerController : MonoBehaviour {
             case MainColours.RED:
                 ChangePlayerToRed();
                 availableJumps = 0;
-                totalJumps = 1;
+                totalJumps = 0;
                 isDashing = false;
                 break;
             default:
@@ -357,8 +355,6 @@ public class PlayerController : MonoBehaviour {
 
     private void OnLevelWasLoaded(int level)
     {
-        Debug.Log("Entre a onLevelWasLoaded");
-        Debug.Log("previous level : " + previousLevel + "level : " + level);
         FindStartPos(previousLevel, level);
 
         if(level == 3) {
@@ -386,10 +382,8 @@ public class PlayerController : MonoBehaviour {
         players = GameObject.FindGameObjectsWithTag("Player");
         int cant = players.Count(A=>A.transform.parent==null);
         if (cant > 2) {
-            Debug.Log(players.Length);
             for(int i= 0; i<players.Length; i++) {
                 UnityEditor.EditorGUIUtility.PingObject(players [i]);
-                Debug.Log(players[i].name);
                 if (players[i]!= null && players [i].transform.parent == null) {
                     Destroy(players [i]);
                     
