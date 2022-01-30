@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 199276505}
   - component: {fileID: 199276504}
   - component: {fileID: 199276503}
+  - component: {fileID: 199276507}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -230,6 +231,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &199276507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199276502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90149154cb73473419b21dd06f2fed2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &387334697
 GameObject:
   m_ObjectHideFlags: 0
