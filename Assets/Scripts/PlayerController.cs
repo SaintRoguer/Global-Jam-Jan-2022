@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
@@ -387,9 +388,21 @@ public class PlayerController : MonoBehaviour {
             Destroy(lives [1]);
 
         players = GameObject.FindGameObjectsWithTag("Player");
-        
-        if (players.Length > 2)
-            Destroy(players[2]);
+        int cant = players.Count(A=>A.transform.parent==null);
+        if (cant > 2) {
+            Debug.Log(players.Length);
+            for(int i= 0; i<players.Length; i++) {
+                UnityEditor.EditorGUIUtility.PingObject(players [i]);
+                Debug.Log(players[i].name);
+                if (players[i]!= null && players [i].transform.parent == null) {
+                    Destroy(players [i]);
+                    
+                    break;
+                }
+                
+            }
+        }
+            
 
         previousLevel = level;
     }

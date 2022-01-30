@@ -10,7 +10,7 @@ public class PauseController : MonoBehaviour
     Canvas actualPause;
    [SerializeField] Canvas deadMenu;
     Canvas actualDead;
-    [SerializeField] GameObject player;
+    [SerializeField] PlayerController player;
     Controls pauseControls;
     LevelLoader levelLoader;
     GameState currentState;
@@ -27,6 +27,7 @@ public class PauseController : MonoBehaviour
     }
     void Start()
     {
+        player = FindObjectOfType<PlayerController>();
         DontDestroyOnLoad(gameObject);
         currentState = GameState.Gameplay;
         pauseMenu.enabled = false;
@@ -66,8 +67,9 @@ public class PauseController : MonoBehaviour
 
         currentState = GameStateManager.Instance.CurrentGameState;
         if (currentState == GameState.Gameover) {
-            actualDead = Instantiate(deadMenu, player.transform.position, deadMenu.transform.rotation);
+            actualDead = Instantiate(deadMenu);
             actualDead.enabled = true;
+            deadMenu.enabled = true;
             if (actualPause != null) {
                 Destroy(actualPause.gameObject);
                 pauseMenu.enabled = false;
@@ -81,11 +83,12 @@ public class PauseController : MonoBehaviour
         }
         
         if (newGameState == GameState.Pause) {
+            pauseMenu.enabled = true;
             if(actualDead != null) {
                 Destroy(actualDead.gameObject);
                 deadMenu.enabled = false;
             }
-            actualPause = Instantiate(pauseMenu, player.transform.position, pauseMenu.transform.rotation);
+            actualPause = Instantiate(pauseMenu);
             actualPause.enabled = true;
         }
         if (newGameState == GameState.Gameplay) {
@@ -102,9 +105,6 @@ public class PauseController : MonoBehaviour
         
        
     }
-    bool IsDead() {
-        return player.GetComponent<PlayerController>().IsDead();
-    }
     public void Continue() {
         Pause(default);
     }
@@ -118,8 +118,11 @@ public class PauseController : MonoBehaviour
         levelLoader.LoadScene();
     }
     public void Respawn() {
-        player.GetComponent<PlayerController>().Respawn();
-        Pause(default);
+        player = FindObjectOfType<PlayerController>();
+        player.Respawn();
+        actualDead.enabled = false;
+        deadMenu.enabled = false;
+        //Pause(default);
     }
 
 }
