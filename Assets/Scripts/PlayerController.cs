@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.InputSystem.Utilities;
 public class PlayerController : MonoBehaviour {
     public Rigidbody2D rb;
     private Controls playerControls;
@@ -155,8 +157,6 @@ public class PlayerController : MonoBehaviour {
             obj.GetComponent<Item>().Interact(this);
     }
 
-
-
     public void Dash(InputAction.CallbackContext context) {
         if(!isDashing) {
             StartCoroutine( Dash(lastDirection));
@@ -295,10 +295,8 @@ public class PlayerController : MonoBehaviour {
         Collider2D [] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundRadius, groundLayer);
         if (colliders.Length > 0) {
             isOnGround = true;
-            //animator.SetBool("Jump", !isOnGround);
-            //if (!wasOnGround) {
-                availableJumps = totalJumps;
-            //}
+            availableJumps = totalJumps;
+            
         }
 
         animator.SetBool("Jump", !isOnGround);
@@ -367,7 +365,7 @@ public class PlayerController : MonoBehaviour {
         int cant = players.Count(A=>A.transform.parent==null);
         if (cant > 2) {
             for(int i= 0; i<players.Length; i++) {
-                UnityEditor.EditorGUIUtility.PingObject(players [i]);
+                
                 if (players[i]!= null && players [i].transform.parent == null) {
                     Destroy(players [i]);
                     
