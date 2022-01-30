@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
     private GameObject[] players;
     private int previousLevel = 3;
     private GameObject [] lives;
-    private string respawnPoint;
+    private string respawnPoint = "PosFromMainMenuToRoom1";
 
     private void Awake() {
         playerControls ??= new Controls();
