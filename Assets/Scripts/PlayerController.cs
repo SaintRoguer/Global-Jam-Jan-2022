@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour {
     private GameObject[] players;
     private int previousLevel = 3;
     private GameObject [] lives;
+    private string respawnPoint;
+
     private void Awake() {
         playerControls ??= new Controls();
         animator = GetComponent<Animator>();
@@ -349,6 +351,7 @@ public class PlayerController : MonoBehaviour {
         move = 0;
 
         SoundManagerScript.PlaySound("alive");
+        transform.position = GameObject.FindWithTag(respawnPoint).transform.position;
     }
 
     private void OnLevelWasLoaded(int level)
@@ -429,9 +432,11 @@ public class PlayerController : MonoBehaviour {
         {
             case 2:
                 transform.position = GameObject.FindWithTag("StartPos").transform.position;
+                respawnPoint = "StartPos";
                 break;
             case 0:
                 transform.position = GameObject.FindWithTag("PosFromMainMenuToRoom1").transform.position;
+                respawnPoint = "PosFromMainMenuToRoom1";
                 break;
         }
     }
@@ -442,9 +447,11 @@ public class PlayerController : MonoBehaviour {
         {
             case 1:
                 transform.position = GameObject.FindWithTag("PosFromRoom1ToRoom2").transform.position;
+                respawnPoint = "PosFromRoom1ToRoom2";
                 break;
             case 3:
                 transform.position = GameObject.FindWithTag("PosFromRoom3ToRoom2").transform.position;
+                respawnPoint = "PosFromRoom3ToRoom2";
                 break;
         }
     }
@@ -455,12 +462,15 @@ public class PlayerController : MonoBehaviour {
         {
             case 2:
                 transform.position = GameObject.FindWithTag("PosFromRoom2ToRoom3").transform.position;
+                respawnPoint = "PosFromRoom2ToRoom3";
                 break;
             case 4:
                 transform.position = GameObject.FindWithTag("PosFromRoom4ToRoom3").transform.position;
+                respawnPoint = "PosFromRoom4ToRoom3";
                 break;
             case 7:
                 transform.position = GameObject.FindWithTag("PosFromRoom7ToRoom3").transform.position;
+                respawnPoint = "PosFromRoom7ToRoom3";
                 break;
         }
     }
@@ -471,30 +481,35 @@ public class PlayerController : MonoBehaviour {
         {
             case 3:
                 transform.position = GameObject.FindWithTag("PosFromRoom3ToRoom4").transform.position;
+                respawnPoint = "PosFromRoom3ToRoom4";
                 break;
             case 6:
                 transform.position = GameObject.FindWithTag("PosFromRoom6ToRoom4").transform.position;
+                respawnPoint = "PosFromRoom6ToRoom4";
                 break;
             case 5:
                 transform.position = GameObject.FindWithTag("PosFromRoom5ToRoom4").transform.position;
+                respawnPoint = "PosFromRoom5ToRoom4";
                 break;
         }
     }
 
     void FindPositionRoom5()
     {
-            transform.position = GameObject.FindWithTag("PosFromRoom4ToRoom5").transform.position;
+        transform.position = GameObject.FindWithTag("PosFromRoom4ToRoom5").transform.position;
+        respawnPoint = "PosFromRoom4ToRoom5";
     }
 
     void FindPositionRoom6()
     {
-            transform.position = GameObject.FindWithTag("PosFromRoom4ToRoom6").transform.position;
+        transform.position = GameObject.FindWithTag("PosFromRoom4ToRoom6").transform.position;
+        respawnPoint = "PosFromRoom4ToRoom6";
     }
 
     void FindPositionRoom7()
     {
         transform.position = GameObject.FindWithTag("PosFromRoom3ToRoom7").transform.position;
-
+        respawnPoint = "PosFromRoom3ToRoom7";
     }
 
 }

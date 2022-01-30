@@ -17,7 +17,6 @@ public class TrapObject : MonoBehaviour
             LifeCount life = FindObjectOfType<LifeCount>();
             for (int i = 0; i < life.livesRemaining+2; i++)
                 life.LoseLife();
-            
         }
     }
 }
