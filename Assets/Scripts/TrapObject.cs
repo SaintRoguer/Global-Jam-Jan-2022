@@ -14,10 +14,10 @@ public class TrapObject : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<LifeCount>().LoseLife();
-            collision.gameObject.GetComponent<LifeCount>().LoseLife();
-            collision.gameObject.GetComponent<LifeCount>().LoseLife();
-            collision.gameObject.GetComponent<PlayerController>().Die();
+            LifeCount life = FindObjectOfType<LifeCount>();
+            for (int i = 0; i < life.livesRemaining+2; i++)
+                life.LoseLife();
+            
         }
     }
 }
