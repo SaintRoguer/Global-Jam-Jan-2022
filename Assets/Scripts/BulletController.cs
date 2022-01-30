@@ -15,14 +15,15 @@ public class BulletController : MonoBehaviour
     {
         //bulletRb = GetComponent<Rigidbody2D>();
         //hitboxBullet = GetComponent<CircleCollider2D>();
-        damage = 10;
-        damageModifier = 5;
+        //damage = 10;
+        //damageModifier = 5;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         combinationState = player.GetComponent<ColourSystem>().combinationState;
         //Podria poner el daño aca?.
         switch (combinationState) {
             case CombinationState.BLUE:
+                damage = 0;
                 animator.SetFloat("Blue", 1f);
                 animator.SetFloat("Red", 0f);
                 animator.SetFloat("Yellow", 0f);
@@ -31,6 +32,7 @@ public class BulletController : MonoBehaviour
                 animator.SetFloat("Violet", 0f);
                 break;
             case CombinationState.YELLOW:
+                damage = 10;
                 animator.SetFloat("Blue", 0f);
                 animator.SetFloat("Red", 0f);
                 animator.SetFloat("Yellow", 1f);
@@ -39,6 +41,7 @@ public class BulletController : MonoBehaviour
                 animator.SetFloat("Violet", 0f);
                 break;
             case CombinationState.RED:
+                damage = 0;
                 animator.SetFloat("Blue", 0f);
                 animator.SetFloat("Red", 1f);
                 animator.SetFloat("Yellow", 0f);
@@ -47,6 +50,7 @@ public class BulletController : MonoBehaviour
                 animator.SetFloat("Violet", 0f);
                 break;
             case CombinationState.VIOLET:
+                damage = 0;
                 animator.SetFloat("Blue", 0f);
                 animator.SetFloat("Red", 0f);
                 animator.SetFloat("Yellow", 0f);
@@ -55,6 +59,7 @@ public class BulletController : MonoBehaviour
                 animator.SetFloat("Violet", 1f);
                 break;
             case CombinationState.GREEN:
+                damage = 5;
                 animator.SetFloat("Blue", 0f);
                 animator.SetFloat("Red", 0f);
                 animator.SetFloat("Yellow", 0f);
@@ -63,6 +68,7 @@ public class BulletController : MonoBehaviour
                 animator.SetFloat("Violet", 0f);
                 break;
             case CombinationState.ORANGE:
+                damage = 5;
                 animator.SetFloat("Blue", 0f);
                 animator.SetFloat("Red", 0f);
                 animator.SetFloat("Yellow", 0f);

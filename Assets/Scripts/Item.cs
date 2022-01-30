@@ -42,15 +42,15 @@ public class Item : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case InteractionType.SOUL1:
-                player.GetComponent<PlayerController>().GetSoul();
+                player.GetComponent<WinController>().GetSoul();
                 Destroy(gameObject);
                 break;
             case InteractionType.SOUL2:
-                player.GetComponent<PlayerController>().GetSoul();
+                player.GetComponent<WinController>().GetSoul();
                 Destroy(gameObject);
                 break;
             case InteractionType.SOUL3:
-                player.GetComponent<PlayerController>().GetSoul();
+                player.GetComponent<WinController>().GetSoul();
                 Destroy(gameObject);
                 break;
         }

@@ -1,14 +1,10 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Utilities;
 
 public class PlayerController : MonoBehaviour {
     public Rigidbody2D rb;
-    private PauseController pauseController;
     private Controls playerControls;
     //Ground Check related
     private const float groundRadius = .2f;
@@ -30,11 +26,9 @@ public class PlayerController : MonoBehaviour {
     //Shoot related
     GameObject actualBullet;
     public GameObject bulletPrefab;
-    private int damage;
     //Dash related
     [SerializeField] private float dashDistance;
     [SerializeField]private float dashTime;
-    private Vector2 inicialDashPosition;
     private bool isDashing;
 
     //Interaction related
@@ -44,8 +38,6 @@ public class PlayerController : MonoBehaviour {
     private const float detectionRadius = 0.2f;
     //Detection Layer
     public LayerMask detectionLayer;
-    //Ver cuando inisializar?
-    private int itemsToWin = 3;
 
     //Level
     private GameObject[] players;
@@ -56,7 +48,7 @@ public class PlayerController : MonoBehaviour {
         animator = GetComponent<Animator>();
         animator.SetFloat("Yellow", 1);
         animator.SetFloat("YellowGun", 1);
-        lastDirection = -1;
+        lastDirection = 1;
         colourSystem = GetComponent<ColourSystem>();
     }
 
@@ -103,7 +95,6 @@ public class PlayerController : MonoBehaviour {
         availableJumps = totalJumps;
         dashDistance = 4f;
         dashTime = 0.25f;
-        damage = bulletPrefab.GetComponent<BulletController>().GetDamage();
         isDashing = true;
     }
 
@@ -193,16 +184,9 @@ public class PlayerController : MonoBehaviour {
     //This has to make the bullet go to the right side
     public void Shoot(InputAction.CallbackContext context) {
         SoundManagerScript.PlaySound("shoot");
-
+        
         actualBullet = Instantiate(bulletPrefab, transform.position+new Vector3(lastDirection*1,-0.3f,0), bulletPrefab.transform.rotation);
         CombinationState color = GetComponent<ColourSystem>().combinationState;
-        if(color == CombinationState.YELLOW) {
-            damage = 10;
-        }
-        if(color == CombinationState.GREEN || color == CombinationState.ORANGE) {
-            damage = 5; // change to base damage
-        }
-        actualBullet.GetComponent<BulletController>().SetDamage(damage);
         actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
         actualBullet.GetComponent<MoveForward>().SetDirection(lastDirection);
         if(lastDirection<0)
@@ -499,13 +483,4 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    public void GetSoul()
-    {
-        
-        itemsToWin--;
-        Debug.Log("Items left to win : "+itemsToWin);
-        if(itemsToWin == 0)
-            Debug.Log("I WIN");
-        
-    }
 }
