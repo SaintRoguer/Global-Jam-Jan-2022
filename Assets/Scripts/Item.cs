@@ -17,8 +17,8 @@ public class Item : MonoBehaviour
         respawnSystem = FindObjectOfType<RespawnSystem>();
 
         if (!respawnSystem.itemChecker.Any(door => door.objectID == ID))
-            respawnSystem.doorChecker.Add(new CheckerClass(ID));
-        else if (respawnSystem.doorChecker.Find(door => door.objectID == ID).interacted == true)
+            respawnSystem.itemChecker.Add(new CheckerClass(ID));
+        else if (respawnSystem.itemChecker.Find(door => door.objectID == ID).interacted == true)
             Destroy(gameObject);
     }
 
@@ -34,15 +34,18 @@ public class Item : MonoBehaviour
             case InteractionType.REDCOLOUR:
                 Debug.Log("REDCOLOUR");
                 player.GetComponent<ColourSystem>().AddColour("REDCOLOUR");
+                respawnSystem.itemChecker.Find(door => door.objectID == ID).interacted = true;
                 Destroy(gameObject);
                 break;
             case InteractionType.BLUECOLOUR:
                 Debug.Log("BLUECOLOUR");
                 player.GetComponent<ColourSystem>().AddColour("BLUECOLOUR");
+                respawnSystem.itemChecker.Find(door => door.objectID == ID).interacted = true;
                 Destroy(gameObject);
                 break;
             case InteractionType.SOUL:
                 player.GetComponent<WinController>().GetSoul();
+                respawnSystem.itemChecker.Find(door => door.objectID == ID).interacted = true;
                 Destroy(gameObject);
                 break;
         }
