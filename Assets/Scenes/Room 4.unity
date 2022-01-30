@@ -58145,7 +58145,7 @@ GameObject:
   - component: {fileID: 2139628967}
   m_Layer: 0
   m_Name: StartPosition from Room 4 to Room 6)
-  m_TagString: PosFromRoom3ToRoom4
+  m_TagString: PosFromRoom6ToRoom4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour {
     void Start() {
         Debug.Log("　　　　　　　　　　");
         DontDestroyOnLoad(gameObject);
+        isDashing = true;
         //suscripciones a los eventos
         playerControls.game.move.performed += Move;
         playerControls.game.jump.performed += Jump;
@@ -420,13 +421,17 @@ public class PlayerController : MonoBehaviour {
             case 2:
                 FindPositionRoom3(previousLevel);
                 break;
-            case 3:
-                break;
             case 4:
+                FindPositionRoom4(previousLevel);
                 break;
             case 5:
+                FindPositionRoom5();
                 break;
             case 6:
+                FindPositionRoom6();
+                break;
+            case 7:
+                FindPositionRoom7();
                 break;
         }
     }
@@ -464,6 +469,44 @@ public class PlayerController : MonoBehaviour {
             case 1:
                 transform.position = GameObject.FindWithTag("PosFromRoom2ToRoom3").transform.position;
                 break;
+            case 4:
+                transform.position = GameObject.FindWithTag("PosFromRoom4ToRoom3").transform.position;
+                break;
+            case 7:
+                transform.position = GameObject.FindWithTag("PosFromRoom7ToRoom3").transform.position;
+                break;
         }
+    }
+
+    void FindPositionRoom4(int previousLevel)
+    {
+        switch (previousLevel)
+        {
+            case 2:
+                transform.position = GameObject.FindWithTag("PosFromRoom3ToRoom4").transform.position;
+                break;
+            case 6:
+                transform.position = GameObject.FindWithTag("PosFromRoom6ToRoom4").transform.position;
+                break;
+            case 5:
+                transform.position = GameObject.FindWithTag("PosFromRoom5ToRoom4").transform.position;
+                break;
+        }
+    }
+
+    void FindPositionRoom5()
+    {
+            transform.position = GameObject.FindWithTag("PosFromRoom4ToRoom5").transform.position;
+    }
+
+    void FindPositionRoom6()
+    {
+            transform.position = GameObject.FindWithTag("PosFromRoom4ToRoom6").transform.position;
+    }
+
+    void FindPositionRoom7()
+    {
+        transform.position = GameObject.FindWithTag("PosFromRoom3ToRoom7").transform.position;
+
     }
 }
