@@ -6,9 +6,20 @@ using UnityEngine.UI;
 public class LifeCount : MonoBehaviour
 {
     public Image[] lives;
+    public Image[] noLives;
     public int maxLives;
     public int livesRemaining;
     [SerializeField] GameObject player;
+
+    private void Start()
+    {
+        livesRemaining = maxLives;
+
+        for (int i = 0; i < lives.Length; i++)
+        {
+          noLives[i].GetComponent<Image>().enabled = false;
+        }
+    }
 
     public void LoseLife()
     {
@@ -18,22 +29,21 @@ public class LifeCount : MonoBehaviour
         //Decrease the values of livesRemaining.
         livesRemaining--;
         //Change one of the lives images.(later)
+        noLives[livesRemaining].GetComponent<Image>().enabled = true;
         //Hide one of the life images.
-        lives[livesRemaining].enabled = false;
-
+        lives[livesRemaining].GetComponent<Image>().enabled = false;
 
         //If we run out of lives we lose game or other thing
         if(livesRemaining == 0)
         {
-            Debug.Log("Me mori");
             player.GetComponent<PlayerController>().Die();
-            //FindObjectOfType<LevelManager>().Restart();
         }
     }
     public void Respawn() {
         livesRemaining = maxLives;
         for(int i =0; i<lives.Length; i++) {
-            lives [i].enabled = true;
+            lives[i].GetComponent<Image>().enabled = true;
+            noLives[i].GetComponent<Image>().enabled = false;
         }
     }
 }
