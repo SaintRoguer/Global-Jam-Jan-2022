@@ -355,7 +355,7 @@ public class PlayerController : MonoBehaviour {
     {
         FindStartPos(previousLevel, level);
 
-        if(level == 3) {
+        if(level == 0) {
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             foreach (GameObject g in players) {
                 Destroy(g);
@@ -399,13 +399,13 @@ public class PlayerController : MonoBehaviour {
     {
         switch (level)
         {
-            case 0:
+            case 1:
                 FindPositionRoom1(previousLevel);
                 break;
-            case 1:
+            case 2:
                 FindPositionRoom2(previousLevel);
                 break;
-            case 2:
+            case 3:
                 FindPositionRoom3(previousLevel);
                 break;
             case 4:
@@ -427,10 +427,10 @@ public class PlayerController : MonoBehaviour {
     {
         switch (previousLevel)
         {
-            case 1:
+            case 2:
                 transform.position = GameObject.FindWithTag("StartPos").transform.position;
                 break;
-            case 3:
+            case 0:
                 transform.position = GameObject.FindWithTag("PosFromMainMenuToRoom1").transform.position;
                 break;
         }
@@ -440,10 +440,10 @@ public class PlayerController : MonoBehaviour {
     {
         switch (previousLevel)
         {
-            case 0:
+            case 1:
                 transform.position = GameObject.FindWithTag("PosFromRoom1ToRoom2").transform.position;
                 break;
-            case 2:
+            case 3:
                 transform.position = GameObject.FindWithTag("PosFromRoom3ToRoom2").transform.position;
                 break;
         }
@@ -453,7 +453,7 @@ public class PlayerController : MonoBehaviour {
     {
         switch (previousLevel)
         {
-            case 1:
+            case 2:
                 transform.position = GameObject.FindWithTag("PosFromRoom2ToRoom3").transform.position;
                 break;
             case 4:
@@ -469,7 +469,7 @@ public class PlayerController : MonoBehaviour {
     {
         switch (previousLevel)
         {
-            case 2:
+            case 3:
                 transform.position = GameObject.FindWithTag("PosFromRoom3ToRoom4").transform.position;
                 break;
             case 6:

@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iLevelToLoad: 0
   sLevelToLoad: Room 1
-  useIntegerToLoadLevel: 1
+  useIntegerToLoadLevel: 0
   isOpen: 0
 --- !u!4 &1234124736
 Transform:
