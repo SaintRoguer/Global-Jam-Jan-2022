@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DialogueController : MonoBehaviour
 {
     List<string> historia;
-    float coolDown = 20f;
+    float coolDown = 1f;
     float nextText = 0;
     int index = 0;
     bool isOver;
