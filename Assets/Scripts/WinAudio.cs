@@ -13,9 +13,11 @@ public class WinAudio : MonoBehaviour
     void Start() {
         win = Resources.Load<AudioClip>("Congratulations");
 
+        SoundManagerScript.Stop();
         audioSrc = GetComponent<AudioSource>();
         audioSrc.Stop();
         audioSrc.PlayOneShot(win);
+
     }
 
 }

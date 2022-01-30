@@ -83,6 +83,10 @@ public class SoundManagerScript : MonoBehaviour
         audioSrc [1].Stop();
         audioSrc [1].clip = null;
     }
+    public static void Stop() {
+        foreach (AudioSource a in audioSrc)
+            a.Stop();
+        }
     static IEnumerator FadeIn(AudioSource audioSource, float speed, float targetVolume) {
         keepFadeIn = true;
         keepFadeOut = false;
