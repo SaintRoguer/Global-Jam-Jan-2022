@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &165301036
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2800295303722018857, guid: 7ee089e357fc4774f970e32777922215, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800295303722018857, guid: 7ee089e357fc4774f970e32777922215, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.986
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800295303722018857, guid: 7ee089e357fc4774f970e32777922215, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 24.932
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800295303722018857, guid: 7ee089e357fc4774f970e32777922215, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800295303722018857, guid: 7ee089e357fc4774f970e32777922215, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800295303722018857, guid: 7ee089e357fc4774f970e32777922215, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800295303722018857, guid: 7ee089e357fc4774f970e32777922215, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800295303722018857, guid: 7ee089e357fc4774f970e32777922215, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800295303722018857, guid: 7ee089e357fc4774f970e32777922215, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800295303722018857, guid: 7ee089e357fc4774f970e32777922215, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800295303722018857, guid: 7ee089e357fc4774f970e32777922215, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5282852614357106742, guid: 7ee089e357fc4774f970e32777922215, type: 3}
+      propertyPath: m_Name
+      value: Soul
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7ee089e357fc4774f970e32777922215, type: 3}
 --- !u!1001 &200891770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -334,7 +391,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1087520241
 PrefabInstance:
@@ -49082,19 +49139,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3979016687116930797, guid: def06c040f8e5e643a5481d5bd75d623, type: 3}
       propertyPath: m_Size.x
-      value: 0.28117585
+      value: 0.5358639
       objectReference: {fileID: 0}
     - target: {fileID: 3979016687116930797, guid: def06c040f8e5e643a5481d5bd75d623, type: 3}
       propertyPath: m_Size.y
-      value: 4.075901
+      value: 3.951168
       objectReference: {fileID: 0}
     - target: {fileID: 3979016687116930797, guid: def06c040f8e5e643a5481d5bd75d623, type: 3}
       propertyPath: m_Offset.x
-      value: 0.17552674
+      value: 0.048182726
       objectReference: {fileID: 0}
     - target: {fileID: 3979016687116930797, guid: def06c040f8e5e643a5481d5bd75d623, type: 3}
       propertyPath: m_Offset.y
-      value: -1.2704792
+      value: -1.2081127
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def06c040f8e5e643a5481d5bd75d623, type: 3}
@@ -49126,7 +49183,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1743942686
 PrefabInstance:
