@@ -143,7 +143,7 @@ public class ColourSystem : MonoBehaviour
         }
     }
 
-    private void ForceChangeToYellow()
+    public void ForceChangeToYellow()
     {
         while(mainState != MainColours.YELLOW)
         {
