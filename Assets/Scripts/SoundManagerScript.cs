@@ -82,6 +82,12 @@ public class SoundManagerScript : MonoBehaviour
         }
     }
 
+    public static void Stop()
+    {
+        foreach (AudioSource a in audioSrc)
+            a.Stop();
+    }
+
     public static void StopSFX() {
         audioSrc [1].Stop();
         audioSrc [1].clip = null;
