@@ -65,6 +65,7 @@ public class DoorController : MonoBehaviour
 
     public void Open()
     {
+        respawnSystem.doorChecker.Find(door => door.objectID == ID).interacted = true;
         animator.SetBool("Open", true);
         gameObject.GetComponent<LevelLoader>().isOpen = true;
         gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
