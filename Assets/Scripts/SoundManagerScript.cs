@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class SoundManagerScript : MonoBehaviour
 {
-    public static AudioClip jump, dash, shoot, normalEnemyDeathSound, move,death,alive;
+    public static AudioClip jump, dash, shoot, normalEnemyDeathSound, move,death,alive,win;
     public static AudioSource[] audioSrc; 
     public AudioMixer masterMixer, sfxMixer;
     public static SoundManagerScript instance;
@@ -29,6 +29,7 @@ public class SoundManagerScript : MonoBehaviour
         move = Resources.Load<AudioClip>("Step");
         death = Resources.Load<AudioClip>("Death-Screen");
         alive = Resources.Load<AudioClip>("BGM 1");
+        win = Resources.Load<AudioClip>("Congratulations");
 
         audioSrc = GetComponents<AudioSource>();
     }
@@ -62,13 +63,19 @@ public class SoundManagerScript : MonoBehaviour
             case "death":
                 //instance.StartCoroutine(FadeOut(audioSrc [0], 1f));
                 audioSrc [0].Stop();
-                //instance.StartCoroutine(FadeIn(audioSrc [0], 1f, PlayerPrefs.GetFloat("masterVolume")));
-                audioSrc [0].PlayOneShot(death);
+                audioSrc [0].clip = death;
+                audioSrc [0].Play();
                 break;
             case "alive":
                 audioSrc [0].Stop();
-                audioSrc [0].PlayOneShot(alive);
+                audioSrc [0].clip = alive;
+                audioSrc [0].Play();
                 break;
+            case "win":
+                audioSrc [0].Stop();
+                audioSrc [0].PlayOneShot(win);
+                break;
+
         }
     }
 
