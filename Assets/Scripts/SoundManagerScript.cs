@@ -11,7 +11,8 @@ public class SoundManagerScript : MonoBehaviour
     public static SoundManagerScript instance;
     private float masterVolume = 1f;
     private float effectsVolume = 1f;
-
+    private static bool keepFadeIn;
+    private static bool keepFadeOut;
     private void Awake() {
         DontDestroyOnLoad(gameObject);
         masterMixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat("masterVolume"));
@@ -59,10 +60,10 @@ public class SoundManagerScript : MonoBehaviour
                 audioSrc [1].Play();
                 break;
             case "death":
-                instance.StartCoroutine(StartFade(audioSrc [0], 1f, 0f));
-                //audioSrc [0].Stop();
-                //StartFade(audioSrc [0], 10000f, PlayerPrefs.GetFloat("masterVolume"));
-                //audioSrc [0].PlayOneShot(death);
+                //instance.StartCoroutine(FadeOut(audioSrc [0], 1f));
+                audioSrc [0].Stop();
+                //instance.StartCoroutine(FadeIn(audioSrc [0], 1f, PlayerPrefs.GetFloat("masterVolume")));
+                audioSrc [0].PlayOneShot(death);
                 break;
             case "alive":
                 audioSrc [0].Stop();
@@ -75,17 +76,28 @@ public class SoundManagerScript : MonoBehaviour
         audioSrc [1].Stop();
         audioSrc [1].clip = null;
     }
-
-    public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume) {
-        float currentTime = 0;
-        float start = audioSource.volume;
-
-        while (currentTime < duration) {
-            currentTime += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
-            yield return null;
+    static IEnumerator FadeIn(AudioSource audioSource, float speed, float targetVolume) {
+        keepFadeIn = true;
+        keepFadeOut = false;
+        audioSource.volume = 0;
+        float audio = 0;
+        while (audioSource.volume<targetVolume && keepFadeIn) {
+            audio += speed;
+            audioSource.volume = audio;
+            Debug.Log(audio);
+            yield return new WaitForSeconds(0.1f);
         }
-        yield break;
+    }
+    static IEnumerator FadeOut(AudioSource audioSource, float speed) {
+        keepFadeIn = false;
+        keepFadeOut = true;
+        float audio = audioSource.volume;
+        Debug.Log(audio);
+        while (audioSource.volume >= speed && keepFadeOut) {
+            audio -= speed;
+            audioSource.volume = audio;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
     public void SetMasterVolume(float vol) {
         masterMixer.SetFloat("MasterVolume", Mathf.Log10(vol) * 20);
