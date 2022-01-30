@@ -367,7 +367,10 @@ public class PlayerController : MonoBehaviour {
         FindStartPos(previousLevel, level);
 
         if(level == 3) {
-            Destroy(GameObject.FindGameObjectWithTag("Player"));
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject g in players) {
+                Destroy(g);
+            }
             Destroy(GameObject.FindGameObjectWithTag("LivesUI"));
             GameObject [] games = GameObject.FindGameObjectsWithTag("GameController");
             if (games.Length > 1) {
