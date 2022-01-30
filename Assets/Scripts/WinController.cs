@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WinController : MonoBehaviour
 {
-
+    public GameObject player;
     private int itemsToWin = 3;
 
     public void GetSoul()
