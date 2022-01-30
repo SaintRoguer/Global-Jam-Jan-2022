@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Item : MonoBehaviour
 {
-    public enum InteractionType { NONE, REDCOLOUR, BLUECOLOUR}
+    public enum InteractionType { NONE, REDCOLOUR, BLUECOLOUR, SOUL1, SOUL2, SOUL3}
     public InteractionType type;
     public int ID;
     public RespawnSystem respawnSystem;
@@ -41,8 +41,17 @@ public class Item : MonoBehaviour
                 player.GetComponent<ColourSystem>().AddColour("BLUECOLOUR");
                 Destroy(gameObject);
                 break;
-            default:
-                Debug.Log("NULL ITEM");
+            case InteractionType.SOUL1:
+                player.GetComponent<PlayerController>().GetSoul();
+                Destroy(gameObject);
+                break;
+            case InteractionType.SOUL2:
+                player.GetComponent<PlayerController>().GetSoul();
+                Destroy(gameObject);
+                break;
+            case InteractionType.SOUL3:
+                player.GetComponent<PlayerController>().GetSoul();
+                Destroy(gameObject);
                 break;
         }
     }

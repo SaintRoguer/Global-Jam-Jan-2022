@@ -20,6 +20,7 @@ public class BulletController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         combinationState = player.GetComponent<ColourSystem>().combinationState;
+        //Podria poner el daño aca?.
         switch (combinationState) {
             case CombinationState.BLUE:
                 animator.SetFloat("Blue", 1f);

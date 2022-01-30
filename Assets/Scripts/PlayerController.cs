@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour {
     private const float detectionRadius = 0.2f;
     //Detection Layer
     public LayerMask detectionLayer;
+    //Ver cuando inisializar?
+    private int itemsToWin = 3;
 
     //Level
     private GameObject[] players;
@@ -85,7 +87,6 @@ public class PlayerController : MonoBehaviour {
     }
     // Start is called before the first frame update
     void Start() {
-        Debug.Log("　　　　　　　　　　");
         DontDestroyOnLoad(gameObject);
         //suscripciones a los eventos
         playerControls.game.move.performed += Move;
@@ -137,7 +138,6 @@ public class PlayerController : MonoBehaviour {
         
     }
     public void Jump(InputAction.CallbackContext context) {
-        Debug.Log(availableJumps);
         if (context.performed && isOnGround) {
             SoundManagerScript.PlaySound("jump");
             availableJumps--;
@@ -497,5 +497,15 @@ public class PlayerController : MonoBehaviour {
     {
         transform.position = GameObject.FindWithTag("PosFromRoom3ToRoom7").transform.position;
 
+    }
+
+    public void GetSoul()
+    {
+        
+        itemsToWin--;
+        Debug.Log("Items left to win : "+itemsToWin);
+        if(itemsToWin == 0)
+            Debug.Log("I WIN");
+        
     }
 }

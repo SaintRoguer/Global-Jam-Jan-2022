@@ -175,6 +175,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4548760825034188598, guid: 52c24cadd1c985f43b73559c5b03353d, type: 3}
+      propertyPath: ID
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548760825034188598, guid: 52c24cadd1c985f43b73559c5b03353d, type: 3}
       propertyPath: doorColour
       value: 5
       objectReference: {fileID: 0}
@@ -539,6 +543,10 @@ PrefabInstance:
     - target: {fileID: 4548760825034188594, guid: 52c24cadd1c985f43b73559c5b03353d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548760825034188598, guid: 52c24cadd1c985f43b73559c5b03353d, type: 3}
+      propertyPath: ID
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4548760825034188598, guid: 52c24cadd1c985f43b73559c5b03353d, type: 3}
       propertyPath: doorColour
@@ -58058,6 +58066,10 @@ PrefabInstance:
     - target: {fileID: 4548760825034188594, guid: 52c24cadd1c985f43b73559c5b03353d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548760825034188598, guid: 52c24cadd1c985f43b73559c5b03353d, type: 3}
+      propertyPath: ID
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4548760825034188599, guid: 52c24cadd1c985f43b73559c5b03353d, type: 3}
       propertyPath: m_Name
