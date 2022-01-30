@@ -358,8 +358,8 @@ public class PlayerController : MonoBehaviour {
     {
         FindStartPos(previousLevel, level);
 
-        if(level == 0) {
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        if (level == 0) {
+            GameObject [] players = GameObject.FindGameObjectsWithTag("Player");
             foreach (GameObject g in players) {
                 Destroy(g);
             }
@@ -373,24 +373,26 @@ public class PlayerController : MonoBehaviour {
                 Destroy(sound [0]);
             }
             Destroy(GameObject.FindGameObjectWithTag("MainCamera"));
-            
+
         }
-        lives = GameObject.FindGameObjectsWithTag("LivesUI");
+        else {
+            lives = GameObject.FindGameObjectsWithTag("LivesUI");
 
-        if (lives.Length > 1)
-            Destroy(lives [1]);
+            if (lives.Length > 1)
+                Destroy(lives [0]);
 
-        players = GameObject.FindGameObjectsWithTag("Player");
-        int cant = players.Count(A=>A.transform.parent==null);
-        if (cant > 2) {
-            for(int i= 2; i<players.Length; i++) {
-                
-                if (players[i]!= null && players [i].transform.parent == null) {
-                    Destroy(players [i]);
-                    
-                    break;
+            players = GameObject.FindGameObjectsWithTag("Player");
+            int cant = players.Count(A => A.transform.parent == null);
+            if (cant >= 2) {
+                for (int i = 2; i < players.Length; i++) {
+
+                    if (players [i] != null && players [i].transform.parent == null) {
+                        Destroy(players [i]);
+
+                        break;
+                    }
+
                 }
-                
             }
         }
             
