@@ -197,6 +197,13 @@ public class PlayerController : MonoBehaviour {
 
         actualBullet = Instantiate(bulletPrefab, transform.position+new Vector3(lastDirection*1,-0.3f,0), bulletPrefab.transform.rotation);
         Debug.Log(damage);
+        CombinationState color = GetComponent<ColourSystem>().combinationState;
+        if(color == CombinationState.YELLOW) {
+            damage = 10;
+        }
+        if(color == CombinationState.GREEN || color == CombinationState.ORANGE) {
+            damage = 5; // change to base damage
+        }
         actualBullet.GetComponent<BulletController>().SetDamage(damage);
         actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
         actualBullet.GetComponent<MoveForward>().SetDirection(lastDirection);
@@ -212,18 +219,12 @@ public class PlayerController : MonoBehaviour {
         {
             case MainColours.YELLOW:
                 ChangeGunToYellow();
-                if (damage <= 5)
-                    damage += 5;
                 break;
             case MainColours.BLUE:
                 ChangeGunToBlue();
-                if (damage >= 5)
-                    damage -= 5;
                 break;
             case MainColours.RED:
                 ChangeGunToRed();
-                if (damage >= 5)
-                    damage -= 5;
                 break;
             default:
                 break;
@@ -258,23 +259,17 @@ public class PlayerController : MonoBehaviour {
         {
             case MainColours.YELLOW:
                 ChangePlayerToYellow();
-                if (damage <= 5)
-                    damage += 5;
                 availableJumps = 0;
                 totalJumps = 1;
                 isDashing = true;
                 break;
             case MainColours.BLUE:
                 ChangePlayerToBlue();
-                if (damage >= 5)
-                    damage -= 5;
                 totalJumps +=1;
                 isDashing = true;
                 break;
             case MainColours.RED:
                 ChangePlayerToRed();
-                if (damage >= 5)
-                    damage -= 5;
                 availableJumps = 0;
                 totalJumps = 1;
                 isDashing = false;
