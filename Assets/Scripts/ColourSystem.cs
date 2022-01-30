@@ -143,4 +143,16 @@ public class ColourSystem : MonoBehaviour
         }
     }
 
+    private void ForceChangeToYellow()
+    {
+        while(mainState != MainColours.YELLOW)
+        {
+            ChangeMainColour();
+        }
+        while (secondaryState != MainColours.YELLOW)
+        {
+            ChangeSecondaryColour();
+        }
+    }
+
 }
