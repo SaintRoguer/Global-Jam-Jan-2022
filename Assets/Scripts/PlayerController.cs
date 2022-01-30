@@ -87,7 +87,6 @@ public class PlayerController : MonoBehaviour {
     void Start() {
         Debug.Log("　　　　　　　　　　");
         DontDestroyOnLoad(gameObject);
-        isDashing = true;
         //suscripciones a los eventos
         playerControls.game.move.performed += Move;
         playerControls.game.jump.performed += Jump;
@@ -104,16 +103,12 @@ public class PlayerController : MonoBehaviour {
         dashDistance = 4f;
         dashTime = 0.25f;
         damage = bulletPrefab.GetComponent<BulletController>().GetDamage();
-
-    }
-
-    // Update is called once per frame
-    private void Update() {
-        
+        isDashing = true;
     }
 
     private void FixedUpdate() {
-        if (!isDashing) {
+        //Debug.Log(GetComponent<ColourSystem>().mainState);
+        if (!(!isDashing && GetComponent<ColourSystem>().mainState != MainColours.RED)) {
             if(rb.velocity.y > 1 || rb.velocity.y < -1)
                 animator.SetFloat("yVelocity", rb.velocity.y);
             else
@@ -129,7 +124,7 @@ public class PlayerController : MonoBehaviour {
         enabled = !(gm == GameState.Pause);
     }
     public void Move(InputAction.CallbackContext context) {
-        Debug.Log("Move");
+        Debug.Log(move);
         Vector3 currentScale = transform.localScale;
         move = playerControls.game.move.ReadValue<float>();
         if (context.performed && move!=0) {
