@@ -54,6 +54,9 @@ public class PlayerController : MonoBehaviour {
     private void Awake() {
         playerControls ??= new Controls();
         animator = GetComponent<Animator>();
+        ChangePlayerToYellow();
+        ChangeGunToYellow();
+
         animator.SetFloat("Yellow", 1);
         animator.SetFloat("YellowGun", 1);
         lastDirection = 1;
