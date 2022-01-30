@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Room 7.unity
     guid: 53285d0ad344a8a43a500e5ee8967da9
+  - enabled: 1
+    path: Assets/Scenes/Win Scene.unity
+    guid: cbcb9845a701a5b40ab059d4bf474a61
   m_configObjects: {}
