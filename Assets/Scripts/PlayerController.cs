@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate() {
         //Debug.Log(GetComponent<ColourSystem>().mainState);
-        if (!(!isDashing && GetComponent<ColourSystem>().mainState != MainColours.RED)) {
+        if (!isDashing || GetComponent<ColourSystem>().mainState != MainColours.RED) {
             if(rb.velocity.y > 1 || rb.velocity.y < -1)
                 animator.SetFloat("yVelocity", rb.velocity.y);
             else
@@ -140,19 +140,18 @@ public class PlayerController : MonoBehaviour {
         
     }
     public void Jump(InputAction.CallbackContext context) {
-        if (context.performed && isOnGround) {
+        if (isOnGround) {
             SoundManagerScript.PlaySound("jump");
             availableJumps--;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             animator.SetBool("Jump", true);
         }
         else {
-            if (context.performed && !isOnGround && availableJumps > 0) {
+            if (!isOnGround && availableJumps > 0) {
                 SoundManagerScript.PlaySound("jump");
                 availableJumps--;
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
-
         }
            
         if(context.canceled) {
@@ -197,6 +196,7 @@ public class PlayerController : MonoBehaviour {
         SoundManagerScript.PlaySound("shoot");
 
         actualBullet = Instantiate(bulletPrefab, transform.position+new Vector3(lastDirection*1,-0.3f,0), bulletPrefab.transform.rotation);
+        Debug.Log(damage);
         actualBullet.GetComponent<BulletController>().SetDamage(damage);
         actualBullet.GetComponent<BulletController>().SetPlayer(gameObject);
         actualBullet.GetComponent<MoveForward>().SetDirection(lastDirection);
@@ -260,21 +260,23 @@ public class PlayerController : MonoBehaviour {
                 ChangePlayerToYellow();
                 if (damage <= 5)
                     damage += 5;
-                availableJumps = 1;
+                availableJumps = 0;
+                totalJumps = 1;
                 isDashing = true;
                 break;
             case MainColours.BLUE:
                 ChangePlayerToBlue();
                 if (damage >= 5)
                     damage -= 5;
-                availableJumps += 1;
+                totalJumps +=1;
                 isDashing = true;
                 break;
             case MainColours.RED:
                 ChangePlayerToRed();
                 if (damage >= 5)
                     damage -= 5;
-                availableJumps = 1;
+                availableJumps = 0;
+                totalJumps = 1;
                 isDashing = false;
                 break;
             default:
@@ -317,9 +319,9 @@ public class PlayerController : MonoBehaviour {
         if (colliders.Length > 0) {
             isOnGround = true;
             //animator.SetBool("Jump", !isOnGround);
-            if (!wasOnGround) {
+            //if (!wasOnGround) {
                 availableJumps = totalJumps;
-            }
+            //}
         }
 
         animator.SetBool("Jump", !isOnGround);
