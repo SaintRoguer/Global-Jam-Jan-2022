@@ -26,4 +26,8 @@ public class LevelLoader : MonoBehaviour
             SceneManager.LoadScene(sLevelToLoad);
 
     }
+
+    public void Exit() {
+        Application.Quit();
+    }
 }
