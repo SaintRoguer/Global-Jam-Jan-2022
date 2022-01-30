@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class WinController : MonoBehaviour
 {
@@ -10,8 +12,7 @@ public class WinController : MonoBehaviour
     public void GetSoul()
     {
         itemsToWin--;
-        Debug.Log("Items left to win : " + itemsToWin);
         if (itemsToWin == 0)
-            Debug.Log("I WIN");
+            SceneManager.LoadScene("Win Scene");
     }
 }
